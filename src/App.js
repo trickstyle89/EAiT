@@ -4,7 +4,6 @@ import Recipe from './components/Recipe';
 
 function App() {
   const [recipe, setRecipe] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/api/recipe')
@@ -12,18 +11,15 @@ function App() {
       .then(data => {
         console.log(data);
         setRecipe(data.recipe);
-        setLoading(false);
       })
       .catch(err => console.log(err));
   }, []);
 
   return (
     <div className="App">
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
+      {
         <Recipe recipe={recipe} />
-      )}
+      }
     </div>
   );
 }
