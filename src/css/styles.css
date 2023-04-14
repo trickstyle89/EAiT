@@ -1,0 +1,48 @@
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/* Typography */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5; }
+
+h1,
+h2 {
+  font-weight: bold;
+  text-align: center; }
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem; }
+
+ul,
+ol {
+  list-style: none;
+  margin-left: 2rem; }
+
+/* Layout */
+header {
+  background-color: #f8f8f8;
+  padding: 1rem; }
+
+main {
+  max-width: 800px;
+  margin: 2rem auto; }
+
+section {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border: 1px solid #ccc;
+  border-radius: 5px; }
