@@ -1,9 +1,7 @@
 import React from 'react';
 
 function Recipe({ recipe }) {
-  if (!recipe) {
-    return <div>Loading...</div>;
-  }
+
 
   return (
     <div>

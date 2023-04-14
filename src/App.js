@@ -6,20 +6,18 @@ function App() {
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
+    console.log('Before fetch');
     fetch('/api/recipe')
-      .then(res => res.json())
+      .then(response => response.json())
       .then(data => {
-        console.log(data);
-        setRecipe(data.recipe);
+        setRecipe(data);
       })
-      .catch(err => console.log(err));
+      .catch(error => console.error(error));
   }, []);
 
   return (
     <div className="App">
-      {
-        <Recipe recipe={recipe} />
-      }
+      {recipe ? <Recipe recipe={recipe} /> : <div>Loading...</div>}
     </div>
   );
 }
