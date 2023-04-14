@@ -2,6 +2,7 @@
 This is -----.
 
 ## Setup
+
 To use this application, you'll need to set up API keys for OpenAI and Google Custom Search, and install the necessary dependencies.
 
 ### OpenAI API Key
@@ -44,11 +45,15 @@ GOOGLE_CUSTOM_SEARCH_ENGINE_ID=your_custom_search_engine_id_here
 
 ## Dependencies
 To run this project, you'll need to install the following dependencies:
-
+### Use npm install
 - `axios`
 - `dotenv`
 - `ejs`
 - `express`
+- `morgan`
+- `react`
+- `react-dom`
+- `react-scripts`
 
 ## Running the project
 To run the project, you'll need to run the following command:
