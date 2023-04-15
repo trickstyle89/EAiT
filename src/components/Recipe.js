@@ -26,6 +26,11 @@ function Recipe({ recipe }) {
           </ol>
         </section>
         <section>
+          <h2>Cooking time:</h2>
+          <p>Meal cooking time: {recipe.cookingTime}
+          </p>
+        </section>
+        <section>
           <h2>Nutrition Information:</h2>
           <p>Calories per serving: {recipe.calories}</p>
         </section>

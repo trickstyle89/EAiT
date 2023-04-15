@@ -36,7 +36,7 @@ const googleImagesClient = axios.create({
 app.get("/api/recipe", (req, res) => {
   const ingredients = ['rice', 'tomato', 'cheese', 'beef'];
   const serves = 8;
-  const prompt = `make me a recipe using ${ingredients.join(", ")}, serves ${serves} people, and at the end can you give me the calories per serve as well`;
+  const prompt = `make me a recipe using ${ingredients.join(", ")}, serves ${serves} people, with Cooking time:, and at the end can you give me the calories per serve as well`;
 
   const params = {
     prompt,
@@ -54,13 +54,17 @@ app.get("/api/recipe", (req, res) => {
       const ingredientsStartIndex = recipeLines.findIndex((line) => line.includes("Ingredients:"));
       const instructionsStartIndex = recipeLines.findIndex((line) => line.includes("Instructions:"));
       const caloriesStartIndex = recipeLines.findIndex((line) => line.includes("Calories per serve:"));
+      const cookingTimeStartIndex = recipeLines.findIndex((line) => line.includes("Cooking Time:"));
       const recipeIngredients = recipeLines
         .slice(ingredientsStartIndex + 1, instructionsStartIndex)
         .filter((line) => line.trim().length > 0);
       const recipeInstructions = recipeLines
         .slice(instructionsStartIndex + 1, caloriesStartIndex)
         .filter((line) => line.trim().length > 0);
+      const cookingTime = cookingTimeStartIndex >= 0 ? recipeLines[cookingTimeStartIndex].replace("Cooking Time: ", "") : "";
       const caloriesPerServe = recipeLines[caloriesStartIndex].replace("Calories per serve: ", "");
+
+      console.log(recipeLines);
 
       const googleImagesParams = {
         q: recipeName,
@@ -75,6 +79,7 @@ app.get("/api/recipe", (req, res) => {
             name: recipeName,
             ingredients: recipeIngredients,
             instructions: recipeInstructions,
+            cookingTime: cookingTime,
             calories: caloriesPerServe,
             image: recipeImage,
           };
