@@ -36,7 +36,8 @@ const googleImagesClient = axios.create({
 app.get("/api/recipe", (req, res) => {
   const ingredients = ['rice', 'tomato', 'cheese', 'beef'];
   const serves = 8;
-  const prompt = `make me a recipe using ${ingredients.join(", ")}, serves ${serves} people, with Cooking time:, and at the end can you give me the calories per serve as well`;
+  const measurement = 'imperial';
+  const prompt = `make me a recipe using ${ingredients.join(", ")}, serves ${serves} people, with Cooking time:, and at the end can you give me the calories per serve as well. the measurement is ${measurement}`;
 
   const params = {
     prompt,
