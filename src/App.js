@@ -2,6 +2,7 @@ import './css/styles.css';
 import React, { useState, useEffect } from 'react';
 import Recipe from './components/Recipe';
 
+
 function App() {
   const [recipe, setRecipe] = useState(null);
 
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="App">
+
       {recipe ? <Recipe recipe={recipe} /> : <div>Loading...</div>}
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
+import VerticalLinearStepper from './VerticalStepper';
 
 function Recipe({ recipe }) {
-
 
   return (
     <div>
@@ -18,12 +18,7 @@ function Recipe({ recipe }) {
           </ul>
         </section>
         <section>
-          <h2>Instructions:</h2>
-          <ol>
-            {recipe.instructions.map((instruction, index) => (
-              <li key={index}>{instruction}</li>
-            ))}
-          </ol>
+          <VerticalLinearStepper recipe={recipe} />
         </section>
         <section>
           <h2>Cooking time:</h2>
@@ -44,3 +39,10 @@ function Recipe({ recipe }) {
 }
 
 export default Recipe;
+
+
+
+
+
+
+
