@@ -1,0 +1,106 @@
+// schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           Int                 @id @default(autoincrement())
+  firstName    String
+  lastName     String
+  email        String              @unique
+  password     String
+  dietDetails  String?
+  skillLevel   String?
+  userCookingTools UserCookingTool[]
+  favoriteRecipes  FavoriteRecipe[]
+}
+
+model CookingTool {
+  id             Int                 @id @default(autoincrement())
+  toolName       String
+  userCookingTools UserCookingTool[]
+  recipeCookingTools RecipeCookingTool[]
+}
+
+model UserCookingTool {
+  id             Int          @id @default(autoincrement())
+  user           User         @relation(fields: [userId], references: [id])
+  userId         Int
+  cookingTool    CookingTool  @relation(fields: [cookingToolId], references: [id])
+  cookingToolId  Int
+}
+
+model Recipe {
+  id              Int                 @id @default(autoincrement())
+  image           Image?
+  recipeName      String
+  recipeTags      String?
+  recipeSkillLevel String?
+  recipeIngredients RecipeIngredient[]
+  recipeCookingTools RecipeCookingTool[]
+  instructions    Instruction[]
+  favoriteRecipes FavoriteRecipe[]
+}
+
+model RecipeCookingTool {
+  id             Int          @id @default(autoincrement())
+  recipe         Recipe       @relation(fields: [recipeId], references: [id])
+  recipeId       Int
+  cookingTool    CookingTool  @relation(fields: [cookingToolId], references: [id])
+  cookingToolId  Int
+}
+
+model Ingredient {
+  id                Int                 @id @default(autoincrement())
+  category          IngredientCategory  @relation(fields: [categoryId], references: [id])
+  categoryId        Int
+  name              String
+  allergen          Boolean             @default(false)
+  quantityUnit      String?
+  recipeIngredients RecipeIngredient[]
+}
+
+model IngredientCategory {
+  id             Int                 @id @default(autoincrement())
+  categoryName   String
+  ingredients    Ingredient[]
+}
+
+model RecipeIngredient {
+  id           Int          @id @default(autoincrement())
+  recipe       Recipe       @relation(fields: [recipeId], references: [id])
+  recipeId     Int
+  ingredient   Ingredient   @relation(fields: [ingredientId], references: [id])
+  ingredientId Int
+  quantity     Float
+}
+
+model Instruction {
+  id              Int      @id @default(autoincrement())
+  recipe          Recipe   @relation(fields: [recipeId], references: [id])
+  recipeId        Int
+  stepNumber      Int
+  stepDescription String
+  timeNeeded      Int?
+}
+
+model Image {
+  id         Int      @id @default(autoincrement())
+  recipe     Recipe?  @relation(fields: [recipeId], references: [id])
+  recipeId   Int?
+  imageUrl   String
+}
+
+model FavoriteRecipe {
+  id         Int      @id @default(autoincrement())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     Int
+  recipe     Recipe   @relation(fields: [recipeId], references: [id])
+  recipeId   Int
+}

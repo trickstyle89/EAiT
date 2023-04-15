@@ -3,7 +3,11 @@ const cors = require('cors');
 const morgan = require('morgan');
 const axios = require("axios");
 const app = express();
+<<<<<<< HEAD
 const port = process.env.PORT || 3001;
+=======
+const port = process.env.PORT || 5001;
+>>>>>>> 7e09ffc557a27953e927c2798eeed0c4b5c137ae
 const path = require('path');
 app.use(morgan('tiny'));
 app.use(cors());
