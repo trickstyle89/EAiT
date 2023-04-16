@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import VerticalLinearStepper from './VerticalStepper';
 import BasicStack from './StackMui';
 import ControlledSwitches from './IngredientsSwitchMui';
+import ImgMediaCard from './CardsMui'
 
 function Recipe({ recipe }) {
   const [showInstructions, setShowInstructions] = useState(false);
@@ -16,6 +17,9 @@ function Recipe({ recipe }) {
         <h1>{recipe.name}</h1>
       </header>
       <main>
+        <div>
+          <ImgMediaCard recipe={recipe} />
+        </div>
         <section>
           <h2>Ingredients:</h2>
           <BasicStack recipe={recipe} />
@@ -34,18 +38,6 @@ function Recipe({ recipe }) {
               <p key={index}>{instruction}</p>
             ))
           )}
-        </section>
-        <section>
-          <h2>Cooking time:</h2>
-          <p>Meal cooking time: {recipe.cookingTime}</p>
-        </section>
-        <section>
-          <h2>Nutrition Information:</h2>
-          <p>Calories per serving: {recipe.calories}</p>
-        </section>
-        <section>
-          <h2>Image:</h2>
-          <img src={recipe.image} alt={recipe.name} />
         </section>
       </main>
     </div>
