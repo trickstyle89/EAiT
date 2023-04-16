@@ -1,7 +1,6 @@
 import './css/styles.css';
 import Main from './components/Main'
 
-
 function App() {
 
   return (

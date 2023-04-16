@@ -28,6 +28,9 @@ const Main = () => {
           </button>
         </Link>
       } />
+      <Route exact path="/ingredients" element={
+        <h1>hello</h1>
+      } />
       <Route exact path="/recipes" element={
         <>
           {recipe ? <Recipe recipe={recipe} /> : <div>Loading...</div>}

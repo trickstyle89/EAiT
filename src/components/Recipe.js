@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import VerticalLinearStepper from './VerticalStepper';
+import BasicStack from './StackMui';
+import ControlledSwitches from './IngredientsSwitchMui';
 
 function Recipe({ recipe }) {
+  const [showInstructions, setShowInstructions] = useState(false);
+
+  const toggleInstructions = () => {
+    setShowInstructions((prevState) => !prevState);
+  };
 
   return (
     <div>
@@ -11,20 +18,26 @@ function Recipe({ recipe }) {
       <main>
         <section>
           <h2>Ingredients:</h2>
-          <ul>
-            {recipe.ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
-            ))}
-          </ul>
+          <BasicStack recipe={recipe} />
         </section>
         <section>
           <h2>Instructions:</h2>
-          <VerticalLinearStepper recipe={recipe} />
+          <ControlledSwitches
+            checked={showInstructions}
+            onChange={toggleInstructions}
+            label="Show steps"
+          />
+          {showInstructions ? (
+            <VerticalLinearStepper recipe={recipe} />
+          ) : (
+            recipe.instructions.map((instruction, index) => (
+              <p key={index}>{instruction}</p>
+            ))
+          )}
         </section>
         <section>
           <h2>Cooking time:</h2>
-          <p>Meal cooking time: {recipe.cookingTime}
-          </p>
+          <p>Meal cooking time: {recipe.cookingTime}</p>
         </section>
         <section>
           <h2>Nutrition Information:</h2>
