@@ -70,7 +70,7 @@ app.get("/api/recipe", (req, res) => {
       console.log(recipeLines);
 
       const googleImagesParams = {
-        q: recipeName,
+        q: recipeName + " meal food",
         num: 1,
       };
 

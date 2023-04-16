@@ -18,6 +18,7 @@ function Recipe({ recipe }) {
           </ul>
         </section>
         <section>
+          <h2>Instructions:</h2>
           <VerticalLinearStepper recipe={recipe} />
         </section>
         <section>
@@ -39,10 +40,3 @@ function Recipe({ recipe }) {
 }
 
 export default Recipe;
-
-
-
-
-
-
-

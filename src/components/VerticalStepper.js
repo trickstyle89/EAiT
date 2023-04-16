@@ -34,7 +34,6 @@ export default function VerticalLinearStepper({ recipe }) {
 
   return (
     <Box sx={{ maxWidth: 400 }}>
-      <h1>Instructions</h1>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <Step key={step.label}>
