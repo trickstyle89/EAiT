@@ -13,8 +13,6 @@ DROP TABLE IF EXISTS favorite_recipes CASCADE;
 DROP TABLE IF EXISTS dietary_details CASCADE;
 DROP TABLE IF EXISTS measurement_conversions CASCADE;
 
-
-
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR(255) NOT NULL,
@@ -75,7 +73,8 @@ CREATE TABLE recipe_ingredients (
   id SERIAL PRIMARY KEY,
   recipe_id INTEGER REFERENCES recipes(id) ON DELETE CASCADE,
   ingredient_id INTEGER REFERENCES ingredients(id) ON DELETE CASCADE,
-  quantity DECIMAL(10, 2) NOT NULL
+  quantity DECIMAL(10, 2),
+  unit VARCHAR(255)
 );
 
 CREATE TABLE instructions (
