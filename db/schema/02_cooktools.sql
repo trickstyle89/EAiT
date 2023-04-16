@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS cooking_tools CASCADE;
-
-CREATE TABLE cooking_tools (
-  id SERIAL PRIMARY KEY,
-  tool_name VARCHAR(255) NOT NULL
-);
