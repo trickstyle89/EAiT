@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS instructions CASCADE;
 DROP TABLE IF EXISTS images CASCADE;
 DROP TABLE IF EXISTS favorite_recipes CASCADE;
 DROP TABLE IF EXISTS dietary_details CASCADE;
-
+DROP TABLE IF EXISTS measurement_conversions CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -73,7 +73,8 @@ CREATE TABLE recipe_ingredients (
   id SERIAL PRIMARY KEY,
   recipe_id INTEGER REFERENCES recipes(id) ON DELETE CASCADE,
   ingredient_id INTEGER REFERENCES ingredients(id) ON DELETE CASCADE,
-  quantity DECIMAL(10, 2) NOT NULL
+  quantity DECIMAL(10, 2),
+  unit VARCHAR(255)
 );
 
 CREATE TABLE instructions (
@@ -101,3 +102,22 @@ CREATE TABLE dietary_details (
   detail_name VARCHAR(255) NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
+
+CREATE TABLE measurement_conversions (
+  id SERIAL PRIMARY KEY,
+  from_unit VARCHAR(255) NOT NULL,
+  to_unit VARCHAR(255) NOT NULL,
+  conversion_rate DECIMAL(10, 4) NOT NULL
+);
+
+/* How to implement
+
+SELECT (1 * conversion_rate) AS converted_value
+FROM measurement_conversions
+WHERE from_unit = 'cup' AND to_unit = 'milliliter';
+
+converted_value
+---------------
+236.59
+
+*/
