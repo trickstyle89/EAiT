@@ -9,7 +9,6 @@ const port = process.env.PORT || 3001;
 const path = require('path');
 app.use(morgan('tiny'));
 app.use(cors());
-app.use(express.static('public'));
 require('dotenv').config();
 
 const apiKey = process.env.OPENAI_API_KEY;
@@ -36,7 +35,7 @@ const googleImagesClient = axios.create({
 });
 
 app.get("/api/recipe", (req, res) => {
-  const ingredients = ['papaya', 'chicken', 'cilantro', 'rice', 'red onion', 'celery', 'halibut'];
+  const ingredients = ['pepper', 'chicken', 'rice', 'onion', 'parsley'];
   const serves = 4;
   const measurement = 'imperial';
   const prompt = `make me a recipe using ${ingredients.join(", ")}, serves ${serves} people, with Cooking time:, and at the end can you give me the calories per serve as well. the measurement is ${measurement}`;
@@ -62,7 +61,7 @@ app.get("/api/recipe", (req, res) => {
         .slice(ingredientsStartIndex + 1, instructionsStartIndex)
         .filter((line) => line.trim().length > 0);
       const recipeInstructions = recipeLines
-        .slice(instructionsStartIndex + 1, caloriesStartIndex)
+        .slice(instructionsStartIndex + 1, cookingTimeStartIndex >= 0 ? cookingTimeStartIndex : caloriesStartIndex)
         .filter((line) => line.trim().length > 0);
       const cookingTime = cookingTimeStartIndex >= 0 ? recipeLines[cookingTimeStartIndex].replace("Cooking Time: ", "") : "";
       const caloriesPerServe = recipeLines[caloriesStartIndex].replace("Calories per serve: ", "");
