@@ -4,30 +4,12 @@ VALUES
    ('BBQ'),
    ('Smoker'), 
    ('Pressure Cooker'), 
-   ('Electric Stove Top'), 
-   ('Saucepan'),
-   ('Stockpot'),
-   ('Skillet'),
+   ('Stove Top'), 
    ('Wok'),
-   ('Roasting pan'),
-   ('Casserole dish'),
-   ('Dutch oven'),
-   ('Baking sheet'),
-   ('Griddle'),
-   ('Grill pan'),
    ('Rice cooker'),
    ('Sous vide machine'),
-   ('Blender'),
-   ('Food processor'),
-   ('Immersion blender'),
-   ('Stand mixer'),
-   ('Hand mixer'),
-   ('Toaster oven'),
-   ('Waffle maker'),
-   ('Electric griddle'),
-   ('Electric skillet'),
-   ('Countertop deep fryer'),
-   ('Electric pressure cooker');
+   ('Oven');
+
 
 INSERT INTO ingredient_category (category_name)
 VALUES  ('Protein'), ('Vegetables'), ('Starch'), ('Fruits'), ('Dairy'), ('Spices & Condiments'), ('Wines & Spirits');
