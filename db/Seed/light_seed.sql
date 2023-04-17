@@ -4,6 +4,7 @@ VALUES ('John', 'Doe', 'test@test.com', '123');
 INSERT INTO cooking_tools (tool_name)
 VALUES ('Slow Cooker'), ('BBQ'), ('Smoker'), ('Pressure Cooker'), ('Stove Top'), ('Wok'), ('Rice cooker'), ('Sous vide'), ('Oven');
 
+
 INSERT INTO ingredients (ingredient_name, category, subcategory)
 VALUES 
 
@@ -22,6 +23,7 @@ VALUES
 ('Chicken sausage', 'Proteins', 'Poultry'),
 ('Chicken liver', 'Proteins', 'Poultry'),
 
+
 -- protein beef
 ('Beef steak', 'Proteins', 'Beef'),
 ('Beef roast', 'Proteins', 'Beef'),
@@ -39,6 +41,7 @@ VALUES
 ('Bottom round roast', 'Proteins', 'Beef'),
 ('Chuck roast', 'Proteins', 'Beef'),
 ('Short ribs', 'Proteins', 'Beef'),
+
 
 -- protein pork
 ('Pork chops', 'Proteins', 'Pork'),
@@ -92,6 +95,12 @@ VALUES
 ('Hedgehog mushrooms', 'Vegetables', 'Mushrooms'),
 ('Beech mushrooms', 'Vegetables', 'Mushrooms'),
 ('King trumpet mushrooms', 'Vegetables', 'Mushrooms')
+('Button mushrooms', 'Vegetarian', 'Mushrooms'),
+('Portobello mushrooms', 'Vegetarian', 'Mushrooms'),
+('Shiitake mushrooms', 'Vegetarian', 'Mushrooms'),
+('Procini mushrooms', 'Vegetarian', 'Mushrooms'),
+('Wild mushrooms', 'Vegetarian', 'Mushrooms'),
+('Enoki', 'Vegetarian', 'Mushrooms'),
 ('Walnuts', 'Proteins', 'Vegetarian'),
 ('Peanuts', 'Proteins', 'Vegetarian'),
 ('Almonds', 'Proteins', 'Vegetarian'),
@@ -175,6 +184,46 @@ More potatoes
 -- ******* Category: fruit subcategory: common fruits & Berries
 
 ('Apple', 'Fruit', 'Common Fruits'),
+=======
+  ('Onion', 'Vegetables', 'Roots & Bulbs'),
+  ('Garlic', 'Vegetables', 'Roots & Bulbs'),
+  ('Carrot', 'Vegetables', 'Roots & Bulbs'),
+  ('Scallion', 'Vegetables', 'Roots & Bulbs'),
+  ('Red onion', 'Vegetables', 'Roots & Bulbs'),
+  ('Shallot', 'Vegetables', 'Roots & Bulbs'),
+  ('Sweet potato', 'Vegetables', 'Roots & Bulbs'),
+  
+  -- Category: vegetables Subcategory: Legumes
+  ('Chickpeas', 'Vegetables', 'Legumes'),
+  ('Black beans', 'Vegetables', 'Legumes'),
+  ('Kidney beans', 'Vegetables', 'Legumes'),
+  ('White beans', 'Vegetables', 'Legumes'),
+  ('Pinto beans', 'Vegetables', 'Legumes'),
+  ('Lentils', 'Vegetables', 'Legumes'),
+  ('Snap peas', 'Vegetables', 'Legumes'),
+  ('Bean sprouts', 'Vegetables', 'Legumes'),
+  ('Edamame', 'Vegetables', 'Legumes'),
+ 
+  --  ************** Category: vegetables Subcategory: Cabbages
+  ('Broccoli', 'Vegetables', 'Cabbages'),
+  ('Cauliflower', 'Vegetables', 'Cabbages'),
+  ('Cabbage', 'Vegetables', 'Cabbages'),
+  ('Asparagus', 'Vegetables', 'Cabbages'),
+  ('Kale', 'Vegetables', 'Cabbages'),
+ 
+  -- Category: vegetables subcategory: Fruit Vegetables
+  ('Tomatoes', 'Vegetables', 'Fruit Vegetables'),
+  ('Cucumber', 'Vegetables', 'Fruit Vegetables'),
+  ('Sweet corn', 'Vegetables', 'Fruit Vegetables'),
+  ('Eggplant', 'Vegetables', 'Fruit Vegetables'),
+  ('Sun-dried tomato', 'Vegetables', 'Fruit Vegetables'),
+  ('Green olives', 'Vegetables', 'Fruit Vegetables'),
+  ('Black olives', 'Vegetables', 'Fruit Vegetables'),
+  ('Pickles', 'Vegetables', 'Fruit Vegetables'),
+
+  -- Category: fruit subcategory: common fruits
+
+('Apple', 'Fruit', 'Common Fruits'),
 ('Banana', 'Fruit', 'Common Fruits'),
 ('Pear', 'Fruit', 'Common Fruits'),
 ('Kiwi', 'Fruit', 'Common Fruits'),
@@ -232,6 +281,7 @@ More potatoes
 ('Buttermilk', 'Dairy', 'Milk & Cream'),
 
   --  ************** Category: Dairy subcategory: Butter & yogurt
+
 ('Ghee', 'Dairy', 'Butter'),
 ('Margarine', 'Dairy', 'Butter'),
 ('Whipped butter', 'Dairy', 'Butter'),
@@ -254,6 +304,7 @@ More potatoes
 ('Australian-style yogurt', 'Dairy', 'Yogurt'),
 ('Drinkable yogurt', 'Dairy', 'Yogurt'),
 ('Frozen yogurt', 'Dairy', 'Yogurt'),
+
 
   -- Category: Dairy subcategory: Cheeses
 ('Feta', 'Dairy', 'Cheeses'),
@@ -349,6 +400,7 @@ More potatoes
 ('Habanero pepper', 'Spice and Condiments', 'Hot Spices'),
 ('Scotch bonnet pepper', 'Spice and Condiments', 'Hot Spices'),
 
+
   -- Category: Spice and Condiments subcategory: aromatics
 ('Garlic', 'Spice and Condiments', 'Aromatics'),
 ('Onion', 'Spice and Condiments', 'Aromatics'),
@@ -437,6 +489,8 @@ More potatoes
 ('Sherry', 'Alcohol', 'Beer & Spirits'),
 ('Bitters', 'Alcohol', 'Beer & Spirits'),
 ('Sake', 'Alcohol', 'Beer & Spirits'),
+
+  -- ************** Category: Alcohol subcategory: wine
 ('White wine', 'Alcohol', 'Wine'),
 ('Red wine', 'Alcohol', 'Wine'),
 ('Rice wine', 'Alcohol', 'Wine'),
