@@ -9,7 +9,12 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
 export default function VerticalLinearStepper({ recipe }) {
-  const steps = recipe.instructions.map((instruction, index) => {
+  const modifiedRecipe = {
+    ...recipe,
+    instructions: recipe.instructions.map((instruction) => instruction.substring(3)),
+  };
+
+  const steps = modifiedRecipe.instructions.map((instruction, index) => {
     return {
       label: `Step ${index + 1}`,
       description: instruction,

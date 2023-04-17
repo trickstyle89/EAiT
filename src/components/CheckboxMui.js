@@ -5,7 +5,7 @@ import Checkbox from '@mui/material/Checkbox';
 
 export default function CheckboxLabels({ recipe }) {
   const itemComponents = recipe.ingredients.map((ingredient, index) => (
-    <FormControlLabel key={index} control={<Checkbox defaultChecked />} label={ingredient}></FormControlLabel>
+    <FormControlLabel key={index} control={<Checkbox />} label={ingredient}></FormControlLabel>
   ));
   return (
     <FormGroup>
