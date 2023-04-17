@@ -48,7 +48,6 @@ To run this project, you'll need to install the following dependencies:
 ### Use npm install
 - `axios`
 - `dotenv`
-- `ejs`
 - `express`
 - `morgan`
 - `react`
