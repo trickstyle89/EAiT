@@ -8,9 +8,7 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
-
 export default function VerticalLinearStepper({ recipe }) {
-
   const steps = recipe.instructions.map((instruction, index) => {
     return {
       label: `Step ${index + 1}`,
@@ -32,7 +30,37 @@ export default function VerticalLinearStepper({ recipe }) {
     setActiveStep(0);
   };
 
+  const [lastPressTime, setLastPressTime] = React.useState(null);
+
+  React.useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === ' ') {
+        event.preventDefault();
+
+        const currentTime = new Date().getTime();
+        const timeSinceLastPress = currentTime - (lastPressTime || currentTime);
+
+        if (timeSinceLastPress < 400) {
+          if (activeStep > 0) {
+            handleBack();
+          }
+        } else if (activeStep < steps.length) {
+          handleNext();
+        }
+
+        setLastPressTime(currentTime);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeStep, steps.length, lastPressTime]);
+
   return (
+
     <Box sx={{ maxWidth: 400 }}>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
