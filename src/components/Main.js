@@ -6,16 +6,23 @@ const Main = () => {
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     async function fetchData() {
       try {
-        const response = await fetch('/api/recipe');
+        const response = await fetch('/api/recipe', { signal: abortController.signal });
         const data = await response.json();
         setRecipe(data);
       } catch (error) {
         console.log(error)
       }
     }
+
     fetchData();
+
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
 
