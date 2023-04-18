@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import { Container } from "@mui/material";
 
 function valuetext(value) {
   return `${value} minutes`;
@@ -15,9 +15,7 @@ export default function DiscreteSlider() {
   return (
     <div>
       <main>
-        <br></br>
-        <br></br>
-        <Box sx={{ width: 300 }}>
+        <Container sx={{ width: 600 }}>
           <Slider
             getAriaValueText={valuetext}
             valueLabelDisplay="on"
@@ -28,7 +26,7 @@ export default function DiscreteSlider() {
             valueLabelFormat={valuetext}
             marks={true}
           />
-        </Box>
+        </Container>
       </main>
     </div>
   );
