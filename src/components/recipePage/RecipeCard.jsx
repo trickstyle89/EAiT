@@ -1,5 +1,5 @@
 import React from "react";
-import ImgMediaCard from "./CardsMui";
+import ImgMediaCard from "../CardsMui";
 
 function RecipeCard({ recipe }) {
   return (

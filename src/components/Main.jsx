@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import Recipe from "./recipe page/Recipe";
+import Recipe from "./recipePage/Recipe";
 
 const Main = () => {
   const [recipe, setRecipe] = useState(null);
