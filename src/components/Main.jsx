@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Recipe from "./recipePage/Recipe";
-import DiscreteSlider from "./userPreferences/TimeSlider";
+import PreferencePage from "./userPreferences/PreferencePage";
 
 const Main = () => {
   const [recipe, setRecipe] = useState(null);
@@ -50,7 +50,7 @@ const Main = () => {
       <Route
         exact
         path="/preferences"
-        element={<DiscreteSlider></DiscreteSlider>}
+        element={<PreferencePage></PreferencePage>}
       />
     </Routes>
   );
