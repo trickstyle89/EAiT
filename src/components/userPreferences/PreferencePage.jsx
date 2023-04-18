@@ -4,6 +4,7 @@ import MealSelectLabel from "./MealSelectLabel";
 import SkillSelectLabel from "./SkillSelectLabel";
 import { Container } from "@mui/material";
 import ChefModeButtons from "./ChefModeButtons";
+import CookingToolsButtons from "./CookingToolsButtons";
 
 function PreferencePage() {
   return (
@@ -16,6 +17,9 @@ function PreferencePage() {
       <SkillSelectLabel></SkillSelectLabel>
       <h3>Select your cooking mode</h3>
       <ChefModeButtons></ChefModeButtons>
+      <h3>Select your cooking mode</h3>
+      <CookingToolsButtons></CookingToolsButtons>
+
     </Container>
   );
 }
