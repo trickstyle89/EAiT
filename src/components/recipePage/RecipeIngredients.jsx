@@ -1,5 +1,5 @@
 import React from "react";
-import CheckboxLabels from "./CheckboxMui";
+import CheckboxLabels from "../CheckboxMui";
 
 function RecipeIngredients({ recipe }) {
   return (
