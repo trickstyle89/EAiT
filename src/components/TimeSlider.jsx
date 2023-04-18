@@ -21,12 +21,12 @@ export default function DiscreteSlider() {
           <Slider
             getAriaValueText={valuetext}
             valueLabelDisplay="on"
-            step={1}
+            step={5}
             min={0}
             max={120}
-            value={value}
             onChange={handleSliderChange}
             valueLabelFormat={valuetext}
+            marks={true}
           />
         </Box>
       </main>
