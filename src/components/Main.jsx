@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Recipe from "./recipePage/Recipe";
 import PreferencePage from "./userPreferences/PreferencePage";
@@ -31,30 +31,28 @@ const Main = () => {
   }, []);
 
   return (
-<PreferencesProvider>
-    <Routes>
-      <Route
-        exact
-        path="/"
-        element={
-          <HomePage />
-        }
-      />
-      <Route exact path="/ingredients" element={<h1>hello</h1>} />
-      <Route
-        exact
-        path="/recipes"
-        element={
-          <>{recipe ? <Recipe recipe={recipe} /> : <div>Loading...</div>}</>
-        }
-      />
-      <Route
-        exact
-        path="/preferences"
-        element={<PreferencePage></PreferencePage>}
-      />
-    </Routes>
-  </PreferencesProvider>
+    <PreferencesProvider>
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route
+          exact
+          path="/recipes"
+          element={
+            <>{recipe ? <Recipe recipe={recipe} /> : <div>Loading...</div>}</>
+          }
+        />
+        <Route
+          exact
+          path="/preferences"
+          element={<PreferencePage></PreferencePage>}
+        />
+        <Route
+          exact
+          path="/ingredients"
+          element={<IngredientsPage></IngredientsPage>}
+        />
+      </Routes>
+    </PreferencesProvider>
   );
 };
 export default Main;
