@@ -9,7 +9,7 @@ function Recipe({ recipe }) {
   const [showInstructions, setShowInstructions] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/recipe")
+    fetch("http://localhost:3001/api/recipe")
       .then((response) => response.json())
       .then((recipe) => {
         setShowInstructions(recipe);
