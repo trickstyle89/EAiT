@@ -1,8 +1,9 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Recipe from "./recipePage/Recipe";
 import PreferencePage from "./userPreferences/PreferencePage";
 import HomePage from "./HomePage/HomePage";
+import IngredientsPage from "./ingredientsPage/IngredientsPage";
 
 const Main = () => {
   const [recipe, setRecipe] = useState(null);
@@ -31,14 +32,7 @@ const Main = () => {
 
   return (
     <Routes>
-      <Route
-        exact
-        path="/"
-        element={
-          <HomePage />
-        }
-      />
-      <Route exact path="/ingredients" element={<h1>hello</h1>} />
+      <Route exact path="/" element={<HomePage />} />
       <Route
         exact
         path="/recipes"
@@ -50,6 +44,11 @@ const Main = () => {
         exact
         path="/preferences"
         element={<PreferencePage></PreferencePage>}
+      />
+      <Route
+        exact
+        path="/ingredients"
+        element={<IngredientsPage></IngredientsPage>}
       />
     </Routes>
   );
