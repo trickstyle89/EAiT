@@ -4,10 +4,12 @@ import MealSelectLabel from "./MealSelectLabel";
 import SkillSelectLabel from "./SkillSelectLabel";
 import { Container } from "@mui/material";
 import ChefModeButtons from "./ChefModeButtons";
+import Navbar from "../Navbar";
 
 function PreferencePage() {
   return (
     <Container>
+      <Navbar></Navbar>
       <h3>Select Time</h3>
       <DiscreteSlider></DiscreteSlider>
       <h3>Select Meal</h3>
