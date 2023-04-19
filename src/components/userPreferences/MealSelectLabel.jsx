@@ -1,33 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import axios from 'axios';
+import { usePreferences } from "./PreferencesContext";
 
-export default function MealSelectLabel() {
-  const [mealType, setMealType] = useState("");
+function MealSelectLabel() {
+  const { preferences, handleChange } = usePreferences();
 
-  const handleChange = async (event) => {
+  const handleSelectChange = (event) => {
     const selectedMealType = event.target.value;
-    setMealType(selectedMealType);
-    
-    try {
-      const response = await axios.post('/api/recipe', {
-        mealType: selectedMealType,
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error fetching recipe:', error);
-    }
+    handleChange("mealType", selectedMealType);
   };
 
   return (
+
     <div>
       <FormControl sx={{ m: 1, minWidth: 200 }}>
         <Select
-          value={mealType}
-          onChange={handleChange}
+          value={preferences.mealType}
+          onChange={handleSelectChange}
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
         >
@@ -45,3 +37,5 @@ export default function MealSelectLabel() {
     </div>
   );
 }
+
+export default MealSelectLabel;

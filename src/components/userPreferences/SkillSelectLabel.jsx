@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
 import { Container } from "@mui/material";
+import { usePreferences } from "./PreferencesContext";
+
 
 function SkillSelectLabel() {
-  const [skillLevel, setSkillLevel] = useState("");
+  const { preferences, handleChange } = usePreferences();
 
-  const handleChange = (event) => {
-    setSkillLevel(event.target.value);
+  const handleSelectChange = (event) => {
+    const selectedSkillLevel = event.target.value;
+    handleChange("skillLevel", selectedSkillLevel);
   };
 
   return (
+
     <Container>
       <FormControl sx={{ m: 1, minWidth: 200 }}>
         <Select
-          value={skillLevel}
-          onChange={handleChange}
+          value={preferences.skillLevel}
+          onChange={handleSelectChange}
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
         >
