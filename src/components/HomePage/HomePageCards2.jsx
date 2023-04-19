@@ -20,7 +20,7 @@ export default function HomePageCard(props) {
           {props.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Add the description here {props.description}
+          {props.description}
         </Typography>
       </CardContent>
       {/* <CardActions>
