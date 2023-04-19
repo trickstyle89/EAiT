@@ -13,18 +13,6 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 
-<<<<<<< HEAD
-function Navbar() {
-  <nav className="navbar">
-    <a className="logo" href="/">EAiT</a>
-    <a href="/recipes"><button className="btn-nav">Get Started</button></a>
-  </nav>
-}
-=======
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
->>>>>>> feature/navbar
-
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);

@@ -21,7 +21,7 @@ const HomePage = () => {
       <div className="bg-img">
         <div className="content">
           <div className='type'>
-            <Typist className={'myTypist'} typingSpeed={60} showCursor={false} sentences={['Unleash endless culinary possibilities with AI-powered recipes...']} loop={false} />
+            <Typist className={'myTypist'} typingSpeed={60} showCursor={false} sentences={['Unleash endless culinary \npossibilities with \nAI-powered recipes...']} loop={false} />
           </div>
           <p className={fadeIn ? 'fade-in' : ''}>
             Let our AI be your kitchen assistant.
