@@ -4,6 +4,7 @@ import VerticalLinearStepper from "../VerticalStepper";
 import ControlledSwitches from "../IngredientsSwitchMui";
 import ImgMediaCard from "../CardsMui";
 import CheckboxLabels from "../CheckboxMui";
+import Navbar from "../Navbar";
 function Recipe({ recipe }) {
   const [showInstructions, setShowInstructions] = useState(false);
 
@@ -13,9 +14,7 @@ function Recipe({ recipe }) {
 
   return (
     <div className="recipe">
-      <header className="recipe-header">
-        <h1 className="recipe-title">{recipe.name}</h1>
-      </header>
+      <Navbar></Navbar>
       <main className="recipe-main">
         <div className="recipe-image-container">
           <ImgMediaCard recipe={recipe} className="recipe-image" />

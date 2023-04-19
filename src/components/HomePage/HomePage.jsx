@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import '../../scss/homePage.scss';
+import React, { useState, useEffect } from "react";
+import "../../scss/homePage.scss";
 
-import Typist from 'react-text-typist';
-import ActionAreaCard from './HomePageCards';
-import HomePageCard from './HomePageCards2';
+import Typist from "react-text-typist";
+import ActionAreaCard from "./HomePageCards";
+import HomePageCard from "./HomePageCards2";
+import Navbar from "../Navbar";
 
 const HomePage = () => {
   const [fadeIn, setFadeIn] = useState(false);
@@ -13,21 +14,31 @@ const HomePage = () => {
       setFadeIn(true);
     }, 4000);
   }, []);
+
   return (
     <div className="homepage">
-      <nav className="navbar">
-        <a className="logo" href="/">EAiT</a>
-        <a href="/recipes"><button className="btn-nav">Get Started</button></a>
-      </nav>
+      <Navbar></Navbar>
       <div className="bg-img">
         <div className="content">
-          <div className='type'>
-            <Typist className={'myTypist'} typingSpeed={60} showCursor={false} sentences={['Unleash endless culinary \npossibilities with \nAI-powered recipes...']} loop={false} />
+          <div className="type">
+            <Typist
+              className={"myTypist"}
+              typingSpeed={55}
+              showCursor={false}
+              sentences={[
+                "Unleash endless culinary \npossibilities with \nAI-powered recipes...",
+              ]}
+              loop={false}
+            />
           </div>
-          <p className={fadeIn ? 'fade-in' : ''}>
+          <p className={fadeIn ? "fade-in" : ""}>
             Let our AI be your kitchen assistant.
           </p>
-          <a href="/recipes"><button className="btn">Get Started</button></a>
+          <a href="/preferences">
+            <button className={`btn ${fadeIn ? "fade-in" : ""}`}>
+              Get Started
+            </button>
+          </a>
         </div>
       </div>
       <div className="action-card-area">
@@ -35,44 +46,53 @@ const HomePage = () => {
         <h3>Take a look at our quick recipes</h3>
         <div className="action-card-area__cards-container">
           <ActionAreaCard
-            title="Title 1"
-            description="Description 3Description 3Description 3Description 3Description 3Description 3"
+            title="Buttermilk Pancakes"
+            description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum"
             image="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
             alt="alt 1"
           />
           <ActionAreaCard
-            title="Title 2"
-            description="Description 3Description 3Description 3Description 3Description 3Description 3"
+            title="Spring Salad"
+            description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum"
             image="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
             alt="alt 2"
           />
           <ActionAreaCard
             title="Lupita's tacos"
-            description="Best tacos Description 3Description 3Description 3Description"
+            description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum"
             image="https://images.unsplash.com/photo-1613514785940-daed07799d9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
             alt="alt 3"
           />
         </div>
+        <div className="tagline">
+          <h3>Say goodbye to mealtime boredom with our AI-powered recipes.</h3>
+        </div>
         <div className="action-card-area">
-          <h3>How it works?</h3>
-          <div className="action-card-area__cards-container">
+          <h3>How it works</h3>
+          <div className="how-to-steps">
             <HomePageCard
-              alt='Step 1'
-              title="Add the title here"
-              description="Add the description here"
+              alt="Step 1"
+              title="Select your preferences"
+              description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum"
               image="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
             />
             <HomePageCard
-              alt='Step 2'
-              title="Add the title here"
-              description="Add the description here"
-              image="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+              alt="Step 2"
+              title="Select your ingredients"
+              description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum"
+              image="https://images.unsplash.com/photo-1514516870926-20598973e480?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=894&q=80"
             />
             <HomePageCard
-              alt='Step 3'
+              alt="Step 3"
+              title="Get unique recipes"
+              description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum"
+              image="https://plus.unsplash.com/premium_photo-1661507070247-1ed0a6ed3ca2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGNvb2tib29rfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+            />
+            <HomePageCard
+              alt="Step 4"
               title="Add the title here"
-              description="Add the description here"
-              image="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+              description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum"
+              image="https://images.unsplash.com/photo-1622973536968-3ead9e780960?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
             />
           </div>
         </div>
@@ -82,8 +102,6 @@ const HomePage = () => {
       </footer>
     </div>
   );
-}
-
-
+};
 
 export default HomePage;
