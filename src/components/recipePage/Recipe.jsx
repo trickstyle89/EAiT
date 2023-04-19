@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import VerticalLinearStepper from "../VerticalStepper";
 // import BasicStack from './StackMui';
 import ControlledSwitches from "../IngredientsSwitchMui";
@@ -6,6 +6,14 @@ import ImgMediaCard from "../CardsMui";
 import CheckboxLabels from "../CheckboxMui";
 function Recipe({ recipe }) {
   const [showInstructions, setShowInstructions] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/recipe")
+      .then((response) => response.json())
+      .then((recipe) => {
+        setShowInstructions(recipe);
+      });
+  }, []);
 
   const toggleInstructions = () => {
     setShowInstructions((prevState) => !prevState);
