@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Recipe from "./recipePage/Recipe";
 import PreferencePage from "./userPreferences/PreferencePage";
 import HomePage from "./HomePage/HomePage";
+import { PreferencesProvider } from "./userPreferences/PreferencesContext";
 
 const Main = () => {
   const [recipe, setRecipe] = useState(null);
@@ -30,6 +31,7 @@ const Main = () => {
   }, []);
 
   return (
+<PreferencesProvider>
     <Routes>
       <Route
         exact
@@ -52,6 +54,7 @@ const Main = () => {
         element={<PreferencePage></PreferencePage>}
       />
     </Routes>
+  </PreferencesProvider>
   );
 };
 export default Main;
