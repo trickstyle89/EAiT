@@ -3,12 +3,23 @@ import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import axios from 'axios';
 
 export default function MealSelectLabel() {
-  const [mealType, setmealType] = useState("");
+  const [mealType, setMealType] = useState("");
 
-  const handleChange = (event) => {
-    setmealType(event.target.value);
+  const handleChange = async (event) => {
+    const selectedMealType = event.target.value;
+    setMealType(selectedMealType);
+    
+    try {
+      const response = await axios.post('/api/recipe', {
+        mealType: selectedMealType,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error fetching recipe:', error);
+    }
   };
 
   return (
