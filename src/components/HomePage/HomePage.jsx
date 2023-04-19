@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import '../scss/homePage.scss';
+import '../../scss/homePage.scss';
 
 import Typist from 'react-text-typist';
 import ActionAreaCard from './HomePageCards';
+import HomePageCard from './HomePageCards2';
 
 const HomePage = () => {
   const [fadeIn, setFadeIn] = useState(false);
@@ -52,7 +53,29 @@ const HomePage = () => {
             alt="alt 3"
           />
         </div>
-
+        <div className="action-card-area">
+          <h3>How it works?</h3>
+          <div className="action-card-area__cards-container">
+            <HomePageCard
+              alt='Step 1'
+              title="Add the title here"
+              description="Add the description here"
+              image="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            />
+            <HomePageCard
+              alt='Step 2'
+              title="Add the title here"
+              description="Add the description here"
+              image="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            />
+            <HomePageCard
+              alt='Step 3'
+              title="Add the title here"
+              description="Add the description here"
+              image="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            />
+          </div>
+        </div>
       </div>
       <footer className="footer">
         <p>EAiT &copy; 2023</p>

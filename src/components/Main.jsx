@@ -2,7 +2,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Recipe from "./recipePage/Recipe";
 import PreferencePage from "./userPreferences/PreferencePage";
-import HomePage from "./HomePage";
+import HomePage from "./HomePage/HomePage";
 
 const Main = () => {
   const [recipe, setRecipe] = useState(null);
