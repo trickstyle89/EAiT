@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Chip from "@mui/material/Chip";
-import Button from "@mui/material/Button";
-import axios from "axios";
+import { usePreferences } from "./PreferencesContext";
 
 function CookingToolsButtons() {
   const [cookingTools, setCookingTools] = useState([]);
-  const [selectedTools, setSelectedTools] = useState([]);
+  const { selectedTools, setSelectedTools } = usePreferences();
 
   useEffect(() => {
     fetch("/api/test")
@@ -22,18 +21,6 @@ function CookingToolsButtons() {
     }
   };
 
-  const handleSendSelectedTools = () => {
-    console.log('handle send selected tools', selectedTools);
-    axios
-      .post("http://localhost:3001/api/recipe", { selectedTools })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   return (
     <div>
       {cookingTools.map((tool) => (
@@ -45,9 +32,6 @@ function CookingToolsButtons() {
           color={selectedTools.includes(tool.tool_name) ? "primary" : "default"}
         />
       ))}
-      <Button variant="contained" onClick={handleSendSelectedTools}>
-        Send Selected Tools
-      </Button>
     </div>
   );
 }
