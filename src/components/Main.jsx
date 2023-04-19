@@ -4,6 +4,7 @@ import Recipe from "./recipePage/Recipe";
 import PreferencePage from "./userPreferences/PreferencePage";
 import HomePage from "./HomePage/HomePage";
 import { PreferencesProvider } from "./userPreferences/PreferencesContext";
+import IngredientsPage from "./ingredientsPage/IngredientsPage";
 
 const Main = () => {
   const [recipe, setRecipe] = useState(null);
