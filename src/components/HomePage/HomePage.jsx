@@ -26,19 +26,21 @@ const HomePage = () => {
               typingSpeed={55}
               showCursor={false}
               sentences={[
-                "Unleash endless culinary \npossibilities with \nAI-powered recipes...",
+                "Unleash endless culinary possibilities with AI-powered recipes...",
               ]}
               loop={false}
             />
           </div>
-          <p className={fadeIn ? "fade-in" : ""}>
-            Let our AI be your kitchen assistant.
-          </p>
-          <a href="/preferences">
-            <button className={`btn ${fadeIn ? "fade-in" : ""}`}>
-              Get Started
-            </button>
-          </a>
+          <div className="text-button">
+            <p className={fadeIn ? "fade-in" : ""}>
+              Let our AI be your kitchen assistant.
+            </p>
+            <a href="/preferences">
+              <button className={`btn ${fadeIn ? "fade-in" : ""}`}>
+                Get Started
+              </button>
+            </a>
+          </div>
         </div>
       </div>
       <div className="action-card-area">
