@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import VerticalLinearStepper from "../VerticalStepper";
-// import BasicStack from './StackMui';
 import ControlledSwitches from "../IngredientsSwitchMui";
 import ImgMediaCard from "../CardsMui";
 import CheckboxLabels from "../CheckboxMui";
 import Navbar from "../Navbar";
+import LoadingPage from "./LoadingMUI";
+
 function Recipe({ recipe }) {
   const [showInstructions, setShowInstructions] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:3001/api/recipe")
       .then((response) => response.json())
       .then((recipe) => {
         setShowInstructions(recipe);
+        setIsLoading(false);
       });
   }, []);
 
@@ -20,9 +23,13 @@ function Recipe({ recipe }) {
     setShowInstructions((prevState) => !prevState);
   };
 
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+
   return (
     <div className="recipe">
-      <Navbar></Navbar>
+      <Navbar />
       <main className="recipe-main">
         <div className="recipe-image-container">
           <ImgMediaCard recipe={recipe} className="recipe-image" />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -8,17 +8,16 @@ import Typography from "@mui/material/Typography";
 
 import { useNavigate } from "react-router-dom";
 
-const steps = [
-  "Proteins",
-  "Vegatables",
-  "Fruits",
-  "Starch",
-  "Dairy",
-  "Spices & Condiments",
-  "Wine, Beer & Liquors",
-];
-
 function HorizontalStepper() {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    fetch("/api/ingredients")
+      .then((response) => response.json())
+      .then((data) => setCategories(data.categories))
+      .catch((error) => console.log(error));
+  }, []);
+  const steps = categories.map((category) => category.category);
+
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
 

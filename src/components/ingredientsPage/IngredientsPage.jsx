@@ -1,13 +1,14 @@
 import { Container } from "@mui/material";
 import Navbar from "../Navbar";
 import HorizontalStepper from "./HorizontalStepper";
-
+import TabPanel from './SubCategoriesTabs'
 function IngredientsPage() {
   return (
     <Container>
-      <Navbar></Navbar>
+      <Navbar />
       <h3>Select your ingredients</h3>
-      <HorizontalStepper></HorizontalStepper>
+      <HorizontalStepper />
+      <TabPanel />
     </Container>
   );
 }
