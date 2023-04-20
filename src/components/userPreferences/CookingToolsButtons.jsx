@@ -22,14 +22,24 @@ function CookingToolsButtons() {
   };
 
   return (
-    <div>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
       {cookingTools.map((tool) => (
         <Chip
           label={tool.tool_name}
           key={tool.id}
           onClick={() => handleClick(tool.tool_name)}
-          style={{ width: "125px", height: "27px", margin: "0.5rem" }}
+          style={{
+            flex: "1 1 auto",
+            minWidth: 0,
+            maxWidth: "100%",
+            height: 50,
+            margin: "0.5rem",
+          }}
           color={selectedTools.includes(tool.tool_name) ? "primary" : "default"}
+          size="large"
+          sx={{
+            fontSize: "medium",
+          }}
         />
       ))}
     </div>

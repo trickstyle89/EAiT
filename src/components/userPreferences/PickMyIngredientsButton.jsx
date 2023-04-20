@@ -2,16 +2,24 @@ import { Box, Button } from "@mui/material";
 
 function PickMyIngredientsButton() {
   return (
-    <Box>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Button
+        size="large"
         sx={{
           my: 2,
           color: "white",
-          display: "flex",
           background: "black",
+          fontSize: "large",
+          fontFamily: "inherit",
           "&:hover": {
-            background: "white",
-            color: "black",
+            background: "#717744",
+            color: "white",
           },
         }}
         href="/ingredients"
@@ -19,7 +27,7 @@ function PickMyIngredientsButton() {
       >
         Select Ingredients
       </Button>
-    </Box>
+    </div>
   );
 }
 

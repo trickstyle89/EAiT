@@ -2,7 +2,7 @@ import * as React from 'react';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-export default function ControlledSwitches({ checked, onChange, label }) {
+export default function ControlledSwitches({ checked = false, onChange, label }) {
   return (
     <FormControlLabel
       control={

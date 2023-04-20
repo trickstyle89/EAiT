@@ -6,7 +6,6 @@ import Select from "@mui/material/Select";
 import { Container } from "@mui/material";
 import { usePreferences } from "./PreferencesContext";
 
-
 function SkillSelectLabel() {
   const { preferences, handleChange } = usePreferences();
 
@@ -16,9 +15,8 @@ function SkillSelectLabel() {
   };
 
   return (
-
     <Container>
-      <FormControl sx={{ m: 1, minWidth: 200 }}>
+      <FormControl sx={{ minWidth: 400 }}>
         <Select
           value={preferences.skillLevel}
           onChange={handleSelectChange}

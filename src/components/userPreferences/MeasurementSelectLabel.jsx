@@ -15,8 +15,8 @@ function MeasurementSelectLabel() {
   };
 
   return (
-    <Container>
-      <FormControl sx={{ m: 1, minWidth: 200 }}>
+    <div>
+      <FormControl sx={{ minWidth: 400 }}>
         <Select
           value={measurementSelection}
           onChange={handleSelectChange}
@@ -31,7 +31,7 @@ function MeasurementSelectLabel() {
         </Select>
         <FormHelperText>Required *</FormHelperText>
       </FormControl>
-    </Container>
+    </div>
   );
 }
 
