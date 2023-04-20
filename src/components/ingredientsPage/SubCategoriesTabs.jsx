@@ -1,9 +1,12 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+// import { usePreferences } from "./PreferencesContext";
+import Chip from "@mui/material/Chip";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -39,20 +42,34 @@ function a11yProps(index) {
 }
 
 export default function BasicTabs(props) {
+  const [ingredientsData, setIngredientsData] = useState([]);
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/ingredients")
+      .then((response) => response.json())
+      .then((data) => setIngredientsData(data.subCategories))
+      .catch((error) => console.log(error));
+  }, []);
+
   const { ingredients, handleChangeIngredients, currentStep } = props;
   const [selectedTabIndex, setSelectedTabIndex] = React.useState(0);
   console.log(ingredients)
-  // const [value, setValue] = React.useState(0);
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
+
   const handleTabChange = (event, newValue) => {
     setSelectedTabIndex(newValue);
   };
 
+  const handleClick = (ingredient) => {
+    if (selectedIngredients.includes(ingredient)) {
+      setSelectedIngredients(selectedIngredients.filter((ing) => ing !== ingredient));
+    } else {
+      setSelectedIngredients([...selectedIngredients, ingredient]);
+    }
+  };
+
   return (
     <Box sx={{ width: '100%' }}>
-
       {
         currentStep === 0 &&
         <>
@@ -67,27 +84,117 @@ export default function BasicTabs(props) {
           </Box>
           {selectedTabIndex === 0 && (
             <TabPanel value={selectedTabIndex} index={0}>
-              Hello
+              {ingredientsData
+                .filter((ingredient) => ingredient.subcategory === "beef")
+                .map((ingredient) => (
+                  <Chip
+                    label={ingredient.ingredient_name}
+                    key={ingredient.id}
+                    onClick={() => handleClick(ingredient.ingredient_name)}
+                    style={{
+                      Width: "7rem",
+                      height: 32,
+                      margin: "0.5rem",
+                    }}
+                    color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
+                    size="large"
+                    sx={{
+                      fontSize: "medium",
+                    }}
+                  />
+                ))}
             </TabPanel>
           )}
           {selectedTabIndex === 1 && (
             <TabPanel value={selectedTabIndex} index={1}>
-              There
+              {ingredientsData
+                .filter((ingredient) => ingredient.subcategory === "pork")
+                .map((ingredient) => (
+                  <Chip
+                    label={ingredient.ingredient_name}
+                    key={ingredient.id}
+                    onClick={() => handleClick(ingredient.ingredient_name)}
+                    style={{
+                      Width: "7rem",
+                      height: 32,
+                      margin: "0.5rem",
+                    }}
+                    color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
+                    size="large"
+                    sx={{
+                      fontSize: "medium",
+                    }}
+                  />
+                ))}
             </TabPanel>
           )}
           {selectedTabIndex === 2 && (
             <TabPanel value={selectedTabIndex} index={2}>
-              There
+              {ingredientsData
+                .filter((ingredient) => ingredient.subcategory === "poultry")
+                .map((ingredient) => (
+                  <Chip
+                    label={ingredient.ingredient_name}
+                    key={ingredient.id}
+                    onClick={() => handleClick(ingredient.ingredient_name)}
+                    style={{
+                      Width: "7rem",
+                      height: 32,
+                      margin: "0.5rem",
+                    }}
+                    color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
+                    size="large"
+                    sx={{
+                      fontSize: "medium",
+                    }}
+                  />
+                ))}
             </TabPanel>
           )}
           {selectedTabIndex === 3 && (
             <TabPanel value={selectedTabIndex} index={3}>
-              There
+              {ingredientsData
+                .filter((ingredient) => ingredient.subcategory === "seafood")
+                .map((ingredient) => (
+                  <Chip
+                    label={ingredient.ingredient_name}
+                    key={ingredient.id}
+                    onClick={() => handleClick(ingredient.ingredient_name)}
+                    style={{
+                      Width: "7rem",
+                      height: 32,
+                      margin: "0.5rem",
+                    }}
+                    color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
+                    size="large"
+                    sx={{
+                      fontSize: "medium",
+                    }}
+                  />
+                ))}
             </TabPanel>
           )}
           {selectedTabIndex === 4 && (
             <TabPanel value={selectedTabIndex} index={4}>
-              There
+              {ingredientsData
+                .filter((ingredient) => ingredient.subcategory === "vegetarian")
+                .map((ingredient) => (
+                  <Chip
+                    label={ingredient.ingredient_name}
+                    key={ingredient.id}
+                    onClick={() => handleClick(ingredient.ingredient_name)}
+                    style={{
+                      Width: "7rem",
+                      height: 32,
+                      margin: "0.5rem",
+                    }}
+                    color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
+                    size="large"
+                    sx={{
+                      fontSize: "medium",
+                    }}
+                  />
+                ))}
             </TabPanel>
           )}
         </>
