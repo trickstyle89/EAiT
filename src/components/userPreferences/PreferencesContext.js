@@ -1,5 +1,4 @@
 import React, { createContext, useState, useContext } from "react";
-import axios from "axios";
 
 const PreferencesContext = createContext();
 
@@ -9,6 +8,8 @@ export function PreferencesProvider({ children }) {
     skillLevel: "",
     cookingTime: 0,
     measurementSelection: "",
+    gourmetMode: false,
+    strictMode: false,
   });
 
   const [selectedTools, setSelectedTools] = useState([]);
