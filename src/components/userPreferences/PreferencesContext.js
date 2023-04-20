@@ -1,6 +1,5 @@
 import React, { createContext, useState, useContext } from "react";
 
-
 const PreferencesContext = createContext();
 
 export function PreferencesProvider({ children }) {
@@ -9,6 +8,8 @@ export function PreferencesProvider({ children }) {
     skillLevel: "",
     cookingTime: 0,
     measurementSelection: "",
+    gourmetMode: false,
+    strictMode: false,
   });
 
   const [ingredients, setIngredients] = useState({
