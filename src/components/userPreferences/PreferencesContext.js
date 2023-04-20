@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from "react";
-import axios from "axios";
+
 
 const PreferencesContext = createContext();
 

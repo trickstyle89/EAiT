@@ -2,7 +2,7 @@ import React from "react";
 import DiscreteSlider from "./TimeSlider";
 import MealSelectLabel from "./MealSelectLabel";
 import SkillSelectLabel from "./SkillSelectLabel";
-import { Box, Container } from "@mui/material";
+// import { Box, Container } from "@mui/material";
 import ChefModeButtons from "./ChefModeButtons";
 import Navbar from "../Navbar";
 import CookingToolsButtons from "./CookingToolsButtons";

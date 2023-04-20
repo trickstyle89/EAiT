@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import { useState } from 'react';
 import Navbar from "../Navbar";
 import HorizontalStepper from "./HorizontalStepper";

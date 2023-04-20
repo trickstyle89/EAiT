@@ -40,10 +40,15 @@ function a11yProps(index) {
 
 export default function BasicTabs(props) {
   const { ingredients, handleChangeIngredients, currentStep } = props;
+  const [selectedTabIndex, setSelectedTabIndex] = React.useState(0);
+  console.log(ingredients)
   // const [value, setValue] = React.useState(0);
   // const handleChange = (event, newValue) => {
   //   setValue(newValue);
   // };
+  const handleTabChange = (event, newValue) => {
+    setSelectedTabIndex(newValue);
+  };
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -52,7 +57,7 @@ export default function BasicTabs(props) {
         currentStep === 0 &&
         <>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <Tabs value={ingredients} onChange={handleChangeIngredients} aria-label="basic tabs example">
+            <Tabs value={selectedTabIndex} onChange={handleTabChange} aria-label="basic tabs example">
               <Tab label="Beef" {...a11yProps(0)} />
               <Tab label="Pork" {...a11yProps(1)} />
               <Tab label="Poultry" {...a11yProps(2)} />
@@ -60,21 +65,42 @@ export default function BasicTabs(props) {
               <Tab label="Vegetarian" {...a11yProps(4)} />
             </Tabs>
           </Box>
-          <TabPanel value={currentStep} index={currentStep}>
-            {ingredients.subcategory}
-          </TabPanel>
+          {selectedTabIndex === 0 && (
+            <TabPanel value={selectedTabIndex} index={0}>
+              Hello
+            </TabPanel>
+          )}
+          {selectedTabIndex === 1 && (
+            <TabPanel value={selectedTabIndex} index={1}>
+              There
+            </TabPanel>
+          )}
+          {selectedTabIndex === 2 && (
+            <TabPanel value={selectedTabIndex} index={2}>
+              There
+            </TabPanel>
+          )}
+          {selectedTabIndex === 3 && (
+            <TabPanel value={selectedTabIndex} index={3}>
+              There
+            </TabPanel>
+          )}
+          {selectedTabIndex === 4 && (
+            <TabPanel value={selectedTabIndex} index={4}>
+              There
+            </TabPanel>
+          )}
         </>
       }
       {
         currentStep === 1 &&
         <>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <Tabs value={ingredients} onChange={handleChangeIngredients} aria-label="basic tabs example">
-              <Tab label="lll" {...a11yProps(0)} />
-              <Tab label="dddk" {...a11yProps(1)} />
-              <Tab label="Pgfgltry" {...a11yProps(2)} />
-              <Tab label="Seafood" {...a11yProps(3)} />
-              <Tab label="Vegetarian" {...a11yProps(4)} />
+            <Tabs value={selectedTabIndex} onChange={handleTabChange} aria-label="basic tabs example">
+              <Tab label="Roots and Bulbs" {...a11yProps(0)} />
+              <Tab label="Legumes" {...a11yProps(1)} />
+              <Tab label="Cabbages" {...a11yProps(2)} />
+              <Tab label="Fruit vegetables" {...a11yProps(3)} />
             </Tabs>
           </Box>
           <TabPanel value={currentStep} index={currentStep}>
