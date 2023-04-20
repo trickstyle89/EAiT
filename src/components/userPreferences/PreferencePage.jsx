@@ -2,7 +2,6 @@ import React from "react";
 import DiscreteSlider from "./TimeSlider";
 import MealSelectLabel from "./MealSelectLabel";
 import SkillSelectLabel from "./SkillSelectLabel";
-import { Box, Container } from "@mui/material";
 import ChefModeButtons from "./ChefModeButtons";
 import Navbar from "../Navbar";
 import CookingToolsButtons from "./CookingToolsButtons";
@@ -21,7 +20,7 @@ function PreferencePage() {
   const handleSubmit = async () => {
     console.log("Submitting preferences:", preferences);
 
-    navigate("/ingredients")
+    navigate("/ingredients");
   };
 
   return (
@@ -32,7 +31,10 @@ function PreferencePage() {
         <h3>2. What is your cooking skill level?</h3>
       </div>
       <div className="select-meal-skill">
-        <MealSelectLabel value={preferences.mealType} onChange={handleChangePreferences} />
+        <MealSelectLabel
+          value={preferences.mealType}
+          onChange={handleChangePreferences}
+        />
         <SkillSelectLabel
           value={preferences.skillLevel}
           onChange={handleChangePreferences}
@@ -55,7 +57,9 @@ function PreferencePage() {
         <MeasurementSelectLabel onChange={handleChangePreferences} />
       </div>
       <PickMyIngredientsButton onChange={handleChangePreferences} />
-      <button variant="contained" onClick={handleSubmit}>Submit</button>
+      <button variant="contained" onClick={handleSubmit}>
+        Submit
+      </button>
       <footer className="footer">
         <p>EAiT &copy; 2023</p>
       </footer>
