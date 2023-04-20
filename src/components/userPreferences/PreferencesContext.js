@@ -10,6 +10,7 @@ export function PreferencesProvider({ children }) {
     measurementSelection: "",
     gourmetMode: false,
     strictMode: false,
+    allergies: []
   });
 
   const [ingredients, setIngredients] = useState({
