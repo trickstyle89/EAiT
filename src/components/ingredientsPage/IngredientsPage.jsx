@@ -1,15 +1,15 @@
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Navbar from "../Navbar";
 import HorizontalStepper from "./HorizontalStepper";
-import TabPanel from './SubCategoriesTabs'
+import TabPanel from "./SubCategoriesTabs";
 function IngredientsPage() {
   return (
-    <Container>
+    <Box>
       <Navbar />
       <h3>Select your ingredients</h3>
       <HorizontalStepper />
       <TabPanel />
-    </Container>
+    </Box>
   );
 }
 
