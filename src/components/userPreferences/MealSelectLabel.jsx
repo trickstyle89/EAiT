@@ -14,9 +14,8 @@ function MealSelectLabel() {
   };
 
   return (
-
     <div>
-      <FormControl sx={{ m: 1, minWidth: 200 }}>
+      <FormControl sx={{ minWidth: 400 }}>
         <Select
           value={preferences.mealType}
           onChange={handleSelectChange}

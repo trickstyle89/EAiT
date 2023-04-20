@@ -8,34 +8,36 @@ function ChefModeButtons() {
   };
 
   return (
-    <Stack direction="column" spacing={3}>
-      <Chip
-        sx={{
-          height: "2",
-          "& .MuiChip-label": {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          },
-        }}
-        variant="filled"
-        label="Strict Mode"
-        onClick={handleClick}
-      ></Chip>
-      <Chip
-        sx={{
-          height: "2",
-          "& .MuiChip-label": {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          },
-        }}
-        variant="filled"
-        label="Gourmet Mode"
-        onClick={handleClick}
-      ></Chip>
-    </Stack>
+    <div>
+      <Stack direction="column" spacing={3} width={"40rem"} display={"flex"}>
+        <Chip
+          sx={{
+            height: "2",
+            "& .MuiChip-label": {
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            },
+          }}
+          variant="filled"
+          label="Strict Mode"
+          onClick={handleClick}
+        ></Chip>
+        <Chip
+          sx={{
+            height: "2",
+            "& .MuiChip-label": {
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            },
+          }}
+          variant="filled"
+          label="Gourmet Mode"
+          onClick={handleClick}
+        ></Chip>
+      </Stack>
+    </div>
   );
 }
 
