@@ -2,19 +2,19 @@ import React from "react";
 import Slider from "@mui/material/Slider";
 import { Container } from "@mui/material";
 import FormHelperText from "@mui/material/FormHelperText";
-import { usePreferences } from './PreferencesContext';
-
+import { usePreferences } from "./PreferencesContext";
 
 function valuetext(value) {
   return `${value} minutes`;
 }
 
 export default function DiscreteSlider() {
-  const { preferences, handleChange } = usePreferences();
+  const { preferences, handleChangePreferences } = usePreferences();
   const { cookingTime } = preferences;
 
   const handleSliderChange = (event, newValue) => {
-    handleChange("cookingTime", newValue);
+    handleChangePreferences("cookingTime", newValue);
+    console.log(newValue);
   };
 
   return (

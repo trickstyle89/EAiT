@@ -3,12 +3,12 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import { usePreferences } from "./PreferencesContext";
 
-
 function ChefModeButtons() {
-  const { preferences, handleChange } = usePreferences();
+  const { preferences, handleChangePreferences } = usePreferences();
 
   const handleClick = (mode) => {
-    handleChange(mode, !preferences[mode]);
+    handleChangePreferences(mode, !preferences[mode]);
+    console.log(mode);
   };
 
   return (
@@ -25,7 +25,7 @@ function ChefModeButtons() {
           }}
           variant="filled"
           label="Strict Mode"
-          onClick={() => handleClick('Strict Mode')}
+          onClick={() => handleClick("Strict Mode")}
         ></Chip>
         <Chip
           sx={{
@@ -38,7 +38,7 @@ function ChefModeButtons() {
           }}
           variant="filled"
           label="Gourmet Mode"
-          onClick={() => handleClick('Gourmet Mode')}
+          onClick={() => handleClick("Gourmet Mode")}
         ></Chip>
       </Stack>
     </div>

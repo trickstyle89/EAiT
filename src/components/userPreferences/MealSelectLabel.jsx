@@ -6,11 +6,12 @@ import Select from "@mui/material/Select";
 import { usePreferences } from "./PreferencesContext";
 
 function MealSelectLabel() {
-  const { preferences, handleChange } = usePreferences();
+  const { preferences, handleChangePreferences } = usePreferences();
 
   const handleSelectChange = (event) => {
     const selectedMealType = event.target.value;
-    handleChange("mealType", selectedMealType);
+    handleChangePreferences("mealType", selectedMealType);
+    console.log(selectedMealType);
   };
 
   return (

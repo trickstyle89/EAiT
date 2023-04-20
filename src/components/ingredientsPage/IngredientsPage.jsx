@@ -17,8 +17,9 @@ const steps = [
 ];
 
 function IngredientsPage() {
-  const [currentStep, setCurrentStep] = useState(steps[0])
-  const { preferences, selectedTools, ingredients, handleChangeIngredients } = usePreferences();
+  const [currentStep, setCurrentStep] = useState(steps[0]);
+  const { preferences, selectedTools, ingredients, handleChangeIngredients } =
+    usePreferences();
 
   const handleSubmit = async (e) => {
     console.log("Submitting preferences:", preferences);
@@ -35,14 +36,21 @@ function IngredientsPage() {
     } catch (error) {
       console.error("Error fetching recipe:", error);
     }
-  }
+  };
   return (
     <Box>
       <Navbar />
       <h3>Select your ingredients</h3>
-      <HorizontalStepper currentStep={currentStep} setCurrentStep={setCurrentStep} />
+      <HorizontalStepper
+        currentStep={currentStep}
+        setCurrentStep={setCurrentStep}
+      />
       <form onSubmit={handleSubmit}>
-        <BasicTabs ingredients={ingredients} handleChangeIngredients={handleChangeIngredients} currentStep={currentStep} />
+        <BasicTabs
+          ingredients={ingredients}
+          handleChangeIngredients={handleChangeIngredients}
+          currentStep={currentStep}
+        />
         <button type="submit">Generate Recipe</button>
       </form>
     </Box>
