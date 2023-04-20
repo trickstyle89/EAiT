@@ -11,18 +11,28 @@ export function PreferencesProvider({ children }) {
     measurementSelection: "",
   });
 
+  const [ingredients, setIngredients] = useState({
+
+  });
+
   const [selectedTools, setSelectedTools] = useState([]);
 
 
-  const handleChange = (key, value) => {
+  const handleChangePreferences = (key, value) => {
     setPreferences((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleChangeIngredients = (key, value) => {
+    setIngredients((prev) => ({ ...prev, [key]: value }));
   };
 
   const value = {
     preferences,
-    handleChange,
+    handleChangePreferences,
+    ingredients,
+    handleChangeIngredients,
     selectedTools,
-    setSelectedTools,    
+    setSelectedTools,
   };
 
   return (

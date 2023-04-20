@@ -18,8 +18,9 @@ const steps = [
   "Wine, Beer & Liquors",
 ];
 
-function HorizontalStepper() {
-  const [activeStep, setActiveStep] = useState(0);
+function HorizontalStepper(props) {
+  // const [activeStep, setActiveStep] = useState(0);
+  const { currentStep, setCurrentStep } = props
   const [completed, setCompleted] = useState({});
 
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ function HorizontalStepper() {
   };
 
   const isLastStep = () => {
-    return activeStep === totalSteps() - 1;
+    return currentStep === totalSteps() - 1;
   };
 
   const allStepsCompleted = () => {
@@ -48,27 +49,27 @@ function HorizontalStepper() {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
         ? steps.findIndex((step, i) => !(i in completed))
-        : activeStep + 1;
-    setActiveStep(newActiveStep);
-    if (!completed[activeStep]) {
+        : currentStep + 1;
+    setCurrentStep(newActiveStep);
+    if (!completed[currentStep]) {
       handleComplete();
     }
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    setCurrentStep((prevActiveStep) => prevActiveStep - 1);
     const newCompleted = completed;
-    delete newCompleted[activeStep];
+    delete newCompleted[currentStep];
     setCompleted(newCompleted);
   };
 
   const handleStep = (step) => () => {
-    setActiveStep(step);
+    setCurrentStep(step);
   };
 
   const handleComplete = () => {
     const newCompleted = completed;
-    newCompleted[activeStep] = true;
+    newCompleted[currentStep] = true;
     setCompleted(newCompleted);
     if (isLastStep()) {
       navigate("/recipe");
@@ -78,13 +79,13 @@ function HorizontalStepper() {
   };
 
   const handleReset = () => {
-    setActiveStep(0);
+    setCurrentStep(0);
     setCompleted({});
   };
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+      <Stepper activeStep={currentStep} alternativeLabel>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>
             <StepButton color="inherit" onClick={handleStep(index)}>
@@ -109,19 +110,19 @@ function HorizontalStepper() {
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Button
                 color="inherit"
-                disabled={activeStep === 0}
+                disabled={currentStep === 0}
                 onClick={handleBack}
                 sx={{ mr: 1 }}
               >
                 Back
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
-              {activeStep !== steps.length - 1 && (
+              {currentStep !== steps.length - 1 && (
                 <Button onClick={handleNext} sx={{ mr: 1 }}>
                   Next
                 </Button>
               )}
-              {activeStep === steps.length - 1 && (
+              {currentStep === steps.length - 1 && (
                 <Button onClick={handleGenerateRecipe}>Generate Recipe</Button>
               )}
             </Box>
