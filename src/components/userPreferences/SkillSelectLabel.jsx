@@ -7,11 +7,12 @@ import { Container } from "@mui/material";
 import { usePreferences } from "./PreferencesContext";
 
 function SkillSelectLabel() {
-  const { preferences, handleChange } = usePreferences();
+  const { preferences, handleChangePreferences } = usePreferences();
 
   const handleSelectChange = (event) => {
     const selectedSkillLevel = event.target.value;
-    handleChange("skillLevel", selectedSkillLevel);
+    handleChangePreferences("skillLevel", selectedSkillLevel);
+    console.log(selectedSkillLevel);
   };
 
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import DiscreteSlider from "./TimeSlider";
 import MealSelectLabel from "./MealSelectLabel";
 import SkillSelectLabel from "./SkillSelectLabel";
-import { Box, Container } from "@mui/material";
+// import { Box, Container } from "@mui/material";
 import ChefModeButtons from "./ChefModeButtons";
 import Navbar from "../Navbar";
 import CookingToolsButtons from "./CookingToolsButtons";
@@ -12,16 +12,18 @@ import { useNavigate } from "react-router-dom";
 import { usePreferences } from "./PreferencesContext";
 
 import "../../scss/preferencePage.scss";
+import AllergySelection from "./AllergySelection";
 
 function PreferencePage() {
-  const { preferences, handleChangePreferences } = usePreferences();
+  const { preferences, handleChangePreferences, selectedAllergies } =
+    usePreferences();
 
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
     console.log("Submitting preferences:", preferences);
 
-    navigate("/ingredients")
+    navigate("/ingredients");
   };
 
   return (
@@ -32,7 +34,10 @@ function PreferencePage() {
         <h3>2. What is your cooking skill level?</h3>
       </div>
       <div className="select-meal-skill">
-        <MealSelectLabel value={preferences.mealType} onChange={handleChangePreferences} />
+        <MealSelectLabel
+          value={preferences.mealType}
+          onChange={handleChangePreferences}
+        />
         <SkillSelectLabel
           value={preferences.skillLevel}
           onChange={handleChangePreferences}
@@ -54,8 +59,12 @@ function PreferencePage() {
         <h3>6. Select a measurement option</h3>
         <MeasurementSelectLabel onChange={handleChangePreferences} />
       </div>
+      <h3>7. Do you have any allergies or dietary restrictions?</h3>
+      <AllergySelection allergies={selectedAllergies}></AllergySelection>
       <PickMyIngredientsButton onChange={handleChangePreferences} />
-      <button variant="contained" onClick={handleSubmit}>Submit</button>
+      <button variant="contained" onClick={handleSubmit}>
+        Submit
+      </button>
       <footer className="footer">
         <p>EAiT &copy; 2023</p>
       </footer>
