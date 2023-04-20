@@ -12,9 +12,11 @@ import { useNavigate } from "react-router-dom";
 import { usePreferences } from "./PreferencesContext";
 
 import "../../scss/preferencePage.scss";
+import AllergySelection from "./AllergySelection";
 
 function PreferencePage() {
-  const { preferences, handleChangePreferences } = usePreferences();
+  const { preferences, handleChangePreferences, selectedAllergies } =
+    usePreferences();
 
   const navigate = useNavigate();
 
@@ -57,6 +59,8 @@ function PreferencePage() {
         <h3>6. Select a measurement option</h3>
         <MeasurementSelectLabel onChange={handleChangePreferences} />
       </div>
+      <h3>7. Do you have any allergies or dietary restrictions?</h3>
+      <AllergySelection allergies={selectedAllergies}></AllergySelection>
       <PickMyIngredientsButton onChange={handleChangePreferences} />
       <button variant="contained" onClick={handleSubmit}>
         Submit
