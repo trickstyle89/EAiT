@@ -13,18 +13,23 @@ import { usePreferences } from "./PreferencesContext";
 
 
 function PreferencePage() {
-  const { preferences, handleChange } = usePreferences();
+  const { preferences, handleChange, selectedTools } = usePreferences();
 
   const handleSubmit = async () => {
+    console.log("Submitting preferences:", preferences);
+
+    const requestData = {
+      ...preferences,
+      selectedTools,
+    };
+
     try {
-      console.log("Submitting preferences:", preferences);
-      const response = await axios.post("/api/recipe", preferences);
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error fetching recipe:", error);
-    }
-  };
-  console.log("Current preferences:", preferences);
+    const response = await axios.post("/api/recipe", requestData);
+    console.log(response.data);
+  } catch (error) {
+    console.error("Error fetching recipe:", error);
+  }
+};
 
   return (
     <Container>
@@ -42,7 +47,7 @@ function PreferencePage() {
       <h3>Select a measurement option</h3>
       <MeasurementSelectLabel></MeasurementSelectLabel>
       <PickMyIngredientsButton></PickMyIngredientsButton>
-      <button onClick={handleSubmit}>Submit</button>
+      <button variant="contained" onClick={handleSubmit}>Submit</button>
     </Container>
   );
 }

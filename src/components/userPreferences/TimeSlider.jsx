@@ -1,28 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import Slider from "@mui/material/Slider";
 import { Container } from "@mui/material";
 import FormHelperText from "@mui/material/FormHelperText";
-import axios from 'axios';
+import { usePreferences } from './PreferencesContext';
+
 
 function valuetext(value) {
   return `${value} minutes`;
 }
 
-export default function DiscreteSlider({ onCookingTimeChange }) {
-  const [cookingTime, setCookingTime] = useState(0);
+export default function DiscreteSlider() {
+  const { preferences, handleChange } = usePreferences();
+  const { cookingTime } = preferences;
 
-  const handleSliderChange = async (event, newValue) => {
-    setCookingTime(newValue);
-    onCookingTimeChange(newValue);
-
-    try {
-      const response = await axios.post('/api/recipe', {
-        params: { cookingTime: setCookingTime },
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error fetching recipe:', error);
-    }
+  const handleSliderChange = (event, newValue) => {
+    handleChange("cookingTime", newValue);
   };
 
   return (

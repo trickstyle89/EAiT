@@ -7,6 +7,8 @@ export function PreferencesProvider({ children }) {
   const [preferences, setPreferences] = useState({
     mealType: "",
     skillLevel: "",
+    cookingTime: 0,
+    measurementSelection: "",
   });
 
   const [selectedTools, setSelectedTools] = useState([]);
@@ -16,24 +18,11 @@ export function PreferencesProvider({ children }) {
     setPreferences((prev) => ({ ...prev, [key]: value }));
   };
 
-  const handleSendSelectedTools = () => {
-    console.log('handle send selected tools', selectedTools);
-    axios
-      .post("http://localhost:3001/api/recipe", { selectedTools })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   const value = {
     preferences,
     handleChange,
     selectedTools,
-    setSelectedTools,
-    handleSendSelectedTools,
+    setSelectedTools,    
   };
 
   return (
