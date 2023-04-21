@@ -12,7 +12,7 @@ const HomePage = () => {
   useEffect(() => {
     setTimeout(() => {
       setFadeIn(true);
-    }, 4000);
+    }, 3250);
   }, []);
 
   return (
@@ -23,7 +23,7 @@ const HomePage = () => {
           <div className="type">
             <Typist
               className={"myTypist"}
-              typingSpeed={55}
+              typingSpeed={45}
               showCursor={false}
               sentences={[
                 "Unleash endless culinary possibilities with AI-powered recipes...",
