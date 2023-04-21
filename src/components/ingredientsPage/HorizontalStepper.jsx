@@ -19,7 +19,7 @@ const steps = [
 
 function HorizontalStepper(props) {
   // const [activeStep, setActiveStep] = useState(0);
-  const { currentStep, setCurrentStep } = props
+  const { currentStep, setCurrentStep } = props;
   const [completed, setCompleted] = useState({});
 
   const navigate = useNavigate();
@@ -29,6 +29,8 @@ function HorizontalStepper(props) {
   };
 
   const totalSteps = () => {
+    // console.log(currentStep);
+    // handleStep(0);
     return steps.length;
   };
 
@@ -130,7 +132,6 @@ function HorizontalStepper(props) {
       </div>
     </Box>
   );
-
 }
 export default HorizontalStepper;
 
