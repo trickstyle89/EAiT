@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import DiscreteSlider from "./TimeSlider";
 import MealSelectLabel from "./MealSelectLabel";
 import SkillSelectLabel from "./SkillSelectLabel";
@@ -20,11 +20,29 @@ function PreferencePage() {
 
   const navigate = useNavigate();
 
+  const [gourmetMode, setGourmetMode] = useState(false);
+  const [strictMode, setStrictMode] = useState(false);
+
+  const handleClick = (mode) => {
+    if (mode === "Strict Mode") {
+      setStrictMode((prevStrictMode) => !prevStrictMode);
+    } else if (mode === "Gourmet Mode") {
+      setGourmetMode((prevGourmetMode) => !prevGourmetMode);
+    }
+  };
+
   const handleSubmit = async () => {
     console.log("Submitting preferences:", preferences);
 
+    // Include gourmetMode and strictMode in the submission
+    const updatedPreferences = {
+      ...preferences,
+      gourmetMode,
+      strictMode,
+    };
+
     try {
-      const response = await axios.post("/api/recipe", preferences);
+      const response = await axios.post("/api/recipe", updatedPreferences);
       console.log("Test response:", response.data);
       navigate("/recipes");
     } catch (error) {
@@ -62,7 +80,7 @@ function PreferencePage() {
       </div>
       <div className="cooking-mode-select">
         <h3>5. Select your cooking mode</h3>
-        <ChefModeButtons onChange={handleChangePreferences} />
+        <ChefModeButtons onChange={handleClick} />
       </div>
       <div className="measurement-select">
         <h3>6. Select a measurement option</h3>
