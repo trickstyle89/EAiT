@@ -31,8 +31,19 @@ export default function DiscreteSlider() {
             valueLabelFormat={valuetext}
             marks={true}
             onChange={handleSliderChange}
+            sx={{
+              color: "#086788",
+              marginLeft: -40,
+              marginTop: 3,
+            }}
           />
-          <FormHelperText>Required *</FormHelperText>
+          <FormHelperText
+            sx={{
+              marginLeft: -40,
+            }}
+          >
+            Required *
+          </FormHelperText>
         </Container>
       </main>
     </div>

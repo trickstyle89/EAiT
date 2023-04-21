@@ -61,7 +61,7 @@ const HomePage = () => {
           />
           <ActionAreaCard
             title="Lupita's tacos"
-            description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum"
+            description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum "
             image="https://images.unsplash.com/photo-1613514785940-daed07799d9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
             alt="alt 3"
           />
@@ -75,7 +75,7 @@ const HomePage = () => {
             <HomePageCard
               alt="Step 1"
               title="Select your preferences"
-              description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum"
+              description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum "
               image="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
             />
             <HomePageCard
