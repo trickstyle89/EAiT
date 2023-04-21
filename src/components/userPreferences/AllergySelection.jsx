@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { usePreferences } from "./PreferencesContext";
 import { Chip } from "@mui/material";
 
-function AllergySelection() {
+function AllergySelection({ onChange }) {
   const { preferences, handleChangePreferences } = usePreferences();
 
   const [selectedAllergies, setSelectedAllergies] = useState([]);
@@ -15,6 +15,8 @@ function AllergySelection() {
     } else {
       setSelectedAllergies([...selectedAllergies, allergy]);
     }
+  
+    onChange("selectedAllergies", selectedAllergies);
   };
 
   const allergies = [

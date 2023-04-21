@@ -4,7 +4,7 @@ import { usePreferences } from "./PreferencesContext";
 
 function CookingToolsButtons() {
   const [cookingTools, setCookingTools] = useState([]);
-  const { selectedTools, setSelectedTools } = usePreferences();
+  const { preferences, handleChangePreferences } = usePreferences();
 
   useEffect(() => {
     fetch("/api/test")
@@ -14,10 +14,10 @@ function CookingToolsButtons() {
   }, []);
 
   const handleClick = (toolName) => {
-    if (selectedTools.includes(toolName)) {
-      setSelectedTools(selectedTools.filter((name) => name !== toolName));
+    if (preferences.selectedTools.includes(toolName)) {
+      handleChangePreferences("selectedTools", preferences.selectedTools.filter((name) => name !== toolName)); // Update this line
     } else {
-      setSelectedTools([...selectedTools, toolName]);
+      handleChangePreferences("selectedTools", [...preferences.selectedTools, toolName]); // Update this line
     }
   };
 
@@ -35,7 +35,7 @@ function CookingToolsButtons() {
             height: 32,
             margin: "0.5rem",
           }}
-          color={selectedTools.includes(tool.tool_name) ? "primary" : "default"}
+          color={preferences.selectedTools.includes(tool.tool_name) ? "primary" : "default"}
           size="large"
           sx={{
             fontSize: "medium",
