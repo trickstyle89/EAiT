@@ -2,7 +2,6 @@ import React from "react";
 import DiscreteSlider from "./TimeSlider";
 import MealSelectLabel from "./MealSelectLabel";
 import SkillSelectLabel from "./SkillSelectLabel";
-// import { Box, Container } from "@mui/material";
 import ChefModeButtons from "./ChefModeButtons";
 import Navbar from "../Navbar";
 import CookingToolsButtons from "./CookingToolsButtons";
@@ -10,6 +9,7 @@ import MeasurementSelectLabel from "./MeasurementSelectLabel";
 import PickMyIngredientsButton from "./PickMyIngredientsButton";
 import { useNavigate } from "react-router-dom";
 import { usePreferences } from "./PreferencesContext";
+import axios from "axios";
 
 import "../../scss/preferencePage.scss";
 import AllergySelection from "./AllergySelection";
@@ -23,7 +23,13 @@ function PreferencePage() {
   const handleSubmit = async () => {
     console.log("Submitting preferences:", preferences);
 
-    navigate("/ingredients");
+    try {
+      const response = await axios.post("/api/recipe", preferences);
+      console.log("Test response:", response.data);
+      navigate("/recipes");
+    } catch (error) {
+      console.error("Test error:", error.response?.data || error.message);
+    }
   };
 
   return (
@@ -64,7 +70,9 @@ function PreferencePage() {
       </div>
       <div className="allergy-select">
         <h3>7. Do you have any allergies or dietary restrictions?</h3>
-        <AllergySelection allergies={selectedAllergies}></AllergySelection>
+        <AllergySelection 
+        allergies={selectedAllergies}
+        onChange={handleChangePreferences}/ >
       </div>
       <PickMyIngredientsButton onChange={handleChangePreferences} />
       <button variant="contained" onClick={handleSubmit}>

@@ -10,15 +10,13 @@ export function PreferencesProvider({ children }) {
     measurementSelection: "",
     gourmetMode: false,
     strictMode: false,
-    allergies: []
+    allergies: [],
+    selectedTools: []
   });
 
   const [ingredients, setIngredients] = useState({
 
   });
-
-  const [selectedTools, setSelectedTools] = useState([]);
-
 
   const handleChangePreferences = (key, value) => {
     setPreferences((prev) => ({ ...prev, [key]: value }));
@@ -33,8 +31,6 @@ export function PreferencesProvider({ children }) {
     handleChangePreferences,
     ingredients,
     handleChangeIngredients,
-    selectedTools,
-    setSelectedTools,
   };
 
   return (
