@@ -56,7 +56,6 @@ export default function BasicTabs(props) {
 
   useEffect(() => {
     setSelectedTabIndex(0);
-    setSelectedIngredients([]);
   }, [props.currentStep]);
 
   useEffect(() => {
