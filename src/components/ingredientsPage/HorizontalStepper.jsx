@@ -12,7 +12,6 @@ const steps = [
   "Proteins",
   "Vegatables",
   "Fruits",
-  "Starch",
   "Dairy",
   "Spices & Condiments",
   "Wine, Beer & Liquors",

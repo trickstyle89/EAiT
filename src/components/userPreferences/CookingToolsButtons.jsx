@@ -30,9 +30,9 @@ function CookingToolsButtons() {
           onClick={() => handleClick(tool.tool_name)}
           style={{
             flex: "1 1 auto",
-            minWidth: 0,
+            minWidth: "5rem",
             maxWidth: "100%",
-            height: 50,
+            height: 32,
             margin: "0.5rem",
           }}
           color={selectedTools.includes(tool.tool_name) ? "primary" : "default"}
