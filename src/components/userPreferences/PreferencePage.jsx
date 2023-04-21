@@ -88,9 +88,9 @@ function PreferencePage() {
       </div>
       <div className="allergy-select">
         <h3>7. Do you have any allergies or dietary restrictions?</h3>
-        <AllergySelection 
-        allergies={selectedAllergies}
-        onChange={handleChangePreferences}/ >
+        <AllergySelection
+          allergies={selectedAllergies}
+          onChange={handleChangePreferences} />
       </div>
       <PickMyIngredientsButton onChange={handleChangePreferences} />
       <button variant="contained" onClick={handleSubmit}>

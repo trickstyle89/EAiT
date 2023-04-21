@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useState } from 'react';
+import { useState } from "react";
 import Navbar from "../Navbar";
 import HorizontalStepper from "./HorizontalStepper";
 import BasicTabs from "./SubCategoriesTabs";
@@ -17,7 +17,7 @@ const steps = [
 ];
 
 function IngredientsPage() {
-  const [currentStep, setCurrentStep] = useState(steps[0]);
+  const [currentStep, setCurrentStep] = useState(0);
   const { preferences, selectedTools, ingredients, handleChangeIngredients } =
     usePreferences();
 

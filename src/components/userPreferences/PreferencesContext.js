@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
 const PreferencesContext = createContext();
 
@@ -18,8 +18,16 @@ export function PreferencesProvider({ children }) {
 
   });
 
+  useEffect(() => {
+    console.log("getting Previous Preferences");
+    const data = window.localStorage.getItem("selectPreferences");
+    if (data !== null) setPreferences(JSON.parse(data));
+  }, []);
+
   const handleChangePreferences = (key, value) => {
     setPreferences((prev) => ({ ...prev, [key]: value }));
+    const cookiePreferences = { ...preferences, [key]: value }
+    window.localStorage.setItem("selectPreferences", JSON.stringify(cookiePreferences))
   };
 
   const handleChangeIngredients = (key, value) => {

@@ -42,7 +42,9 @@ function a11yProps(index) {
 }
 export default function BasicTabs(props) {
   const [ingredientsData, setIngredientsData] = useState([]);
-  const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const [selectedIngredients, setSelectedIngredients] = useState(
+    retrieveIngredients()
+  );
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
 
   useEffect(() => {
@@ -54,8 +56,30 @@ export default function BasicTabs(props) {
 
   useEffect(() => {
     setSelectedTabIndex(0);
-    setSelectedIngredients([]);
   }, [props.currentStep]);
+
+  useEffect(() => {
+    console.log("selectedIngredients", selectedIngredients);
+    window.localStorage.setItem(
+      "selectIngredient",
+      JSON.stringify(selectedIngredients)
+    );
+  }, [selectedIngredients]);
+
+  useEffect(() => {
+    console.log("gettingSelectedIngredients");
+    const data = window.localStorage.getItem("selectIngredient");
+    if (data !== null) setSelectedIngredients(JSON.parse(data));
+  }, []);
+
+  function retrieveIngredients() {
+    const data = window.localStorage.getItem("selectIngredient");
+    if (data === null) {
+      return [];
+    } else {
+      return JSON.parse(data);
+    }
+  }
 
   const handleTabChange = (event, newValue) => {
     setSelectedTabIndex(newValue);
@@ -70,6 +94,17 @@ export default function BasicTabs(props) {
       setSelectedIngredients([...selectedIngredients, ingredient]);
     }
   };
+
+  const handleNext = () => {
+    const newSelectedIngredients = ingredientsData[
+      selectedTabIndex
+    ].ingredients.filter(
+      (ingredient) => selectedIngredients.includes(ingredient) === false
+    );
+    setSelectedIngredients([...selectedIngredients, ...newSelectedIngredients]);
+  };
+
+  const handleBack = () => {};
 
   let tabs = [
     { label: "Beef", subcategory: "beef" },
