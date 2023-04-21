@@ -22,14 +22,7 @@ function PreferencePage() {
 
   const handleSubmit = async () => {
     console.log("Submitting preferences:", preferences);
-
-    try {
-      const response = await axios.post("/api/recipe", preferences);
-      console.log("Test response:", response.data);
-      navigate("/recipes");
-    } catch (error) {
-      console.error("Test error:", error.response?.data || error.message);
-    }
+    navigate("/recipes");
   };
 
   return (
@@ -70,9 +63,9 @@ function PreferencePage() {
       </div>
       <div className="allergy-select">
         <h3>7. Do you have any allergies or dietary restrictions?</h3>
-        <AllergySelection 
-        allergies={selectedAllergies}
-        onChange={handleChangePreferences}/ >
+        <AllergySelection
+          allergies={selectedAllergies}
+          onChange={handleChangePreferences} />
       </div>
       <PickMyIngredientsButton onChange={handleChangePreferences} />
       <button variant="contained" onClick={handleSubmit}>
