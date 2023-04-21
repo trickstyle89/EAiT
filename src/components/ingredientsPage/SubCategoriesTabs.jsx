@@ -96,7 +96,14 @@ export default function BasicTabs(props) {
     }
   };
 
-  const handleNext = () => {};
+  const handleNext = () => {
+    const newSelectedIngredients = ingredientsData[
+      selectedTabIndex
+    ].ingredients.filter(
+      (ingredient) => selectedIngredients.includes(ingredient) === false
+    );
+    setSelectedIngredients([...selectedIngredients, ...newSelectedIngredients]);
+  };
 
   const handleBack = () => {};
 
