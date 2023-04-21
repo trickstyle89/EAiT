@@ -52,6 +52,11 @@ export default function BasicTabs(props) {
       .catch((error) => console.log(error));
   }, []);
 
+  useEffect(() => {
+    setSelectedTabIndex(0);
+    setSelectedIngredients([]);
+  }, [props.currentStep]);
+
   const handleTabChange = (event, newValue) => {
     setSelectedTabIndex(newValue);
   };
@@ -109,6 +114,7 @@ export default function BasicTabs(props) {
       { label: "Beer Spirits and Wines", subcategory: "beer_spirits_and_wines" },
     ];
   }
+
   const filteredIngredients = ingredientsData.filter((ingredient) =>
     ingredient.subcategory === tabs[selectedTabIndex].subcategory
   );
