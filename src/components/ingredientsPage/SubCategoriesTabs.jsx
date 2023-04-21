@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import * as React from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 // import { usePreferences } from "./PreferencesContext";
 import Chip from "@mui/material/Chip";
 
@@ -37,7 +37,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 export default function BasicTabs(props) {
@@ -63,7 +63,9 @@ export default function BasicTabs(props) {
 
   const handleClick = (ingredient) => {
     if (selectedIngredients.includes(ingredient)) {
-      setSelectedIngredients(selectedIngredients.filter((ing) => ing !== ingredient));
+      setSelectedIngredients(
+        selectedIngredients.filter((ing) => ing !== ingredient)
+      );
     } else {
       setSelectedIngredients([...selectedIngredients, ingredient]);
     }
@@ -111,18 +113,26 @@ export default function BasicTabs(props) {
   }
   if (props.currentStep === 5) {
     tabs = [
-      { label: "Beer Spirits and Wines", subcategory: "beer_spirits_and_wines" },
+      {
+        label: "Beer Spirits and Wines",
+        subcategory: "beer_spirits_and_wines",
+      },
     ];
   }
-
-  const filteredIngredients = ingredientsData.filter((ingredient) =>
-    ingredient.subcategory === tabs[selectedTabIndex].subcategory
+  const filteredIngredients = ingredientsData.filter(
+    (ingredient) =>
+      tabs[selectedTabIndex] &&
+      ingredient.subcategory === tabs[selectedTabIndex].subcategory
   );
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={selectedTabIndex} onChange={handleTabChange} aria-label="basic tabs example">
+    <Box sx={{ width: "100%" }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Tabs
+          value={selectedTabIndex}
+          onChange={handleTabChange}
+          aria-label="basic tabs example"
+        >
           {tabs.map((tab, index) => (
             <Tab label={tab.label} {...a11yProps(index)} key={index} />
           ))}
@@ -139,9 +149,13 @@ export default function BasicTabs(props) {
               minWidth: "5rem",
               maxWidth: "100%",
               height: 32,
-              margin: "0.5rem"
+              margin: "0.5rem",
             }}
-            color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
+            color={
+              selectedIngredients.includes(ingredient.ingredient_name)
+                ? "primary"
+                : "default"
+            }
             size="large"
             sx={{ fontSize: "medium" }}
           />
@@ -311,106 +325,105 @@ export default function BasicTabs(props) {
 //         </>
 //       }
 //       {
-        // currentStep === 1 &&
-        // <>
-        //   <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        //     <Tabs value={selectedTabIndex} onChange={handleTabChange} aria-label="basic tabs example">
-        //       <Tab label="Roots and Bulbs" {...a11yProps(0)} />
-        //       <Tab label="Legumes" {...a11yProps(1)} />
-        //       <Tab label="Cabbages" {...a11yProps(2)} />
-        //       <Tab label="Fruit vegetables" {...a11yProps(3)} />
-        //     </Tabs>
-        //   </Box>
-        //   <TabPanel value={selectedTabIndex} index={0}>
-        //     {ingredientsData
-        //       .filter((ingredient) => ingredient.subcategory === "roots_and_bulbs")
-        //       .map((ingredient) => (
-        //         <Chip
-        //           label={ingredient.ingredient_name}
-        //           key={ingredient.id}
-        //           onClick={() => handleClick(ingredient.ingredient_name)}
-        //           style={{
-        //             Width: "7rem",
-        //             height: 32,
-        //             margin: "0.5rem",
-        //           }}
-        //           color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
-        //           size="large"
-        //           sx={{
-        //             fontSize: "medium",
-        //           }}
-        //         />
-        //       ))}
-        //   </TabPanel>
-        //   <TabPanel value={selectedTabIndex} index={1}>
-        //     {ingredientsData
-        //       .filter((ingredient) => ingredient.subcategory === "legumes")
-        //       .map((ingredient) => (
-        //         <Chip
-        //           label={ingredient.ingredient_name}
-        //           key={ingredient.id}
-        //           onClick={() => handleClick(ingredient.ingredient_name)}
-        //           style={{
-        //             Width: "7rem",
-        //             height: 32,
-        //             margin: "0.5rem",
-        //           }}
-        //           color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
-        //           size="large"
-        //           sx={{
-        //             fontSize: "medium",
-        //           }}
-        //         />
-        //       ))}
-        //   </TabPanel>
-        //   <TabPanel value={selectedTabIndex} index={2}>
-        //     {ingredientsData
-        //       .filter((ingredient) => ingredient.subcategory === "cabbages")
-        //       .map((ingredient) => (
-        //         <Chip
-        //           label={ingredient.ingredient_name}
-        //           key={ingredient.id}
-        //           onClick={() => handleClick(ingredient.ingredient_name)}
-        //           style={{
-        //             Width: "7rem",
-        //             height: 32,
-        //             margin: "0.5rem",
-        //           }}
-        //           color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
-        //           size="large"
-        //           sx={{
-        //             fontSize: "medium",
-        //           }}
-        //         />
-        //       ))}
-        //   </TabPanel>
-        //   <TabPanel value={selectedTabIndex} index={3}>
-        //     {ingredientsData
-        //       .filter((ingredient) => ingredient.subcategory === "fruit_vegetables")
-        //       .map((ingredient) => (
-        //         <Chip
-        //           label={ingredient.ingredient_name}
-        //           key={ingredient.id}
-        //           onClick={() => handleClick(ingredient.ingredient_name)}
-        //           style={{
-        //             Width: "7rem",
-        //             height: 32,
-        //             margin: "0.5rem",
-        //           }}
-        //           color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
-        //           size="large"
-        //           sx={{
-        //             fontSize: "medium",
-        //           }}
-        //         />
-        //       ))}
-        //   </TabPanel>
-        // </>
+// currentStep === 1 &&
+// <>
+//   <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+//     <Tabs value={selectedTabIndex} onChange={handleTabChange} aria-label="basic tabs example">
+//       <Tab label="Roots and Bulbs" {...a11yProps(0)} />
+//       <Tab label="Legumes" {...a11yProps(1)} />
+//       <Tab label="Cabbages" {...a11yProps(2)} />
+//       <Tab label="Fruit vegetables" {...a11yProps(3)} />
+//     </Tabs>
+//   </Box>
+//   <TabPanel value={selectedTabIndex} index={0}>
+//     {ingredientsData
+//       .filter((ingredient) => ingredient.subcategory === "roots_and_bulbs")
+//       .map((ingredient) => (
+//         <Chip
+//           label={ingredient.ingredient_name}
+//           key={ingredient.id}
+//           onClick={() => handleClick(ingredient.ingredient_name)}
+//           style={{
+//             Width: "7rem",
+//             height: 32,
+//             margin: "0.5rem",
+//           }}
+//           color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
+//           size="large"
+//           sx={{
+//             fontSize: "medium",
+//           }}
+//         />
+//       ))}
+//   </TabPanel>
+//   <TabPanel value={selectedTabIndex} index={1}>
+//     {ingredientsData
+//       .filter((ingredient) => ingredient.subcategory === "legumes")
+//       .map((ingredient) => (
+//         <Chip
+//           label={ingredient.ingredient_name}
+//           key={ingredient.id}
+//           onClick={() => handleClick(ingredient.ingredient_name)}
+//           style={{
+//             Width: "7rem",
+//             height: 32,
+//             margin: "0.5rem",
+//           }}
+//           color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
+//           size="large"
+//           sx={{
+//             fontSize: "medium",
+//           }}
+//         />
+//       ))}
+//   </TabPanel>
+//   <TabPanel value={selectedTabIndex} index={2}>
+//     {ingredientsData
+//       .filter((ingredient) => ingredient.subcategory === "cabbages")
+//       .map((ingredient) => (
+//         <Chip
+//           label={ingredient.ingredient_name}
+//           key={ingredient.id}
+//           onClick={() => handleClick(ingredient.ingredient_name)}
+//           style={{
+//             Width: "7rem",
+//             height: 32,
+//             margin: "0.5rem",
+//           }}
+//           color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
+//           size="large"
+//           sx={{
+//             fontSize: "medium",
+//           }}
+//         />
+//       ))}
+//   </TabPanel>
+//   <TabPanel value={selectedTabIndex} index={3}>
+//     {ingredientsData
+//       .filter((ingredient) => ingredient.subcategory === "fruit_vegetables")
+//       .map((ingredient) => (
+//         <Chip
+//           label={ingredient.ingredient_name}
+//           key={ingredient.id}
+//           onClick={() => handleClick(ingredient.ingredient_name)}
+//           style={{
+//             Width: "7rem",
+//             height: 32,
+//             margin: "0.5rem",
+//           }}
+//           color={selectedIngredients.includes(ingredient.ingredient_name) ? "primary" : "default"}
+//           size="large"
+//           sx={{
+//             fontSize: "medium",
+//           }}
+//         />
+//       ))}
+//   </TabPanel>
+// </>
 //       }
 //     </Box>
 //   );
 // }
-
 
 // //******** KEEP
 // function TabPanel(props) {

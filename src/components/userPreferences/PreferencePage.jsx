@@ -45,7 +45,10 @@ function PreferencePage() {
       </div>
       <div className="time-select">
         <h3>3. How much time do you have?</h3>
-        <DiscreteSlider onChange={handleChangePreferences} />
+        <DiscreteSlider
+          onChange={handleChangePreferences}
+          className="time-slider"
+        />
       </div>
       <div className="tool-select">
         <h3>4. Select your kitchen tools</h3>
@@ -59,8 +62,10 @@ function PreferencePage() {
         <h3>6. Select a measurement option</h3>
         <MeasurementSelectLabel onChange={handleChangePreferences} />
       </div>
-      <h3>7. Do you have any allergies or dietary restrictions?</h3>
-      <AllergySelection allergies={selectedAllergies}></AllergySelection>
+      <div className="allergy-select">
+        <h3>7. Do you have any allergies or dietary restrictions?</h3>
+        <AllergySelection allergies={selectedAllergies}></AllergySelection>
+      </div>
       <PickMyIngredientsButton onChange={handleChangePreferences} />
       <button variant="contained" onClick={handleSubmit}>
         Submit

@@ -8,25 +8,23 @@ import Typography from "@mui/material/Typography";
 
 export default function HomePageCard(props) {
   return (
-    <Card sx={{ minWidth: 200 }}>
-      <CardMedia
-        component="img"
-        alt={props.alt}
-        height="160"
-        image={props.image}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
-          {props.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {props.description}
-        </Typography>
-      </CardContent>
-      {/* <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions> */}
-    </Card>
+    <div>
+      <Card>
+        <CardMedia
+          component="img"
+          alt={props.alt}
+          height="160"
+          image={props.image}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+            {props.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {props.description}
+          </Typography>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
