@@ -8,10 +8,10 @@ export function PreferencesProvider({ children }) {
     skillLevel: "",
     cookingTime: 0,
     measurementSelection: "",
-    gourmetMode: false,
+    selectedAllergies: [],
+    selectedTools: [],
     strictMode: false,
-    allergies: [],
-    selectedTools: []
+    gourmetMode: false
   });
 
   const [ingredients, setIngredients] = useState({

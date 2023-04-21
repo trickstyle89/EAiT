@@ -20,29 +20,11 @@ function PreferencePage() {
 
   const navigate = useNavigate();
 
-  const [gourmetMode, setGourmetMode] = useState(false);
-  const [strictMode, setStrictMode] = useState(false);
-
-  const handleClick = (mode) => {
-    if (mode === "Strict Mode") {
-      setStrictMode((prevStrictMode) => !prevStrictMode);
-    } else if (mode === "Gourmet Mode") {
-      setGourmetMode((prevGourmetMode) => !prevGourmetMode);
-    }
-  };
-
   const handleSubmit = async () => {
     console.log("Submitting preferences:", preferences);
 
-    // Include gourmetMode and strictMode in the submission
-    const updatedPreferences = {
-      ...preferences,
-      gourmetMode,
-      strictMode,
-    };
-
     try {
-      const response = await axios.post("/api/recipe", updatedPreferences);
+      const response = await axios.post("/api/recipe", preferences);
       console.log("Test response:", response.data);
       navigate("/recipes");
     } catch (error) {
@@ -80,7 +62,7 @@ function PreferencePage() {
       </div>
       <div className="cooking-mode-select">
         <h3>5. Select your cooking mode</h3>
-        <ChefModeButtons onChange={handleClick} />
+        <ChefModeButtons />
       </div>
       <div className="measurement-select">
         <h3>6. Select a measurement option</h3>
@@ -89,7 +71,7 @@ function PreferencePage() {
       <div className="allergy-select">
         <h3>7. Do you have any allergies or dietary restrictions?</h3>
         <AllergySelection
-          allergies={selectedAllergies}
+          selectedAllergies={selectedAllergies}
           onChange={handleChangePreferences} />
       </div>
       <PickMyIngredientsButton onChange={handleChangePreferences} />

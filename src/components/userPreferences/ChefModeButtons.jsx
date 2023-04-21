@@ -7,11 +7,17 @@ function ChefModeButtons() {
   const { preferences, handleChangePreferences } = usePreferences();
 
   const handleClick = (mode) => {
-    handleChangePreferences(mode, !preferences[mode]);
-    console.log(mode);
+    if (mode === "strictMode") {
+      handleChangePreferences("strictMode", !preferences.strictMode);
+      handleChangePreferences("gourmetMode", false);
+    } else if (mode === "gourmetMode") {
+      handleChangePreferences("gourmetMode", !preferences.gourmetMode);
+      handleChangePreferences("strictMode", false);
+    }
   };
 
   return (
+
     <div>
       <Stack direction="column" spacing={3} width={"40rem"} display={"flex"}>
         <Chip
@@ -25,7 +31,7 @@ function ChefModeButtons() {
           }}
           variant="filled"
           label="Strict Mode"
-          onClick={() => handleClick("Strict Mode")}
+          onClick={() => handleClick("strictMode")}
         ></Chip>
         <Chip
           sx={{
@@ -38,7 +44,7 @@ function ChefModeButtons() {
           }}
           variant="filled"
           label="Gourmet Mode"
-          onClick={() => handleClick("Gourmet Mode")}
+          onClick={() => handleClick("gourmetMode")}
         ></Chip>
       </Stack>
     </div>

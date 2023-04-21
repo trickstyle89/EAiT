@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { usePreferences } from "./PreferencesContext";
 import { Chip } from "@mui/material";
 
 function AllergySelection({ onChange }) {
   const { preferences, handleChangePreferences } = usePreferences();
-
-  const [selectedAllergies, setSelectedAllergies] = useState([]);
+  const { selectedAllergies } = preferences;
 
   const handleClick = (allergy) => {
+    let updatedAllergies;
     if (selectedAllergies.includes(allergy)) {
-      setSelectedAllergies(
-        selectedAllergies.filter((allergies) => allergies !== allergy)
+      updatedAllergies = selectedAllergies.filter(
+        (allergies) => allergies !== allergy
       );
     } else {
-      setSelectedAllergies([...selectedAllergies, allergy]);
+      updatedAllergies = [...selectedAllergies, allergy];
     }
-  
-    onChange("selectedAllergies", selectedAllergies);
+
+    handleChangePreferences("selectedAllergies", updatedAllergies);
   };
 
   const allergies = [
