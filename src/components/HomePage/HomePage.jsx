@@ -33,7 +33,7 @@ const HomePage = () => {
           </div>
           <div className="text-button">
             <p className={fadeIn ? "fade-in" : ""}>
-              Let Ai help you EAiT better
+              EAiT better with Ai
             </p>
             <a href="/preferences">
               <button className={`btn ${fadeIn ? "fade-in" : ""}`}>
