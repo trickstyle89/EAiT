@@ -20,7 +20,7 @@ export default function DiscreteSlider() {
   return (
     <div>
       <main>
-        <Container sx={{ width: 600 }}>
+        <Container sx={{ width: 600, textAlign: "left", margin: 0 }}>
           <Slider
             getAriaValueText={valuetext}
             valueLabelDisplay="auto"
@@ -33,17 +33,10 @@ export default function DiscreteSlider() {
             onChange={handleSliderChange}
             sx={{
               color: "#086788",
-              marginLeft: -40,
               marginTop: 3,
             }}
           />
-          <FormHelperText
-            sx={{
-              marginLeft: -40,
-            }}
-          >
-            Required *
-          </FormHelperText>
+          <FormHelperText>Required *</FormHelperText>
         </Container>
       </main>
     </div>

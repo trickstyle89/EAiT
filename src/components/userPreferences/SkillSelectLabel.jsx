@@ -17,6 +17,7 @@ function SkillSelectLabel() {
 
   return (
     <Container>
+      <h3>2. What is your cooking skill level?</h3>
       <FormControl sx={{ minWidth: 400 }}>
         <Select
           value={preferences.skillLevel}
