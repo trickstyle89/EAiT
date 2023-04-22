@@ -8,7 +8,6 @@ import { usePreferences } from "../userPreferences/PreferencesContext";
 import { useNavigate } from "react-router-dom";
 import { LoadingPage, MyCustomLogo } from "../recipePage/LoadingMUI";
 
-
 function IngredientsPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const { preferences, ingredients, handleChangeIngredients } =
@@ -20,9 +19,8 @@ function IngredientsPage() {
     e.preventDefault();
     console.log("Submitting preferences:", preferences);
 
-    const selectIngredientData = window.localStorage.getItem(
-      "selectIngredient"
-    );
+    const selectIngredientData =
+      window.localStorage.getItem("selectIngredient");
     const storedIngredients = selectIngredientData
       ? JSON.parse(selectIngredientData)
       : [];
@@ -91,4 +89,3 @@ function IngredientsPage() {
 }
 
 export default IngredientsPage;
-

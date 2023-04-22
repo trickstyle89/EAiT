@@ -74,7 +74,7 @@ a {
 
 .btn {
   display: inline-block;
-  background-color: black;
+  background-color: #717744;
   color: #f8f8f8;
   font-size: 1.1rem;
   font-weight: bold;
@@ -90,8 +90,8 @@ a {
 }
 
 .btn:hover {
-  background-color: #06aed5;
-  color: #f8f8f8;
+  background-color: #a6ad70;
+  color: white;
 }
 
 .btn:active {
@@ -118,7 +118,7 @@ h1 {
 }
 
 .footer {
-  background-color: #06aed5;
+  background-color: #717744;
   color: #fff;
   text-align: center;
   padding: 1rem;
@@ -148,6 +148,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
 }
 
 .action-card-area h2 {
@@ -164,20 +165,23 @@ h1 {
 
 .action-card-area__cards-container {
   display: flex;
-  gap: 6rem;
+  gap: 5rem;
   margin-top: 2rem;
   margin-left: 3rem;
   margin-right: 3rem;
+  width: 90%;
 }
 
 .how-to-steps {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  margin-top: 2rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
   padding-bottom: 5rem;
-  padding-top: 2rem;
+
+  width: 90%;
 }
 
 .content h1 {
