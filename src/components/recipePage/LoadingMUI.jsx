@@ -18,10 +18,18 @@ const LoadingContainer = styled('div')({
 
 const MyCustomLogo = () => {
   return (
-    <img
-      src="https://cdn.dribbble.com/users/1515327/screenshots/4328124/cooking_loader_2.gif"
-      alt="logo"
-    />
+    <>
+      <h1>hi</h1>
+      <img
+        src="https://www.icegif.com/wp-content/uploads/chef-pusheen-icegif.gif"
+        //https://i.pinimg.com/originals/4e/e9/c7/4ee9c7420c4231bc38ababc9c088bf93.gif
+        //https://www.icegif.com/wp-content/uploads/chef-pusheen-icegif.gif
+        //https://cdn.dribbble.com/users/393062/screenshots/14475354/media/f2221ff5ea31cd694fea71f05a28805c.gif
+        alt="logo"
+        height={"250rem"}
+        width={"350rem"}
+      />
+    </>
   );
 };
 

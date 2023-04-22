@@ -12,7 +12,7 @@ const StyledToolBar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
   height: 70,
-  backgroundColor: "#06AED5",
+  backgroundColor: "#38A3BD",
 });
 
 function Navbar() {
