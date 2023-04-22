@@ -15,19 +15,26 @@ export default function ImgMediaCard({ recipe }) {
         height="140"
         image={recipe.image}
       />
-      <CardContent>
+     <CardContent>
         <Typography gutterBottom variant="h6" component="div">
           {recipe.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Cooking time: {recipe.cookingTime} <br />
-          Calories per serving: {recipe.calories}
+          {recipe.nutrition.map((nutrient, index) => (
+            <React.Fragment key={index}>
+              <br />
+              {nutrient}
+            </React.Fragment>
+          ))}
         </Typography>
       </CardContent>
-      {/* <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions> */}
     </Card>
   );
 }
+
+
+
+
+
+
