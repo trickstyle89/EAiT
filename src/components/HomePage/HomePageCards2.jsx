@@ -9,11 +9,11 @@ import Typography from "@mui/material/Typography";
 export default function HomePageCard(props) {
   return (
     <div>
-      <Card>
+      <Card sx={{ minHeight: "20rem", width: "22rem" }}>
         <CardMedia
           component="img"
+          height="170rem"
           alt={props.alt}
-          height="160"
           image={props.image}
         />
         <CardContent>
