@@ -52,7 +52,6 @@ function IngredientsPage() {
           zIndex: 1,
         }}
       >
-        <Navbar />
         <h3>Select your ingredients</h3>
         <HorizontalStepper
           currentStep={currentStep}
