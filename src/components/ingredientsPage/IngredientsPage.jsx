@@ -33,7 +33,7 @@ function IngredientsPage() {
     };
 
     try {
-      setIsGeneratingRecipe(true); // set the state variable to true before sending the request
+      setIsGeneratingRecipe(true);
       const response = await axios.post("/api/recipe", updatedPreferences);
       console.log("Test response:", response.data);
 
@@ -41,38 +41,50 @@ function IngredientsPage() {
     } catch (error) {
       console.error("Test error:", error.response?.data || error.message);
     } finally {
-      setIsGeneratingRecipe(false); // set the state variable to false once the response is received
+      setIsGeneratingRecipe(false);
     }
   };
 
   return (
-    <Box sx={{
-      position: "relative",
-      filter: isGeneratingRecipe ? "blur(5px)" : "none",
-    }}>
-      <Navbar />
-      <h3>Select your ingredients</h3>
-      <HorizontalStepper
-        currentStep={currentStep}
-        setCurrentStep={setCurrentStep}
-      />
-      <form onSubmit={handleSubmit}>
-        <BasicTabs
-          ingredients={ingredients}
-          handleChangeIngredients={handleChangeIngredients}
-          currentStep={currentStep}
-        />
-        <button type="submit">Generate Recipe</button>
-      </form>
-      {isGeneratingRecipe && (
-        <Box sx={{
+    <Box sx={{ position: "relative" }}>
+      <Box
+        sx={{
           position: "relative",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }}>
-          <LoadingPage loadingLogo={<MyCustomLogo />} />
-        </Box>
+          filter: isGeneratingRecipe ? "blur(5px)" : "none",
+          zIndex: 1,
+        }}
+      >
+        <Navbar />
+        <h3>Select your ingredients</h3>
+        <HorizontalStepper
+          currentStep={currentStep}
+          setCurrentStep={setCurrentStep}
+        />
+        <form onSubmit={handleSubmit}>
+          <BasicTabs
+            ingredients={ingredients}
+            handleChangeIngredients={handleChangeIngredients}
+            currentStep={currentStep}
+          />
+          <button type="submit">Generate Recipe</button>
+        </form>
+      </Box>
+      {isGeneratingRecipe && (<Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backdropFilter: isGeneratingRecipe ? "none" : "blur(5px)",
+          transition: "backdrop-filter 0.5s",
+        }}
+      >
+        <LoadingPage loadingLogo={<MyCustomLogo />} />
+      </Box>
       )}
     </Box>
   );

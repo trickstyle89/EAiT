@@ -12,7 +12,8 @@ const LoadingContainer = styled('div')({
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: 'white',
+  backgroundColor: 'transparent',
+  zIndex: 9999,
 });
 
 const MyCustomLogo = () => {
