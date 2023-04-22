@@ -6,6 +6,7 @@ import HomePage from "./HomePage/HomePage";
 import { PreferencesProvider } from "./userPreferences/PreferencesContext";
 import IngredientsPage from "./ingredientsPage/IngredientsPage";
 
+
 const Main = () => {
   const [recipe, setRecipe] = useState(null);
 
@@ -39,21 +40,22 @@ const Main = () => {
           exact
           path="/recipes"
           element={
-            <>{recipe ? <Recipe recipe={recipe} /> : <div>Loading...</div>}</>
+            <Recipe recipe={recipe} />
           }
         />
         <Route
           exact
           path="/preferences"
-          element={<PreferencePage></PreferencePage>}
+          element={<PreferencePage />}
         />
         <Route
           exact
           path="/ingredients"
-          element={<IngredientsPage></IngredientsPage>}
+          element={<IngredientsPage />}
         />
       </Routes>
     </PreferencesProvider>
   );
 };
+
 export default Main;

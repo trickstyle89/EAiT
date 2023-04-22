@@ -4,7 +4,7 @@ import ControlledSwitches from "../IngredientsSwitchMui";
 import ImgMediaCard from "../CardsMui";
 import CheckboxLabels from "../CheckboxMui";
 import Navbar from "../Navbar";
-import LoadingPage from "./LoadingMUI";
+import { LoadingPage } from "./LoadingMUI";
 
 function Recipe() {
   const [showInstructions, setShowInstructions] = useState(false);
