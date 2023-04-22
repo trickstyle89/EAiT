@@ -36,7 +36,7 @@ function ChefModeButtons() {
           label={
             <>
               <Typography variant="h6" component="span" style={{ margin: 2 }}>
-                Strict Mode
+                Selected Ingredients Only
               </Typography>
               <br />
               <Typography
@@ -60,7 +60,7 @@ function ChefModeButtons() {
           label={
             <>
               <Typography variant="h6" component="span" style={{ margin: 2 }}>
-                Gourmet Mode
+                Best Combined
               </Typography>
               <br />
               <Typography

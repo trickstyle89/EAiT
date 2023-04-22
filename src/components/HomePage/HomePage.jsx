@@ -17,7 +17,6 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <Navbar></Navbar>
       <div className="bg-img">
         <div className="content">
           <div className="type">
@@ -32,9 +31,7 @@ const HomePage = () => {
             />
           </div>
           <div className="text-button">
-            <p className={fadeIn ? "fade-in" : ""}>
-              EAiT better with Ai
-            </p>
+            <p className={fadeIn ? "fade-in" : ""}>EAiT better with Ai</p>
             <a href="/preferences">
               <button className={`btn ${fadeIn ? "fade-in" : ""}`}>
                 Get Started
@@ -44,7 +41,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="action-card-area">
-        <h2>Don't have much time?</h2>
+        {/* <h2>Don't have much time?</h2> */}
         <h3>Take a look at our quick recipes</h3>
         <div className="action-card-area__cards-container">
           <ActionAreaCard
@@ -76,7 +73,7 @@ const HomePage = () => {
               alt="Step 1"
               title="Select your preferences"
               description="Lorem ipsum dolor sit amet. Aut suscipit molestiae quo culpa voluptatibus sed reiciendis earum "
-              image="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+              image="https://images.unsplash.com/photo-1598512752271-33f913a5af13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
             />
             <HomePageCard
               alt="Step 2"
@@ -99,9 +96,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <footer className="footer">
-        <p>EAiT &copy; 2023</p>
-      </footer>
     </div>
   );
 };

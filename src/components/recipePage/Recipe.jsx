@@ -30,7 +30,6 @@ function Recipe() {
 
   return (
     <div className="recipe">
-      <Navbar />
       <main className="recipe-main">
         <div className="recipe-image-container">
           <ImgMediaCard recipe={recipe} className="recipe-image" />

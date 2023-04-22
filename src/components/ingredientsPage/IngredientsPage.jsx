@@ -50,7 +50,6 @@ function IngredientsPage() {
         filter: isGeneratingRecipe ? "blur(5px)" : "none",
       }}
     >
-      <Navbar />
       <h3>Select your ingredients</h3>
       <HorizontalStepper
         currentStep={currentStep}

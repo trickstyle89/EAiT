@@ -23,12 +23,15 @@ function PreferencePage() {
   const handleSubmit = async () => {
     console.log("Submitting preferences:", preferences);
 
-    const selectIngredientData = window.localStorage.getItem("selectIngredient");
-    const ingredients = selectIngredientData ? JSON.parse(selectIngredientData) : [];
+    const selectIngredientData =
+      window.localStorage.getItem("selectIngredient");
+    const ingredients = selectIngredientData
+      ? JSON.parse(selectIngredientData)
+      : [];
 
     const updatedPreferences = {
       ...preferences,
-      ingredients
+      ingredients,
     };
 
     try {
@@ -42,7 +45,6 @@ function PreferencePage() {
 
   return (
     <div>
-      <Navbar></Navbar>
       <div className="select-meal-skill-titles">
         <h3>1. Select Meal</h3>
         <h3>2. What is your cooking skill level?</h3>
@@ -80,15 +82,13 @@ function PreferencePage() {
         <h3>7. Do you have any allergies or dietary restrictions?</h3>
         <AllergySelection
           selectedAllergies={selectedAllergies}
-          onChange={handleChangePreferences} />
+          onChange={handleChangePreferences}
+        />
       </div>
       <PickMyIngredientsButton onChange={handleChangePreferences} />
       <button variant="contained" onClick={handleSubmit}>
         Submit
       </button>
-      <footer className="footer">
-        <p>EAiT &copy; 2023</p>
-      </footer>
     </div>
   );
 }
