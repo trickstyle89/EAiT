@@ -6,15 +6,16 @@ import CheckboxLabels from "../CheckboxMui";
 import Navbar from "../Navbar";
 import LoadingPage from "./LoadingMUI";
 
-function Recipe({ recipe }) {
+function Recipe() {
   const [showInstructions, setShowInstructions] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:3001/api/recipe")
       .then((response) => response.json())
-      .then((recipe) => {
-        setShowInstructions(recipe);
+      .then((fetchedRecipe) => {
+        setRecipe(fetchedRecipe);
         setIsLoading(false);
       });
   }, []);

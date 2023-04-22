@@ -5,6 +5,8 @@ import HorizontalStepper from "./HorizontalStepper";
 import BasicTabs from "./SubCategoriesTabs";
 import axios from "axios";
 import { usePreferences } from "../userPreferences/PreferencesContext";
+import { useNavigate } from "react-router-dom";
+
 
 const steps = [
   "Proteins",
@@ -18,25 +20,35 @@ const steps = [
 
 function IngredientsPage() {
   const [currentStep, setCurrentStep] = useState(0);
-  const { preferences, selectedTools, ingredients, handleChangeIngredients } =
+  const { preferences, ingredients, handleChangeIngredients } =
     usePreferences();
 
-  const handleSubmit = async (e) => {
-    console.log("Submitting preferences:", preferences);
-    e.preventDefault();
-    const requestData = {
-      ...preferences,
-      ingredients,
-      selectedTools,
+    const navigate = useNavigate();
+
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      console.log("Submitting preferences:", preferences);
+  
+      const selectIngredientData = window.localStorage.getItem("selectIngredient");
+      const storedIngredients = selectIngredientData ? JSON.parse(selectIngredientData) : [];
+  
+      const updatedPreferences = {
+        ...preferences,
+        ingredients: storedIngredients,
+      };
+  
+      try {
+        const response = await axios.post("/api/recipe", updatedPreferences);
+        console.log("Test response:", response.data);
+
+        navigate("/recipes");
+      } catch (error) {
+        console.error("Test error:", error.response?.data || error.message);
+      }
     };
 
-    try {
-      const response = await axios.post("/api/recipe", requestData);
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error fetching recipe:", error);
-    }
-  };
+
   return (
     <Box>
       <Navbar />

@@ -23,8 +23,16 @@ function PreferencePage() {
   const handleSubmit = async () => {
     console.log("Submitting preferences:", preferences);
 
+    const selectIngredientData = window.localStorage.getItem("selectIngredient");
+    const ingredients = selectIngredientData ? JSON.parse(selectIngredientData) : [];
+
+    const updatedPreferences = {
+      ...preferences,
+      ingredients
+    };
+
     try {
-      const response = await axios.post("/api/recipe", preferences);
+      const response = await axios.post("/api/recipe", updatedPreferences);
       console.log("Test response:", response.data);
       navigate("/recipes");
     } catch (error) {
