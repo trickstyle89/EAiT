@@ -79,3 +79,4 @@ function IngredientsPage() {
 }
 
 export default IngredientsPage;
+
