@@ -43,6 +43,7 @@ function IngredientsPage() {
         console.log("Test response:", response.data);
 
         navigate("/recipes");
+
       } catch (error) {
         console.error("Test error:", error.response?.data || error.message);
       }
