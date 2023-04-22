@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useLocation } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -16,6 +17,13 @@ const StyledToolBar = styled(Toolbar)({
 });
 
 function Navbar() {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  const handleButtonClick = () => {
+    window.localStorage.clear();
+  };
+
   return (
     <AppBar position="sticky">
       <Box>
@@ -52,10 +60,11 @@ function Navbar() {
                   color: "black",
                 },
               }}
-              href="/preferences"
+              href={"/preferences"}
               variant="contained"
+              onClick={handleButtonClick}
             >
-              Get Started
+              {isHomePage ? "Get Started" : "Start Over"}
             </Button>
           </Box>
         </StyledToolBar>
@@ -63,4 +72,5 @@ function Navbar() {
     </AppBar>
   );
 }
+
 export default Navbar;
