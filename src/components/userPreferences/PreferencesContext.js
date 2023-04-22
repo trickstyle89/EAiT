@@ -15,7 +15,7 @@ export function PreferencesProvider({ children }) {
   });
 
   const [ingredients, setIngredients] = useState({
-
+    
   });
 
   useEffect(() => {
