@@ -2,6 +2,7 @@ import React from "react";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import { usePreferences } from "./PreferencesContext";
+import { Typography } from "@mui/material";
 
 function ChefModeButtons() {
   const { preferences, handleChangePreferences } = usePreferences();
@@ -10,41 +11,68 @@ function ChefModeButtons() {
     if (mode === "strictMode") {
       handleChangePreferences("strictMode", !preferences.strictMode);
       handleChangePreferences("gourmetMode", false);
+      console.log("strict Mode selected");
     } else if (mode === "gourmetMode") {
       handleChangePreferences("gourmetMode", !preferences.gourmetMode);
       handleChangePreferences("strictMode", false);
+      console.log("gourmet mode selected");
+    } else {
+      handleChangePreferences("strictMode", false);
+      handleChangePreferences("gourmetMode", false);
     }
   };
 
   return (
-
     <div>
-      <Stack direction="column" spacing={3} width={"40rem"} display={"flex"}>
+      <Stack spacing={2}>
         <Chip
-          sx={{
-            height: "2",
-            "& .MuiChip-label": {
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            },
+          style={{
+            height: 70,
+            width: 670,
+            marginTop: 10,
           }}
-          variant="filled"
-          label="Strict Mode"
+          color={preferences.strictMode ? "primary" : "default"}
           onClick={() => handleClick("strictMode")}
+          label={
+            <>
+              <Typography variant="h6" component="span" style={{ margin: 2 }}>
+                Strict Mode
+              </Typography>
+              <br />
+              <Typography
+                variant="body1"
+                component="span"
+                style={{ margin: 2 }}
+              >
+                Create recipes using only the specific ingredients that you have
+                selected, nothing more!
+              </Typography>
+            </>
+          }
         ></Chip>
         <Chip
-          sx={{
-            height: "2",
-            "& .MuiChip-label": {
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            },
+          style={{
+            height: 70,
+            width: 670,
           }}
-          variant="filled"
-          label="Gourmet Mode"
+          color={preferences.gourmetMode ? "primary" : "default"}
           onClick={() => handleClick("gourmetMode")}
+          label={
+            <>
+              <Typography variant="h6" component="span" style={{ margin: 2 }}>
+                Gourmet Mode
+              </Typography>
+              <br />
+              <Typography
+                variant="body1"
+                component="span"
+                style={{ margin: 2 }}
+              >
+                Create recipes with your selected ingredients plus some extras
+                to elevate your recipes.
+              </Typography>
+            </>
+          }
         ></Chip>
       </Stack>
     </div>

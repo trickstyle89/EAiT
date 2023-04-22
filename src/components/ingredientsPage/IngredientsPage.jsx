@@ -8,7 +8,6 @@ import { usePreferences } from "../userPreferences/PreferencesContext";
 import { useNavigate } from "react-router-dom";
 import { LoadingPage, MyCustomLogo } from "../recipePage/LoadingMUI";
 
-
 function IngredientsPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const { preferences, ingredients, handleChangeIngredients } =
@@ -20,9 +19,8 @@ function IngredientsPage() {
     e.preventDefault();
     console.log("Submitting preferences:", preferences);
 
-    const selectIngredientData = window.localStorage.getItem(
-      "selectIngredient"
-    );
+    const selectIngredientData =
+      window.localStorage.getItem("selectIngredient");
     const storedIngredients = selectIngredientData
       ? JSON.parse(selectIngredientData)
       : [];
@@ -46,10 +44,12 @@ function IngredientsPage() {
   };
 
   return (
-    <Box sx={{
-      position: "relative",
-      filter: isGeneratingRecipe ? "blur(5px)" : "none",
-    }}>
+    <Box
+      sx={{
+        position: "relative",
+        filter: isGeneratingRecipe ? "blur(5px)" : "none",
+      }}
+    >
       <Navbar />
       <h3>Select your ingredients</h3>
       <HorizontalStepper
@@ -64,13 +64,16 @@ function IngredientsPage() {
         />
         <button type="submit">Generate Recipe</button>
       </form>
+
       {isGeneratingRecipe && (
-        <Box sx={{
-          position: "relative",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }}>
+        <Box
+          sx={{
+            position: "relative",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
           <LoadingPage loadingLogo={<MyCustomLogo />} />
         </Box>
       )}
@@ -79,4 +82,3 @@ function IngredientsPage() {
 }
 
 export default IngredientsPage;
-
