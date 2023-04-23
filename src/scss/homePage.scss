@@ -132,8 +132,7 @@ h1 {
 }
 
 .bg-img {
-  background: url("https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80")
-    no-repeat center center fixed;
+  background: url("https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   height: calc(100vh - 80px);
@@ -165,6 +164,7 @@ h1 {
 
 .action-card-area__cards-container {
   display: flex;
+  justify-content: center;
   gap: 5rem;
   margin-top: 2rem;
   margin-left: 3rem;
@@ -175,6 +175,8 @@ h1 {
 .how-to-steps {
   display: flex;
   gap: 3rem;
+  width: 90%;
+  justify-content: center;
   margin-top: 2rem;
   margin-left: 3rem;
   margin-right: 3rem;
