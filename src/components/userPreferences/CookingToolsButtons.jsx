@@ -2,6 +2,16 @@ import React, { useState, useEffect } from "react";
 import Chip from "@mui/material/Chip";
 import { usePreferences } from "./PreferencesContext";
 import { Typography, Box } from "@mui/material";
+import styled from "@emotion/styled";
+
+export const ToolChip = styled(Chip)`
+  flex: 1 1 auto;
+  max-width: 100%;
+  height: 32px;
+  margin: 0.5rem;
+  font-size: large;
+  size: large;
+`;
 
 function CookingToolsButtons() {
   const [cookingTools, setCookingTools] = useState([]);
@@ -39,26 +49,15 @@ function CookingToolsButtons() {
         }}
       >
         {cookingTools.map((tool) => (
-          <Chip
+          <ToolChip
             label={tool.tool_name}
             key={tool.id}
             onClick={() => handleClick(tool.tool_name)}
-            style={{
-              flex: "1 1 auto",
-              minWidth: "5rem",
-              maxWidth: "100%",
-              height: 32,
-              margin: "0.5rem",
-            }}
             color={
               preferences.selectedTools.includes(tool.tool_name)
                 ? "secondary"
                 : "default"
             }
-            size="large"
-            sx={{
-              fontSize: "large",
-            }}
           />
         ))}
       </Box>
