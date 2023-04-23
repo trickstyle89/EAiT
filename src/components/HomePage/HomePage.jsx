@@ -4,7 +4,7 @@ import "../../scss/homePage.scss";
 import Typist from "react-text-typist";
 import ActionAreaCard from "./HomePageCards";
 import HomePageCard from "./HomePageCards2";
-import Navbar from "../Navbar";
+
 
 const HomePage = () => {
   const [fadeIn, setFadeIn] = useState(false);

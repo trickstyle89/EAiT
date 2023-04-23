@@ -1,6 +1,6 @@
 import React from "react";
 import { usePreferences } from "./PreferencesContext";
-import { Chip } from "@mui/material";
+import { Chip, withStyles } from "@mui/material";
 
 function AllergySelection({ onChange }) {
   const { preferences, handleChangePreferences } = usePreferences();
@@ -46,7 +46,7 @@ function AllergySelection({ onChange }) {
             height: 32,
             margin: "0.5rem",
           }}
-          color={selectedAllergies.includes(allergy) ? "primary" : "default"}
+          color={selectedAllergies.includes(allergy) ? "success" : "default"}
           size="large"
           sx={{
             fontSize: "medium",

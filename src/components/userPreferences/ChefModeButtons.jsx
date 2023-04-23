@@ -28,10 +28,10 @@ function ChefModeButtons() {
         <Chip
           style={{
             height: 70,
-            width: 670,
+            width: 610,
             marginTop: 10,
           }}
-          color={preferences.strictMode ? "primary" : "default"}
+          color={preferences.strictMode ? "success" : "default"}
           onClick={() => handleClick("strictMode")}
           label={
             <>
@@ -40,7 +40,7 @@ function ChefModeButtons() {
               </Typography>
               <br />
               <Typography
-                variant="body1"
+                variant="body2"
                 component="span"
                 style={{ margin: 2 }}
               >
@@ -53,9 +53,9 @@ function ChefModeButtons() {
         <Chip
           style={{
             height: 70,
-            width: 670,
+            width: 610,
           }}
-          color={preferences.gourmetMode ? "primary" : "default"}
+          color={preferences.gourmetMode ? "success" : "default"}
           onClick={() => handleClick("gourmetMode")}
           label={
             <>
@@ -64,7 +64,7 @@ function ChefModeButtons() {
               </Typography>
               <br />
               <Typography
-                variant="body1"
+                variant="body2"
                 component="span"
                 style={{ margin: 2 }}
               >
