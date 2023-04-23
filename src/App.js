@@ -1,18 +1,23 @@
 import './css/styles.css';
 import Main from './components/Main'
 import Navbar from './components/Navbar';
+import { Box } from '@mui/material';
 
 
 function App() {
 
   return (
-    <div className="App">
+    <Box sx={{
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "100vh",
+    }}>
       <Navbar />
       <Main />
-      <footer className="footer" >
+      <footer className="footer" style={{ marginTop: "auto" }} >
         <p>EAiT &copy; 2023</p>
       </footer>
-    </div>
+    </Box >
   );
 }
 

@@ -1,6 +1,5 @@
-import { Box } from "@mui/material";
+import { Box, Button, Paper } from "@mui/material";
 import { useState } from "react";
-import Navbar from "../Navbar";
 import HorizontalStepper from "./HorizontalStepper";
 import BasicTabs from "./SubCategoriesTabs";
 import axios from "axios";
@@ -44,46 +43,77 @@ function IngredientsPage() {
   };
 
   return (
-    <Box sx={{ position: "relative" }}>
-      <Box
+    <>
+      <Paper
+        variant="outlined"
         sx={{
-          position: "relative",
-          filter: isGeneratingRecipe ? "blur(5px)" : "none",
-          zIndex: 1,
+          margin: 4,
         }}
       >
-        <h3>Select your ingredients</h3>
-        <HorizontalStepper
-          currentStep={currentStep}
-          setCurrentStep={setCurrentStep}
-        />
-        <form onSubmit={handleSubmit}>
+        <Box
+          sx={{
+            position: "relative",
+            filter: isGeneratingRecipe ? "blur(5px)" : "none",
+            zIndex: 1,
+          }}
+        >
+          <HorizontalStepper
+            currentStep={currentStep}
+            setCurrentStep={setCurrentStep}
+          />
           <BasicTabs
             ingredients={ingredients}
             handleChangeIngredients={handleChangeIngredients}
             currentStep={currentStep}
           />
-          <button type="submit">Generate Recipe</button>
-        </form>
-      </Box>
-      {isGeneratingRecipe && (<Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backdropFilter: isGeneratingRecipe ? "none" : "blur(5px)",
-          transition: "backdrop-filter 0.5s",
-        }}
-      >
-        <LoadingPage loadingLogo={<MyCustomLogo />} />
-      </Box>
-      )}
-    </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <form onSubmit={handleSubmit}>
+              <Button
+                type="submit"
+                size="large"
+                variant="contained"
+                color="primary"
+                sx={{
+                  my: 2,
+                  mb: 5,
+                  fontSize: "large",
+                  fontFamily: "inherit",
+                  "&:hover": {
+                    background: "#a6ad70",
+                    color: "white",
+                  },
+                }}
+              >
+                Generate Recipe
+              </Button>
+            </form>
+          </Box>
+        </Box>
+        {isGeneratingRecipe && (
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backdropFilter: isGeneratingRecipe ? "none" : "blur(5px)",
+              transition: "backdrop-filter 0.5s",
+            }}
+          >
+            <LoadingPage loadingLogo={<MyCustomLogo />} />
+          </Box>
+        )}
+      </Paper>
+    </>
   );
 }
 

@@ -6,6 +6,7 @@ import HomePage from "./HomePage/HomePage";
 import { PreferencesProvider } from "./userPreferences/PreferencesContext";
 import IngredientsPage from "./ingredientsPage/IngredientsPage";
 import "../scss/preferencePage.scss";
+import { Box } from "@mui/material";
 
 const Main = () => {
   const [recipe, setRecipe] = useState(null);
@@ -33,7 +34,11 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="main">
+    <Box
+      sx={{
+        width: "100%",
+      }}
+    >
       <PreferencesProvider>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
@@ -42,7 +47,7 @@ const Main = () => {
           <Route exact path="/ingredients" element={<IngredientsPage />} />
         </Routes>
       </PreferencesProvider>
-    </div>
+    </Box>
   );
 };
 

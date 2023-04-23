@@ -18,19 +18,16 @@ const steps = [
 ];
 
 function HorizontalStepper(props) {
-  // const [activeStep, setActiveStep] = useState(0);
   const { currentStep, setCurrentStep } = props;
   const [completed, setCompleted] = useState({});
 
   const navigate = useNavigate();
 
   const handleGenerateRecipe = () => {
-    navigate("/recipe");
+    navigate("/recipes");
   };
 
   const totalSteps = () => {
-    // console.log(currentStep);
-    // handleStep(0);
     return steps.length;
   };
 
@@ -73,7 +70,7 @@ function HorizontalStepper(props) {
     newCompleted[currentStep] = true;
     setCompleted(newCompleted);
     if (isLastStep()) {
-      navigate("/recipe");
+      navigate("/recipes");
     } else {
       handleNext();
     }
@@ -85,52 +82,39 @@ function HorizontalStepper(props) {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Stepper activeStep={currentStep} alternativeLabel>
-        {steps.map((label, index) => (
-          <Step key={label} completed={completed[index]}>
-            <StepButton color="inherit" onClick={handleStep(index)}>
-              {label}
-            </StepButton>
-          </Step>
-        ))}
-      </Stepper>
-      <div>
-        {allStepsCompleted() ? (
-          <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-              <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleReset}>Reset</Button>
-            </Box>
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-              <Button
-                color="inherit"
-                disabled={currentStep === 0}
-                onClick={handleBack}
-                sx={{ mr: 1 }}
-              >
-                Back
-              </Button>
-              <Box sx={{ flex: "1 1 auto" }} />
-              {currentStep !== steps.length - 1 && (
-                <Button onClick={handleNext} sx={{ mr: 1 }}>
-                  Next
-                </Button>
-              )}
-              {currentStep === steps.length - 1 && (
-                <Button onClick={handleGenerateRecipe}>Generate Recipe</Button>
-              )}
-            </Box>
-          </React.Fragment>
-        )}
-      </div>
-    </Box>
+    <>
+      <Box sx={{ width: "100%" }}>
+        <Typography variant="h5" mb={5} ml={4} mt={4}>
+          Select your ingredients
+        </Typography>
+        <Stepper activeStep={currentStep} alternativeLabel>
+          {steps.map((label, index) => (
+            <Step key={label} completed={completed[index]}>
+              <StepButton color="inherit" onClick={handleStep(index)}>
+                {label}
+              </StepButton>
+            </Step>
+          ))}
+        </Stepper>
+        <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+          <Button
+            color="inherit"
+            disabled={currentStep === 0}
+            onClick={handleBack}
+            sx={{ mr: 1 }}
+          >
+            Back
+          </Button>
+          <Box sx={{ flex: "1 1 auto" }} />
+          {currentStep !== steps.length - 1 && (
+            <Button onClick={handleNext} sx={{ mr: 1 }}>
+              Next
+            </Button>
+          )}
+          {currentStep === steps.length - 1 && <Button disabled></Button>}
+        </Box>
+      </Box>
+    </>
   );
 }
 export default HorizontalStepper;

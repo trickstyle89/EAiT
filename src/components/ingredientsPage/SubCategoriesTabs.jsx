@@ -1,10 +1,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import { Box, Paper, Typography, Tab, Tabs } from "@mui/material";
 // import { usePreferences } from "./PreferencesContext";
 import Chip from "@mui/material/Chip";
 
@@ -161,42 +158,46 @@ export default function BasicTabs(props) {
   );
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={selectedTabIndex}
-          onChange={handleTabChange}
-          aria-label="basic tabs example"
-        >
-          {tabs.map((tab, index) => (
-            <Tab label={tab.label} {...a11yProps(index)} key={index} />
+    <>
+      <Paper varient="outlined" sx={{ m: 5, height: "50vh" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs
+            value={selectedTabIndex}
+            onChange={handleTabChange}
+            textColor="primary"
+            indicatorColor="primary"
+            aria-label="basic tabs example"
+          >
+            {tabs.map((tab, index) => (
+              <Tab label={tab.label} {...a11yProps(index)} key={index} />
+            ))}
+          </Tabs>
+        </Box>
+        <TabPanel value={selectedTabIndex} index={selectedTabIndex}>
+          {filteredIngredients.map((ingredient) => (
+            <Chip
+              label={ingredient.ingredient_name}
+              key={ingredient.id}
+              onClick={() => handleClick(ingredient.ingredient_name)}
+              style={{
+                flex: "1 1 auto",
+                minWidth: "5rem",
+                maxWidth: "100%",
+                height: 32,
+                margin: "0.5rem",
+              }}
+              color={
+                selectedIngredients.includes(ingredient.ingredient_name)
+                  ? "secondary"
+                  : "default"
+              }
+              size="large"
+              sx={{ fontSize: "medium" }}
+            />
           ))}
-        </Tabs>
-      </Box>
-      <TabPanel value={selectedTabIndex} index={selectedTabIndex}>
-        {filteredIngredients.map((ingredient) => (
-          <Chip
-            label={ingredient.ingredient_name}
-            key={ingredient.id}
-            onClick={() => handleClick(ingredient.ingredient_name)}
-            style={{
-              flex: "1 1 auto",
-              minWidth: "5rem",
-              maxWidth: "100%",
-              height: 32,
-              margin: "0.5rem",
-            }}
-            color={
-              selectedIngredients.includes(ingredient.ingredient_name)
-                ? "primary"
-                : "default"
-            }
-            size="large"
-            sx={{ fontSize: "medium" }}
-          />
-        ))}
-      </TabPanel>
-    </Box>
+        </TabPanel>
+      </Paper>
+    </>
   );
 }
 
