@@ -15,9 +15,15 @@ function CookingToolsButtons() {
 
   const handleClick = (toolName) => {
     if (preferences.selectedTools.includes(toolName)) {
-      handleChangePreferences("selectedTools", preferences.selectedTools.filter((name) => name !== toolName)); // Update this line
+      handleChangePreferences(
+        "selectedTools",
+        preferences.selectedTools.filter((name) => name !== toolName)
+      ); // Update this line
     } else {
-      handleChangePreferences("selectedTools", [...preferences.selectedTools, toolName]); // Update this line
+      handleChangePreferences("selectedTools", [
+        ...preferences.selectedTools,
+        toolName,
+      ]); // Update this line
     }
   };
 
@@ -35,7 +41,11 @@ function CookingToolsButtons() {
             height: 32,
             margin: "0.5rem",
           }}
-          color={preferences.selectedTools.includes(tool.tool_name) ? "primary" : "default"}
+          color={
+            preferences.selectedTools.includes(tool.tool_name)
+              ? "success"
+              : "default"
+          }
           size="large"
           sx={{
             fontSize: "medium",

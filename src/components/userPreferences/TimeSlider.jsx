@@ -32,7 +32,7 @@ export default function DiscreteSlider() {
             marks={true}
             onChange={handleSliderChange}
             sx={{
-              color: "#086788",
+              color: "#373d20",
               marginTop: 3,
             }}
           />
