@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
-import VerticalLinearStepper from "../VerticalStepper";
-import ControlledSwitches from "../IngredientsSwitchMui";
-import ImgMediaCard from "../CardsMui";
-import CheckboxLabels from "../CheckboxMui";
-import Navbar from "../Navbar";
+import RecipeCard from "./RecipeCard";
 import { LoadingPage } from "./LoadingMUI";
 
 function Recipe() {
   const [showInstructions, setShowInstructions] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [recipe, setRecipe] = useState(null);
+  const [recipes, setRecipe] = useState([]);
+  const [currentRecipeIndex, setCurrentRecipeIndex] = useState(0);
 
   useEffect(() => {
     fetch("http://localhost:3001/api/recipe")
       .then((response) => response.json())
-      .then((fetchedRecipe) => {
-        setRecipe(fetchedRecipe);
+      .then((fetchedRecipes) => {
+        setRecipe(fetchedRecipes);
         setIsLoading(false);
       });
   }, []);
 
   const toggleInstructions = () => {
     setShowInstructions((prevState) => !prevState);
+  };
+
+  const toggleRecipes = () => {
+    setCurrentRecipeIndex((prevIndex) => (prevIndex + 1) % recipes.length);
   };
 
   if (isLoading) {
@@ -31,36 +32,26 @@ function Recipe() {
   return (
     <div className="recipe">
       <main className="recipe-main">
-        <div className="recipe-image-container">
-          <ImgMediaCard recipe={recipe} className="recipe-image" />
-        </div>
-        <div className="recipe-sections">
-          <section className="recipe-ingredients">
-            <h2 className="recipe-section-title">Ingredients:</h2>
-            <CheckboxLabels
-              recipe={recipe}
-              className="recipe-ingredients-list"
-            />
-          </section>
-          <section className="recipe-instructions">
-            <h2 className="recipe-section-title">Instructions:</h2>
-            <ControlledSwitches
-              checked={showInstructions}
-              onChange={toggleInstructions}
-              label="Follow along"
-              className="recipe-switch"
-            />
-            {showInstructions ? (
-              <VerticalLinearStepper recipe={recipe} className="recipe-steps" />
-            ) : (
-              recipe.instructions.map((instruction, index) => (
-                <p key={index} className="recipe-instruction">
-                  {instruction}
-                </p>
-              ))
-            )}
-          </section>
-        </div>
+        {recipes.map((recipe, index) => {
+          if (index === currentRecipeIndex) {
+            return (
+              <RecipeCard
+                key={index}
+                recipe={recipe}
+                showInstructions={showInstructions}
+                toggleInstructions={toggleInstructions}
+                toggleRecipes={toggleRecipes}
+              />
+            );
+          } else {
+            return (
+              <div key={index} className="recipe-link" onClick={toggleRecipes}>
+                <h2>{recipe.name}</h2>
+                <p>Click to view recipe</p>
+              </div>
+            );
+          }
+        })}
       </main>
     </div>
   );
