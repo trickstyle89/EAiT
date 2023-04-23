@@ -53,7 +53,6 @@ function Navbar() {
               sx={{
                 my: 2,
                 color: "white",
-                display: "flex",
                 background: "#373d20",
                 "&:hover": {
                   background: "white",

@@ -1,8 +1,7 @@
 import React from "react";
 import Chip from "@mui/material/Chip";
-import Stack from "@mui/material/Stack";
 import { usePreferences } from "./PreferencesContext";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
 function ChefModeButtons() {
   const { preferences, handleChangePreferences } = usePreferences();
@@ -24,26 +23,34 @@ function ChefModeButtons() {
 
   return (
     <div>
-      <Stack spacing={2}>
+      <Typography variant="h6">5. Select your cooking mode</Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          mt: 1,
+        }}
+      >
         <Chip
           style={{
+            flex: "auto",
             height: 70,
-            width: 610,
-            marginTop: 10,
+            margin: "0.5rem",
           }}
-          color={preferences.strictMode ? "success" : "default"}
+          sx={{
+            fontSize: "large",
+            display: "flex",
+            justifyContent: "flex-start",
+          }}
+          color={preferences.strictMode ? "secondary" : "default"}
           onClick={() => handleClick("strictMode")}
           label={
             <>
-              <Typography variant="h6" component="span" style={{ margin: 2 }}>
+              <Typography variant="h6" component="span">
                 Selected Ingredients Only
               </Typography>
               <br />
-              <Typography
-                variant="body2"
-                component="span"
-                style={{ margin: 2 }}
-              >
+              <Typography variant="body2" component="span">
                 Create recipes using only the specific ingredients that you have
                 selected, nothing more!
               </Typography>
@@ -52,10 +59,16 @@ function ChefModeButtons() {
         ></Chip>
         <Chip
           style={{
+            flex: "auto",
             height: 70,
-            width: 610,
+            margin: "0.5rem",
           }}
-          color={preferences.gourmetMode ? "success" : "default"}
+          sx={{
+            fontSize: "large",
+            display: "flex",
+            justifyContent: "flex-start",
+          }}
+          color={preferences.gourmetMode ? "secondary" : "default"}
           onClick={() => handleClick("gourmetMode")}
           label={
             <>
@@ -74,7 +87,7 @@ function ChefModeButtons() {
             </>
           }
         ></Chip>
-      </Stack>
+      </Box>
     </div>
   );
 }

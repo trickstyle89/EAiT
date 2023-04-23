@@ -8,10 +8,11 @@ import MeasurementSelectLabel from "./MeasurementSelectLabel";
 import PickMyIngredientsButton from "./PickMyIngredientsButton";
 import { useNavigate } from "react-router-dom";
 import { usePreferences } from "./PreferencesContext";
+import AllergySelection from "./AllergySelection";
+import { Box, Paper } from "@mui/material";
 import axios from "axios";
 
-import "../../scss/preferencePage.scss";
-import AllergySelection from "./AllergySelection";
+// import "../../scss/preferencePage.scss";
 
 function PreferencePage() {
   const { preferences, handleChangePreferences, selectedAllergies } =
@@ -43,45 +44,85 @@ function PreferencePage() {
   };
 
   return (
-    <div>
-      <div className="select-meal-skill">
-        <MealSelectLabel
-          value={preferences.mealType}
-          onChange={handleChangePreferences}
-        />
-        <SkillSelectLabel
-          value={preferences.skillLevel}
-          onChange={handleChangePreferences}
-        />
-      </div>
-      <div className="time-select">
-        <h3>3. How much time do you have?</h3>
-        <DiscreteSlider
-          onChange={handleChangePreferences}
-          className="time-slider"
-        />
-      </div>
-      <div className="tool-select">
-        <h3>4. Select your kitchen tools</h3>
-        <CookingToolsButtons onChange={handleChangePreferences} />
-      </div>
-      <div className="cooking-mode-select">
-        <h3>5. Select your cooking mode</h3>
-        <ChefModeButtons />
-      </div>
-      <div className="measurement-select">
-        <h3>6. Select a measurement option</h3>
-        <MeasurementSelectLabel onChange={handleChangePreferences} />
-      </div>
-      <div className="allergy-select">
-        <h3>7. Do you have any allergies or dietary restrictions?</h3>
-        <AllergySelection
-          selectedAllergies={selectedAllergies}
-          onChange={handleChangePreferences}
-        />
-      </div>
-      <PickMyIngredientsButton onClick={handleSubmit} onChange={handleChangePreferences} />
-    </div>
+    <>
+      <Paper
+        variant="outlined"
+        sx={{
+          margin: 4,
+          backgroundColor: "#fbfcf9",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            mt: 4,
+            mb: 6,
+            mr: 6,
+            ml: 6,
+          }}
+        >
+          <MealSelectLabel
+            value={preferences.mealType}
+            onChange={handleChangePreferences}
+          />
+          <SkillSelectLabel
+            value={preferences.skillLevel}
+            onChange={handleChangePreferences}
+          />
+          <MeasurementSelectLabel onChange={handleChangePreferences} />
+        </Box>
+
+        <Box
+          sx={{
+            ml: 6,
+            mr: 6,
+            mb: 5,
+          }}
+        >
+          <DiscreteSlider
+            onChange={handleChangePreferences}
+            className="time-slider"
+          />
+        </Box>
+        <Box
+          sx={{
+            ml: 6,
+            mr: 6,
+            mb: 5,
+          }}
+        >
+          <CookingToolsButtons onChange={handleChangePreferences} />
+        </Box>
+        <Box
+          sx={{
+            ml: 6,
+            mr: 6,
+            mb: 5,
+          }}
+        >
+          <ChefModeButtons />
+        </Box>
+
+        <Box
+          sx={{
+            ml: 6,
+            mr: 6,
+            mb: 5,
+          }}
+        >
+          <AllergySelection
+            selectedAllergies={selectedAllergies}
+            onChange={handleChangePreferences}
+          />
+        </Box>
+      </Paper>
+      <PickMyIngredientsButton
+        onClick={handleSubmit}
+        onChange={handleChangePreferences}
+      />
+    </>
   );
 }
 

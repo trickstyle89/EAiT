@@ -5,7 +5,7 @@ import PreferencePage from "./userPreferences/PreferencePage";
 import HomePage from "./HomePage/HomePage";
 import { PreferencesProvider } from "./userPreferences/PreferencesContext";
 import IngredientsPage from "./ingredientsPage/IngredientsPage";
-
+import "../scss/preferencePage.scss";
 
 const Main = () => {
   const [recipe, setRecipe] = useState(null);
@@ -33,28 +33,16 @@ const Main = () => {
   }, []);
 
   return (
-    <PreferencesProvider>
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route
-          exact
-          path="/recipes"
-          element={
-            <Recipe recipe={recipe} />
-          }
-        />
-        <Route
-          exact
-          path="/preferences"
-          element={<PreferencePage />}
-        />
-        <Route
-          exact
-          path="/ingredients"
-          element={<IngredientsPage />}
-        />
-      </Routes>
-    </PreferencesProvider>
+    <div className="main">
+      <PreferencesProvider>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/recipes" element={<Recipe recipe={recipe} />} />
+          <Route exact path="/preferences" element={<PreferencePage />} />
+          <Route exact path="/ingredients" element={<IngredientsPage />} />
+        </Routes>
+      </PreferencesProvider>
+    </div>
   );
 };
 
