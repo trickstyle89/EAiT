@@ -14,9 +14,7 @@ export function PreferencesProvider({ children }) {
     gourmetMode: true
   });
 
-  const [ingredients, setIngredients] = useState({
-
-  });
+  const [ingredients, setIngredients] = useState({});
 
   useEffect(() => {
     console.log("getting Previous Preferences");
