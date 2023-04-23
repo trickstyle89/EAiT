@@ -4,6 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { Typography } from "@mui/material";
 
 function MeasurementSelectLabel() {
   const { preferences, handleChangePreferences } = usePreferences();
@@ -16,6 +17,9 @@ function MeasurementSelectLabel() {
 
   return (
     <div>
+      <Typography variant="h6" mb={1}>
+        3. Select a measurement option
+      </Typography>
       <FormControl sx={{ minWidth: 400 }}>
         <Select
           value={measurementSelection}

@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "@mui/material/Slider";
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import FormHelperText from "@mui/material/FormHelperText";
 import { usePreferences } from "./PreferencesContext";
 
@@ -19,26 +19,23 @@ export default function DiscreteSlider() {
 
   return (
     <div>
-      <main>
-        <Container sx={{ width: 600, textAlign: "left", margin: 0 }}>
-          <Slider
-            getAriaValueText={valuetext}
-            valueLabelDisplay="auto"
-            step={5}
-            min={10}
-            max={120}
-            value={cookingTime}
-            valueLabelFormat={valuetext}
-            marks={true}
-            onChange={handleSliderChange}
-            sx={{
-              color: "#373d20",
-              marginTop: 3,
-            }}
-          />
-          <FormHelperText>Required *</FormHelperText>
-        </Container>
-      </main>
+      <Typography variant="h6">4. How much time do you have?</Typography>
+      <Slider
+        getAriaValueText={valuetext}
+        valueLabelDisplay="auto"
+        step={5}
+        min={10}
+        max={120}
+        value={cookingTime}
+        valueLabelFormat={valuetext}
+        marks={true}
+        onChange={handleSliderChange}
+        sx={{
+          color: "secondary",
+          marginTop: 3,
+        }}
+      />
+      <FormHelperText>Required *</FormHelperText>
     </div>
   );
 }

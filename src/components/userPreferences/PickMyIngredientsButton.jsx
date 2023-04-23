@@ -11,19 +11,19 @@ function PickMyIngredientsButton() {
     >
       <Button
         size="large"
+        href="/ingredients"
+        variant="contained"
+        color="primary"
         sx={{
           my: 2,
-          color: "white",
-          background: "black",
+          mb: 5,
           fontSize: "large",
           fontFamily: "inherit",
           "&:hover": {
-            background: "#717744",
+            background: "#a6ad70",
             color: "white",
           },
         }}
-        href="/ingredients"
-        variant="contained"
       >
         Select Ingredients
       </Button>

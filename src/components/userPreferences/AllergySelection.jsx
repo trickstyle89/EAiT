@@ -1,6 +1,6 @@
 import React from "react";
 import { usePreferences } from "./PreferencesContext";
-import { Chip, withStyles } from "@mui/material";
+import { Box, Chip, Typography } from "@mui/material";
 
 function AllergySelection({ onChange }) {
   const { preferences, handleChangePreferences } = usePreferences();
@@ -35,25 +35,39 @@ function AllergySelection({ onChange }) {
   ];
 
   return (
-    <div>
-      {allergies.map((allergy, index) => (
-        <Chip
-          key={index}
-          label={allergy}
-          onClick={() => handleClick(allergy)}
-          style={{
-            Width: "7rem",
-            height: 32,
-            margin: "0.5rem",
-          }}
-          color={selectedAllergies.includes(allergy) ? "success" : "default"}
-          size="large"
-          sx={{
-            fontSize: "medium",
-          }}
-        />
-      ))}
-    </div>
+    <>
+      <Typography variant="h6">
+        7. Do you have any allergies or dietary restrictions?
+      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          mt: 1,
+        }}
+      >
+        {allergies.map((allergy, index) => (
+          <Chip
+            key={index}
+            label={allergy}
+            onClick={() => handleClick(allergy)}
+            color={
+              selectedAllergies.includes(allergy) ? "secondary" : "default"
+            }
+            size="large"
+            sx={{
+              fontSize: "large",
+            }}
+            style={{
+              flex: "1 1 auto",
+              maxWidth: "100%",
+              height: 32,
+              margin: "0.5rem",
+            }}
+          />
+        ))}
+      </Box>
+    </>
   );
 }
 

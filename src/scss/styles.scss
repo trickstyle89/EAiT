@@ -8,7 +8,7 @@
 /* Typography */
 body {
   font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-size: 16rem;
   line-height: 1.5;
 }
 
@@ -19,101 +19,5 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   /* Changed to flex-start to make sure navbar is always at the top */
-  overflow-y: scroll;
-  /* Added to make sure content is scrollable if it exceeds the viewport height */
-}
-
-.navbar {
-  position: sticky;
-  /* Changed to sticky to make sure navbar always stays on the top of the viewport */
-  top: 0;
-  /* Added to make sure navbar is always at the top of the viewport */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #333;
-  height: 80px;
-  z-index: 1;
-  /* Added to make sure navbar is above other elements */
-}
-
-.logo {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #f8f8f8;
-  text-decoration: none;
-  margin: 0 auto;
-}
-
-.btn-nav {
-  display: inline-block;
-  background-color: #f8f8f8;
-  color: #333;
-  font-size: 1.1rem;
-  font-weight: bold;
-  padding: 0.8rem 2.5rem;
-  border: none;
-  border-radius: 30px;
-  margin-left: auto;
-  margin-right: 20px;
-  cursor: pointer;
-}
-
-.btn {
-  display: block;
-  margin: 0 auto;
-  background-color: #333;
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 1rem 2.5rem;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
-.content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-  height: 60vh;
-  max-height: calc(100vh - 80px);
-  /* Added to make sure content takes less height */
-  overflow-y: scroll;
-  /* Added to make sure content is scrollable if it exceeds the viewport height */
-}
-
-h1 {
-  font-size: 4rem;
-  margin-bottom: 2rem;
-}
-
-.footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-}
-
-.footer p {
-  margin: 0;
-  position: fixed;
-}
-
-.bg-img {
-  position: absolute;
-  /* Added to make sure background image is positioned behind other elements */
-  top: 80px;
-  /* Added to make sure background image starts after the navbar */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("../images/homepage-bg.jpg") no-repeat center center fixed;
-  background-size: cover;
-  z-index: -1;
-  /* Added to make sure background image is behind other elements */
+  overflow: hidden;
 }
