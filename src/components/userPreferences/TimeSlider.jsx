@@ -25,7 +25,7 @@ export default function DiscreteSlider() {
         valueLabelDisplay="auto"
         step={5}
         min={10}
-        max={120}
+        max={180}
         value={cookingTime}
         valueLabelFormat={valuetext}
         marks={true}
