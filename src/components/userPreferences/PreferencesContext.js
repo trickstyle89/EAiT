@@ -11,11 +11,11 @@ export function PreferencesProvider({ children }) {
     selectedAllergies: [],
     selectedTools: [],
     strictMode: false,
-    gourmetMode: false
+    gourmetMode: true
   });
 
   const [ingredients, setIngredients] = useState({
-    
+
   });
 
   useEffect(() => {
@@ -55,3 +55,4 @@ export function usePreferences() {
   }
   return context;
 }
+

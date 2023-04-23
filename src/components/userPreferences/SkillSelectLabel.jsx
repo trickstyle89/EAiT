@@ -33,7 +33,6 @@ function SkillSelectLabel() {
           <MenuItem value={"Beginner"}>Beginner</MenuItem>
           <MenuItem value={"Intermediate"}>Intermediate</MenuItem>
           <MenuItem value={"Advanced"}>Advanced</MenuItem>
-          <MenuItem value={"Chef"}>Chef</MenuItem>
         </Select>
         <FormHelperText>Required *</FormHelperText>
       </FormControl>
