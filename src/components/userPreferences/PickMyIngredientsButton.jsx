@@ -9,7 +9,7 @@ function PickMyIngredientsButton() {
         alignItems: "center",
       }}
     >
-      <Button
+      <Button disabled
         size="large"
         href="/ingredients"
         variant="contained"
