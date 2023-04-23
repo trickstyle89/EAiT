@@ -129,7 +129,7 @@ export default function BasicTabs(props) {
     tabs = [
       { label: "Grains", subcategory: "grains" },
       { label: "Bread and Wraps", subcategory: "bread_and_wraps" },
-      { label: "Noodles and Pasta", subcategory: "noodles_and_pastas" },
+      { label: "Noodles and Pastas", subcategory: "noodles_and_pastas" },
       { label: "Cereals", subcategory: "cereals" },
       { label: "Others", subcategory: "others" },
     ];
