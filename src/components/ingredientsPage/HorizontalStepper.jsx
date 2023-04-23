@@ -92,7 +92,7 @@ function HorizontalStepper(props) {
           {steps.map((label, index) => (
             <Step key={label} completed={completed[index]}>
               <StepButton color="inherit" onClick={handleStep(index)}>
-                {label}
+                <Typography variant="body1">{label}</Typography>
               </StepButton>
             </Step>
           ))}

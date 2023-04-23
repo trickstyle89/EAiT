@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Box, Paper, Typography, Tab, Tabs } from "@mui/material";
 // import { usePreferences } from "./PreferencesContext";
 import Chip from "@mui/material/Chip";
+import { ToolChip } from "../userPreferences/CookingToolsButtons";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -101,7 +102,7 @@ export default function BasicTabs(props) {
     setSelectedIngredients([...selectedIngredients, ...newSelectedIngredients]);
   };
 
-  const handleBack = () => { };
+  const handleBack = () => {};
 
   let tabs = [
     { label: "Beef", subcategory: "beef" },
@@ -184,24 +185,15 @@ export default function BasicTabs(props) {
         </Box>
         <TabPanel value={selectedTabIndex} index={selectedTabIndex}>
           {filteredIngredients.map((ingredient) => (
-            <Chip
+            <ToolChip
               label={ingredient.ingredient_name}
               key={ingredient.id}
               onClick={() => handleClick(ingredient.ingredient_name)}
-              style={{
-                flex: "1 1 auto",
-                minWidth: "5rem",
-                maxWidth: "100%",
-                height: 32,
-                margin: "0.5rem",
-              }}
               color={
                 selectedIngredients.includes(ingredient.ingredient_name)
                   ? "secondary"
                   : "default"
               }
-              size="large"
-              sx={{ fontSize: "medium" }}
             />
           ))}
         </TabPanel>
