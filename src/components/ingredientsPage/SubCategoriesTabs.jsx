@@ -101,7 +101,7 @@ export default function BasicTabs(props) {
     setSelectedIngredients([...selectedIngredients, ...newSelectedIngredients]);
   };
 
-  const handleBack = () => {};
+  const handleBack = () => { };
 
   let tabs = [
     { label: "Beef", subcategory: "beef" },
@@ -127,13 +127,22 @@ export default function BasicTabs(props) {
   }
   if (props.currentStep === 3) {
     tabs = [
+      { label: "Grains", subcategory: "grains" },
+      { label: "Bread and Wraps", subcategory: "bread_and_wraps" },
+      { label: "Noodles and Pasta", subcategory: "noodles_and_pastas" },
+      { label: "Cereals", subcategory: "cereals" },
+      { label: "Others", subcategory: "others" },
+    ];
+  }
+  if (props.currentStep === 4) {
+    tabs = [
       { label: "Milk and Cream", subcategory: "milk_and_cream" },
       { label: "Butters and Yogurts", subcategory: "butters_and_yogurts" },
       { label: "Cheeses", subcategory: "cheeses" },
       { label: "Lactose Free", subcategory: "lactose_free" },
     ];
   }
-  if (props.currentStep === 4) {
+  if (props.currentStep === 5) {
     tabs = [
       { label: "Oils", subcategory: "oils" },
       { label: "Spices", subcategory: "spices" },
@@ -143,7 +152,7 @@ export default function BasicTabs(props) {
       { label: "Condiments", subcategory: "condiments" },
     ];
   }
-  if (props.currentStep === 5) {
+  if (props.currentStep === 6) {
     tabs = [
       {
         label: "Beer Spirits and Wines",
