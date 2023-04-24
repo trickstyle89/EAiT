@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material/styles';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const LoadingContainer = styled('div')({
@@ -16,20 +16,41 @@ const LoadingContainer = styled('div')({
   zIndex: 9999,
 });
 
+const PreparingText = styled('h1')({
+  fontFamily: 'Roboto',
+  fontWeight: 'bold',
+  fontSize: '3rem',
+  color: '#67d751',
+  margin: '0 1rem',
+});
+
+const ImageContainer = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+  marginTop: '1rem',
+});
+
+const Container = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+});
+
 const MyCustomLogo = () => {
   return (
     <>
-      <h1>hi</h1>
-      <br />
-      <img
-        src="https://www.icegif.com/wp-content/uploads/chef-pusheen-icegif.gif"
-        //https://i.pinimg.com/originals/4e/e9/c7/4ee9c7420c4231bc38ababc9c088bf93.gif
-        //https://www.icegif.com/wp-content/uploads/chef-pusheen-icegif.gif
-        //https://cdn.dribbble.com/users/393062/screenshots/14475354/media/f2221ff5ea31cd694fea71f05a28805c.gif
-        alt="logo"
-        height={"250rem"}
-        width={"350rem"}
-      />
+      <Container>
+        <PreparingText>Preparing...</PreparingText>
+        <ImageContainer>
+          <img
+            src="https://www.icegif.com/wp-content/uploads/chef-pusheen-icegif.gif"
+            alt="logo"
+            height={"250rem"}
+            width={"350rem"}
+          />
+        </ImageContainer>
+      </Container>
     </>
   );
 };
