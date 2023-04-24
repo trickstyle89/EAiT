@@ -30,7 +30,7 @@ function PreferencePage() {
         if (Array.isArray(value)) {
           return value.length === 0;
         }
-        return value === false || value === '';
+        return value === false || value === '' || value === 0;
       });
     setDisableButton(disable);
   }, [preferences]);
