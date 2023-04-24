@@ -19,7 +19,7 @@ const StyledToolBar = styled(Toolbar)({
 function Navbar() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-
+  const isRecipePage = location.pathname === "/recipes"
   const handleButtonClick = () => {
     window.localStorage.clear();
   };
@@ -49,6 +49,24 @@ function Navbar() {
           </Box>
 
           <Box>
+            {isRecipePage &&
+              <Button
+                sx={{
+                  my: 2,
+                  mr: 2,
+                  color: "white",
+                  background: "#5E671B",
+                  "&:hover": {
+                    background: "white",
+                    color: "black",
+                  },
+                }}
+                href={"/ingredients"}
+                variant="contained"
+              >
+                Ingredients
+              </Button>
+            }
             <Button
               sx={{
                 my: 2,
