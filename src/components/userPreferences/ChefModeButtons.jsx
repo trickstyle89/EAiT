@@ -23,7 +23,7 @@ function ChefModeButtons() {
 
   return (
     <div>
-      <Typography variant="h6">5. Select your cooking mode</Typography>
+      <Typography variant="h6">6. Select your cooking mode</Typography>
       <Box
         sx={{
           display: "flex",

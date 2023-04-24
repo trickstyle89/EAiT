@@ -47,7 +47,10 @@ function IngredientsPage() {
       <Paper
         variant="outlined"
         sx={{
-          margin: 4,
+          mt: 6,
+          ml: 10,
+          mr: 10,
+          mb: 6,
         }}
       >
         <Box
@@ -79,7 +82,7 @@ function IngredientsPage() {
                 variant="contained"
                 color="primary"
                 sx={{
-                  my: 2,
+                  mt: 3,
                   mb: 5,
                   fontSize: "large",
                   fontFamily: "inherit",

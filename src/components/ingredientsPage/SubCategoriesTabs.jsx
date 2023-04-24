@@ -1,9 +1,8 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Box, Paper, Typography, Tab, Tabs } from "@mui/material";
-// import { usePreferences } from "./PreferencesContext";
-import Chip from "@mui/material/Chip";
+import { Box, Typography, Tab, Tabs, Card } from "@mui/material";
+
 import { ToolChip } from "../userPreferences/CookingToolsButtons";
 
 function TabPanel(props) {
@@ -93,17 +92,6 @@ export default function BasicTabs(props) {
     }
   };
 
-  const handleNext = () => {
-    const newSelectedIngredients = ingredientsData[
-      selectedTabIndex
-    ].ingredients.filter(
-      (ingredient) => selectedIngredients.includes(ingredient) === false
-    );
-    setSelectedIngredients([...selectedIngredients, ...newSelectedIngredients]);
-  };
-
-  const handleBack = () => {};
-
   let tabs = [
     { label: "Beef", subcategory: "beef" },
     { label: "Pork", subcategory: "pork" },
@@ -169,35 +157,61 @@ export default function BasicTabs(props) {
 
   return (
     <>
-      <Paper varient="outlined" sx={{ m: 5, height: "50vh" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+      <Card
+        variant="outlined"
+        sx={{
+          mt: 3,
+          ml: 10,
+          mr: 10,
+          height: "45vh",
+        }}
+      >
+        <Box
+          sx={{
+            borderBottom: 1,
+            borderColor: "divider",
+            backgroundColor: "#f4f5ed",
+          }}
+        >
           <Tabs
             value={selectedTabIndex}
             onChange={handleTabChange}
-            textColor="primary"
             indicatorColor="primary"
             aria-label="basic tabs example"
           >
             {tabs.map((tab, index) => (
-              <Tab label={tab.label} {...a11yProps(index)} key={index} />
+              <Tab
+                label={tab.label}
+                {...a11yProps(index)}
+                key={index}
+                sx={{
+                  fontSize: "medium",
+                  color: "black",
+                  "&:hover": {
+                    color: "#717744",
+                  },
+                }}
+              />
             ))}
           </Tabs>
         </Box>
-        <TabPanel value={selectedTabIndex} index={selectedTabIndex}>
-          {filteredIngredients.map((ingredient) => (
-            <ToolChip
-              label={ingredient.ingredient_name}
-              key={ingredient.id}
-              onClick={() => handleClick(ingredient.ingredient_name)}
-              color={
-                selectedIngredients.includes(ingredient.ingredient_name)
-                  ? "secondary"
-                  : "default"
-              }
-            />
-          ))}
-        </TabPanel>
-      </Paper>
+        <Box sx={{ height: "100%" }}>
+          <TabPanel value={selectedTabIndex} index={selectedTabIndex}>
+            {filteredIngredients.map((ingredient) => (
+              <ToolChip
+                label={ingredient.ingredient_name}
+                key={ingredient.id}
+                onClick={() => handleClick(ingredient.ingredient_name)}
+                color={
+                  selectedIngredients.includes(ingredient.ingredient_name)
+                    ? "secondary"
+                    : "default"
+                }
+              />
+            ))}
+          </TabPanel>
+        </Box>
+      </Card>
     </>
   );
 }
