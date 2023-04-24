@@ -47,13 +47,26 @@ function Recipe() {
           }
           return null;
         })}
-       <div
+        <div
           className="recipe-toggle-btn"
           onClick={toggleRecipes}
-          style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+          style={{
+            position: "absolute",
+            top: "35%",
+            left: "70%",
+            transform: "translate(-50%, -50%)",
+          }}
         >
-          <h2>{nextRecipe.name}</h2>
-          <p>Click to view another recipe</p>
+          <div>
+            <h2>{nextRecipe.name}</h2>
+            <img
+              src={nextRecipe.image}
+              alt={nextRecipe.name}
+              width="300"
+              height="150"
+            />
+            <p>Click to view this alternative recipe</p>
+          </div>
         </div>
       </main>
     </div>
