@@ -29,6 +29,8 @@ function Recipe() {
     return <LoadingPage />;
   }
 
+  const nextRecipe = recipes[(currentRecipeIndex + 1) % recipes.length];
+
   return (
     <div className="recipe">
       <main className="recipe-main">
@@ -40,18 +42,19 @@ function Recipe() {
                 recipe={recipe}
                 showInstructions={showInstructions}
                 toggleInstructions={toggleInstructions}
-                toggleRecipes={toggleRecipes}
               />
             );
-          } else {
-            return (
-              <div key={index} className="recipe-link" onClick={toggleRecipes}>
-                <h2>{recipe.name}</h2>
-                <p>Click to view recipe</p>
-              </div>
-            );
           }
+          return null;
         })}
+       <div
+          className="recipe-toggle-btn"
+          onClick={toggleRecipes}
+          style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+        >
+          <h2>{nextRecipe.name}</h2>
+          <p>Click to view another recipe</p>
+        </div>
       </main>
     </div>
   );
