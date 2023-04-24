@@ -1,6 +1,6 @@
 import React from "react";
 import { usePreferences } from "./PreferencesContext";
-import { Box, Chip, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { ToolChip } from "./CookingToolsButtons";
 
 function AllergySelection({ onChange }) {
