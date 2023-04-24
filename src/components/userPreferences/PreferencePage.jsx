@@ -159,7 +159,7 @@ function PreferencePage() {
                   fontSize: "large",
                   fontFamily: "inherit",
                   "&:hover": {
-                    background: "#a6ad70",
+                    background: "#5E671B",
                     color: "white",
                   },
                 }}

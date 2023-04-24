@@ -49,10 +49,9 @@ function IngredientsPage() {
           <Paper
             variant="outlined"
             sx={{
-              mt: 6,
-              ml: 10,
-              mr: 10,
-              mb: 6,
+              m: 12,
+              mt: 8,
+              mb: 8,
               backgroundColor: "#fbfcf9",
               borderRadius: 2,
               boxShadow: 12,
@@ -92,7 +91,7 @@ function IngredientsPage() {
                       fontSize: "large",
                       fontFamily: "inherit",
                       "&:hover": {
-                        background: "#a6ad70",
+                        background: "#5E671B",
                         color: "white",
                       },
                     }}

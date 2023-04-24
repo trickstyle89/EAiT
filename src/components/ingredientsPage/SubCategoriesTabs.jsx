@@ -163,7 +163,7 @@ export default function BasicTabs(props) {
           mt: 3,
           ml: 10,
           mr: 10,
-          height: "45vh",
+          height: "47vh",
         }}
       >
         <Box
