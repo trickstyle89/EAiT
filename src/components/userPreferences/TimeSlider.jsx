@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "@mui/material/Slider";
-import { Container, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import FormHelperText from "@mui/material/FormHelperText";
 import { usePreferences } from "./PreferencesContext";
 

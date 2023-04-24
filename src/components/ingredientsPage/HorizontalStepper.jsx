@@ -24,9 +24,9 @@ function HorizontalStepper(props) {
 
   const navigate = useNavigate();
 
-  const handleGenerateRecipe = () => {
-    navigate("/recipes");
-  };
+  // const handleGenerateRecipe = () => {
+  //   navigate("/recipes");
+  // };
 
   const totalSteps = () => {
     return steps.length;
@@ -77,10 +77,10 @@ function HorizontalStepper(props) {
     }
   };
 
-  const handleReset = () => {
-    setCurrentStep(0);
-    setCompleted({});
-  };
+  // const handleReset = () => {
+  //   setCurrentStep(0);
+  //   setCompleted({});
+  // };
 
   return (
     <>
@@ -88,7 +88,14 @@ function HorizontalStepper(props) {
         <Typography variant="h5" mb={5} ml={4} mt={4}>
           Select your ingredients
         </Typography>
-        <Stepper activeStep={currentStep} alternativeLabel>
+        <Stepper
+          activeStep={currentStep}
+          alternativeLabel
+          sx={{
+            ml: 6,
+            mr: 6,
+          }}
+        >
           {steps.map((label, index) => (
             <Step key={label} completed={completed[index]}>
               <StepButton color="inherit" onClick={handleStep(index)}>

@@ -20,6 +20,7 @@ const MyCustomLogo = () => {
   return (
     <>
       <h1>hi</h1>
+      <br />
       <img
         src="https://www.icegif.com/wp-content/uploads/chef-pusheen-icegif.gif"
         //https://i.pinimg.com/originals/4e/e9/c7/4ee9c7420c4231bc38ababc9c088bf93.gif
