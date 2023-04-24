@@ -5,7 +5,6 @@ import Typist from "react-text-typist";
 import ActionAreaCard from "./HomePageCards";
 import HomePageCard from "./HomePageCards2";
 
-
 const HomePage = () => {
   const [fadeIn, setFadeIn] = useState(false);
 
@@ -85,7 +84,7 @@ const HomePage = () => {
             <HomePageCard
               alt="Step 3"
               title="Recieve unique recipes"
-              description="Get customized recipe suggestions tailored to your specific preferences and ingredient selections."
+              description="Get customized recipes tailored to your  preferences and ingredient selections."
               image="https://plus.unsplash.com/premium_photo-1661507070247-1ed0a6ed3ca2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGNvb2tib29rfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
             />
             <HomePageCard

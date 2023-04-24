@@ -24,10 +24,6 @@ function HorizontalStepper(props) {
 
   const navigate = useNavigate();
 
-  // const handleGenerateRecipe = () => {
-  //   navigate("/recipes");
-  // };
-
   const totalSteps = () => {
     return steps.length;
   };
@@ -77,16 +73,11 @@ function HorizontalStepper(props) {
     }
   };
 
-  // const handleReset = () => {
-  //   setCurrentStep(0);
-  //   setCompleted({});
-  // };
-
   return (
     <>
       <Box sx={{ width: "100%" }}>
         <Typography variant="h5" mb={5} ml={4} mt={4}>
-          Select your ingredients
+          Select Your Ingredients
         </Typography>
         <Stepper
           activeStep={currentStep}
@@ -106,20 +97,29 @@ function HorizontalStepper(props) {
         </Stepper>
         <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
           <Button
-            color="inherit"
+            variant="contained"
             disabled={currentStep === 0}
             onClick={handleBack}
-            sx={{ mr: 1 }}
+            sx={{ ml: 10, mt: 2 }}
           >
             Back
           </Button>
           <Box sx={{ flex: "1 1 auto" }} />
           {currentStep !== steps.length - 1 && (
-            <Button onClick={handleNext} sx={{ mr: 1 }}>
+            <Button
+              variant="contained"
+              onClick={handleNext}
+              sx={{ mr: 10, mt: 2 }}
+            >
               Next
             </Button>
           )}
-          {currentStep === steps.length - 1 && <Button disabled></Button>}
+          {currentStep === steps.length - 1 && (
+            <Button disabled variant="contained" sx={{ mr: 10, mt: 2 }}>
+              {" "}
+              Next{" "}
+            </Button>
+          )}
         </Box>
       </Box>
     </>

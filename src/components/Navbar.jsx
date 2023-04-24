@@ -13,7 +13,7 @@ const StyledToolBar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
   height: 70,
-  backgroundColor: " #717744",
+  backgroundColor: " primary",
 });
 
 function Navbar() {
@@ -53,7 +53,7 @@ function Navbar() {
               sx={{
                 my: 2,
                 color: "white",
-                background: "#373d20",
+                background: "#5E671B",
                 "&:hover": {
                   background: "white",
                   color: "black",

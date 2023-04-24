@@ -163,14 +163,14 @@ export default function BasicTabs(props) {
           mt: 3,
           ml: 10,
           mr: 10,
-          height: "45vh",
+          height: "47vh",
         }}
       >
         <Box
           sx={{
             borderBottom: 1,
             borderColor: "divider",
-            backgroundColor: "#f4f5ed",
+            backgroundColor: "#e4e6d4",
           }}
         >
           <Tabs

@@ -20,7 +20,7 @@ function MeasurementSelectLabel() {
       <Typography variant="h6" mb={1}>
         3. Select a measurement option
       </Typography>
-      <FormControl sx={{ minWidth: 400 }}>
+      <FormControl sx={{ minWidth: 360 }}>
         <Select
           value={measurementSelection}
           onChange={handleSelectChange}
