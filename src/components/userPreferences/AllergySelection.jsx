@@ -43,6 +43,7 @@ function AllergySelection({ onChange }) {
       <Box
         sx={{
           display: "flex",
+          flexWrap: "wrap",
           justifyContent: "space-between",
           mt: 1,
         }}
@@ -52,6 +53,9 @@ function AllergySelection({ onChange }) {
             key={index}
             label={allergy}
             onClick={() => handleClick(allergy)}
+            style={{
+              maxWidth: "8rem",
+            }}
             color={
               selectedAllergies.includes(allergy) ? "secondary" : "default"
             }

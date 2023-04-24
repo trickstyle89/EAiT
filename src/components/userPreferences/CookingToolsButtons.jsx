@@ -40,10 +40,11 @@ function CookingToolsButtons() {
 
   return (
     <>
-      <Typography variant="h6">5. Select your cooking tools</Typography>
+      <Typography variant="h6">6. Select your cooking tools</Typography>
       <Box
         sx={{
           display: "flex",
+          flexWrap: "wrap",
           justifyContent: "space-between",
           mt: 1,
         }}

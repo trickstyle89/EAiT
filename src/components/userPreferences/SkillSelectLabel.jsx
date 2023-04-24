@@ -20,7 +20,7 @@ function SkillSelectLabel() {
       <Typography variant="h6" mb={1}>
         2. What is your cooking skill level?
       </Typography>
-      <FormControl sx={{ minWidth: 400 }}>
+      <FormControl sx={{ minWidth: 360 }}>
         <Select
           value={preferences.skillLevel}
           onChange={handleSelectChange}

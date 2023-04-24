@@ -21,7 +21,7 @@ function MealSelectLabel() {
         <Typography variant="h6" mb={1}>
           1. Select meal type
         </Typography>
-        <FormControl sx={{ minWidth: 400 }}>
+        <FormControl sx={{ minWidth: 360 }}>
           <Select
             value={preferences.mealType}
             onChange={handleSelectChange}

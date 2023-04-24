@@ -10,10 +10,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#717744"
+      main: "#879427"
+
     },
     secondary: {
-      main: "#879427"
+      main: "#C3C993"
     }
   },
   typography: {

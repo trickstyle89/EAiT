@@ -30,7 +30,7 @@ function PreferencePage() {
         if (Array.isArray(value)) {
           return value.length === 0;
         }
-        return value === false || value === '';
+        return value === false || value === "";
       });
     setDisableButton(disable);
   }, [preferences]);
@@ -65,7 +65,9 @@ function PreferencePage() {
           <Paper
             variant="outlined"
             sx={{
-              m: 8,
+              m: 12,
+              mt: 8,
+              mb: 8,
               backgroundColor: "#fbfcf9",
               borderRadius: 2,
               boxShadow: 12,
@@ -78,8 +80,8 @@ function PreferencePage() {
                 justifyContent: "space-between",
                 mt: 4,
                 mb: 6,
-                mr: 6,
-                ml: 6,
+                mr: 4,
+                ml: 4,
               }}
             >
               <MealSelectLabel
@@ -95,8 +97,8 @@ function PreferencePage() {
 
             <Box
               sx={{
-                ml: 6,
-                mr: 6,
+                ml: 4,
+                mr: 4,
                 mb: 5,
               }}
             >
@@ -107,27 +109,27 @@ function PreferencePage() {
             </Box>
             <Box
               sx={{
-                ml: 6,
-                mr: 6,
-                mb: 5,
-              }}
-            >
-              <CookingToolsButtons onChange={handleChangePreferences} />
-            </Box>
-            <Box
-              sx={{
-                ml: 6,
-                mr: 6,
+                ml: 4,
+                mr: 4,
                 mb: 5,
               }}
             >
               <ChefModeButtons />
             </Box>
+            <Box
+              sx={{
+                ml: 5,
+                mr: 5,
+                mb: 5,
+              }}
+            >
+              <CookingToolsButtons onChange={handleChangePreferences} />
+            </Box>
 
             <Box
               sx={{
-                ml: 6,
-                mr: 6,
+                ml: 5,
+                mr: 5,
                 mb: 5,
               }}
             >
