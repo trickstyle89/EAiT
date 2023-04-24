@@ -5,14 +5,11 @@ import SkillSelectLabel from "./SkillSelectLabel";
 import ChefModeButtons from "./ChefModeButtons";
 import CookingToolsButtons from "./CookingToolsButtons";
 import MeasurementSelectLabel from "./MeasurementSelectLabel";
-// import PickMyIngredientsButton from "./PickMyIngredientsButton";
 import { useNavigate } from "react-router-dom";
 import { usePreferences } from "./PreferencesContext";
 import AllergySelection from "./AllergySelection";
 import { Box, Paper, Button } from "@mui/material";
 import axios from "axios";
-
-// import "../../scss/preferencePage.scss";
 
 function PreferencePage() {
   const { preferences, handleChangePreferences, selectedAllergies } =
