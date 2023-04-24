@@ -20,6 +20,7 @@ function Navbar() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const isRecipePage = location.pathname === "/recipes"
+  const isIngredientsPage = location.pathname === "/ingredients"
   const handleButtonClick = () => {
     window.localStorage.clear();
   };
@@ -67,7 +68,7 @@ function Navbar() {
                 Edit Ingredients
               </Button>
             }
-            {isRecipePage &&
+            {(isRecipePage || isIngredientsPage) &&
               <Button
                 sx={{
                   my: 2,

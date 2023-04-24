@@ -35,6 +35,7 @@ function PreferencePage() {
     setDisableButton(disable);
   }, [preferences]);
 
+
   const handleSubmit = async () => {
     console.log("Submitting preferences:", preferences);
 

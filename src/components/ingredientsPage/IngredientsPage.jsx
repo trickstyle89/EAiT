@@ -13,6 +13,7 @@ function IngredientsPage() {
     usePreferences();
   const navigate = useNavigate();
   const [isGeneratingRecipe, setIsGeneratingRecipe] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,6 +70,7 @@ function IngredientsPage() {
                 setCurrentStep={setCurrentStep}
               />
               <BasicTabs
+                setDisabled={setDisabled}
                 ingredients={ingredients}
                 handleChangeIngredients={handleChangeIngredients}
                 currentStep={currentStep}
@@ -81,6 +83,7 @@ function IngredientsPage() {
               >
                 <form onSubmit={handleSubmit}>
                   <Button
+                    disabled={disabled}
                     type="submit"
                     size="large"
                     variant="contained"

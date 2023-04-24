@@ -56,11 +56,12 @@ export default function BasicTabs(props) {
   }, [props.currentStep]);
 
   useEffect(() => {
-    console.log("selectedIngredients", selectedIngredients);
+    // console.log("selectedIngredients", selectedIngredients);
     window.localStorage.setItem(
       "selectIngredient",
       JSON.stringify(selectedIngredients)
     );
+    props.setDisabled(selectedIngredients.length < 3);
   }, [selectedIngredients]);
 
   useEffect(() => {
@@ -217,7 +218,7 @@ export default function BasicTabs(props) {
           mt: 3,
           ml: 10,
           mr: 10,
-          height: "30vh",
+          height: "20vh",
         }}>
         <Box>
           <Tabs value={0}>
@@ -231,14 +232,12 @@ export default function BasicTabs(props) {
                   color: "#717744",
                 },
               }} /></Tabs>
-          <TabPanel>
-            {selectedIngredients.length === 0 ?
-              <Typography variant="h6">Please select ingredients to view them here.</Typography> :
-              selectedIngredients.map(ingredient => (
-                <ToolChip onClick={() => handleClick(ingredient)} key={ingredient} label={ingredient} color={"secondary"} />
-              ))
-            }
-          </TabPanel>
+          {selectedIngredients.length === 0 ?
+            <Typography sx={{ m: 2 }}>Please select ingredients to view them here.</Typography> :
+            selectedIngredients.map(ingredient => (
+              <ToolChip onClick={() => handleClick(ingredient)} key={ingredient} label={ingredient} color={"secondary"} />
+            ))
+          }
         </Box>
       </Card>
     </>
