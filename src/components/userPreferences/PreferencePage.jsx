@@ -25,7 +25,7 @@ function PreferencePage() {
         if (Array.isArray(value)) {
           return value.length === 0;
         }
-        return value === false;
+        return value === false || value === '';
       });
     setDisableButton(disable);
   }, [preferences]);
