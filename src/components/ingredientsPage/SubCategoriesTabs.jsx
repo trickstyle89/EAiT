@@ -163,7 +163,7 @@ export default function BasicTabs(props) {
           mt: 3,
           ml: 10,
           mr: 10,
-          height: "47vh",
+          height: "30vh",
         }}
       >
         <Box
@@ -209,6 +209,35 @@ export default function BasicTabs(props) {
                 }
               />
             ))}
+          </TabPanel>
+        </Box>
+      </Card>
+      <Card variant="outlined"
+        sx={{
+          mt: 3,
+          ml: 10,
+          mr: 10,
+          height: "30vh",
+        }}>
+        <Box>
+          <Tabs value={0}>
+            <Tab
+              label={"All Selected Ingredients"}
+              disabled
+              sx={{
+                fontSize: "medium",
+                color: "black",
+                "&:hover": {
+                  color: "#717744",
+                },
+              }} /></Tabs>
+          <TabPanel>
+            {selectedIngredients.length === 0 ?
+              <Typography variant="h6">Please select ingredients to view them here.</Typography> :
+              selectedIngredients.map(ingredient => (
+                <ToolChip onClick={() => handleClick(ingredient)} key={ingredient} label={ingredient} color={"secondary"} />
+              ))
+            }
           </TabPanel>
         </Box>
       </Card>

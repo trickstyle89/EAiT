@@ -7,7 +7,7 @@ export function PreferencesProvider({ children }) {
     mealType: "",
     skillLevel: "",
     cookingTime: 0,
-    measurementSelection: "",
+    numberOfServings: "",
     selectedAllergies: [],
     selectedTools: [],
     strictMode: false,

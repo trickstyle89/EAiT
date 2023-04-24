@@ -6,23 +6,23 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { Typography } from "@mui/material";
 
-function MeasurementSelectLabel() {
+function NumberOfServingsSelectLabel() {
   const { preferences, handleChangePreferences } = usePreferences();
-  const { measurementSelection } = preferences;
+  const { numberOfServings } = preferences;
 
   const handleSelectChange = (event) => {
-    handleChangePreferences("measurementSelection", event.target.value);
+    handleChangePreferences("numberOfServings", event.target.value);
     console.log(event.target.value);
   };
 
   return (
     <div>
       <Typography variant="h6" mb={1}>
-        3. Select a measurement option
+        3. Select serving amount
       </Typography>
       <FormControl sx={{ minWidth: 360 }}>
         <Select
-          value={measurementSelection}
+          value={numberOfServings}
           onChange={handleSelectChange}
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
@@ -30,8 +30,10 @@ function MeasurementSelectLabel() {
           <MenuItem value="" disabled>
             <em>Select</em>
           </MenuItem>
-          <MenuItem value={"Imperial"}>Imperial</MenuItem>
-          <MenuItem value={"Metric"}>Metric</MenuItem>
+          <MenuItem value={"1-2"}>1-2 Servings</MenuItem>
+          <MenuItem value={"3-4"}>3-4 Servings</MenuItem>
+          <MenuItem value={"5-6"}>5-6 Servings</MenuItem>
+          <MenuItem value={"7-8"}>7-8 Servings</MenuItem>
         </Select>
         <FormHelperText>Required *</FormHelperText>
       </FormControl>
@@ -39,4 +41,4 @@ function MeasurementSelectLabel() {
   );
 }
 
-export default MeasurementSelectLabel;
+export default NumberOfServingsSelectLabel;

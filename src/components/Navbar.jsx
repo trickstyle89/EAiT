@@ -64,7 +64,25 @@ function Navbar() {
                 href={"/ingredients"}
                 variant="contained"
               >
-                Ingredients
+                Edit Ingredients
+              </Button>
+            }
+            {isRecipePage &&
+              <Button
+                sx={{
+                  my: 2,
+                  mr: 2,
+                  color: "white",
+                  background: "#5E671B",
+                  "&:hover": {
+                    background: "white",
+                    color: "black",
+                  },
+                }}
+                href={"/preferences"}
+                variant="contained"
+              >
+                Edit Preferences
               </Button>
             }
             <Button

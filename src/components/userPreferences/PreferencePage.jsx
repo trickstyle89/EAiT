@@ -4,7 +4,7 @@ import MealSelectLabel from "./MealSelectLabel";
 import SkillSelectLabel from "./SkillSelectLabel";
 import ChefModeButtons from "./ChefModeButtons";
 import CookingToolsButtons from "./CookingToolsButtons";
-import MeasurementSelectLabel from "./MeasurementSelectLabel";
+import NumberOfServingsSelectLabel from "./NumberOfServingsSelectLabel";
 import { useNavigate } from "react-router-dom";
 import { usePreferences } from "./PreferencesContext";
 import AllergySelection from "./AllergySelection";
@@ -92,7 +92,7 @@ function PreferencePage() {
                 value={preferences.skillLevel}
                 onChange={handleChangePreferences}
               />
-              <MeasurementSelectLabel onChange={handleChangePreferences} />
+              <NumberOfServingsSelectLabel onChange={handleChangePreferences} />
             </Box>
 
             <Box
