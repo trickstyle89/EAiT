@@ -8,16 +8,13 @@ function ChefModeButtons() {
 
   const handleClick = (mode) => {
     if (mode === "strictMode") {
-      handleChangePreferences("strictMode", !preferences.strictMode);
+      handleChangePreferences("strictMode", true);
       handleChangePreferences("gourmetMode", false);
       console.log("strict Mode selected");
     } else if (mode === "gourmetMode") {
-      handleChangePreferences("gourmetMode", !preferences.gourmetMode);
+      handleChangePreferences("gourmetMode", true);
       handleChangePreferences("strictMode", false);
       console.log("gourmet mode selected");
-    } else {
-      handleChangePreferences("strictMode", false);
-      handleChangePreferences("gourmetMode", false);
     }
   };
 
