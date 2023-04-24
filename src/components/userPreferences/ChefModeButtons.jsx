@@ -39,32 +39,6 @@ function ChefModeButtons() {
             display: "flex",
             justifyContent: "flex-start",
           }}
-          color={preferences.strictMode ? "secondary" : "default"}
-          onClick={() => handleClick("strictMode")}
-          label={
-            <>
-              <Typography variant="h6" component="span">
-                Selected Ingredients Only
-              </Typography>
-              <br />
-              <Typography variant="body2" component="span">
-                Create recipes using only the specific ingredients that you have
-                selected, nothing more!
-              </Typography>
-            </>
-          }
-        ></Chip>
-        <Chip
-          style={{
-            flex: "auto",
-            height: 70,
-            margin: "0.5rem",
-          }}
-          sx={{
-            fontSize: "large",
-            display: "flex",
-            justifyContent: "flex-start",
-          }}
           color={preferences.gourmetMode ? "secondary" : "default"}
           onClick={() => handleClick("gourmetMode")}
           label={
@@ -80,6 +54,32 @@ function ChefModeButtons() {
               >
                 Create recipes with your selected ingredients plus some extras
                 to elevate your recipes.
+              </Typography>
+            </>
+          }
+        ></Chip>
+        <Chip
+          style={{
+            flex: "auto",
+            height: 70,
+            margin: "0.5rem",
+          }}
+          sx={{
+            fontSize: "large",
+            display: "flex",
+            justifyContent: "flex-start",
+          }}
+          color={preferences.strictMode ? "secondary" : "default"}
+          onClick={() => handleClick("strictMode")}
+          label={
+            <>
+              <Typography variant="h6" component="span">
+                Selected Ingredients Only
+              </Typography>
+              <br />
+              <Typography variant="body2" component="span">
+                Create recipes using only the specific ingredients that you have
+                selected, nothing more!
               </Typography>
             </>
           }

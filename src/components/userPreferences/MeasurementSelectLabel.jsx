@@ -27,7 +27,7 @@ function MeasurementSelectLabel() {
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
         >
-          <MenuItem value="">
+          <MenuItem value="" disabled>
             <em>Select</em>
           </MenuItem>
           <MenuItem value={"Imperial"}>Imperial</MenuItem>
