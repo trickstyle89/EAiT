@@ -35,7 +35,6 @@ function NumberOfServingsSelectLabel() {
           <MenuItem value={"5-6"}>5-6 Servings</MenuItem>
           <MenuItem value={"7-8"}>7-8 Servings</MenuItem>
         </Select>
-        <FormHelperText>Required *</FormHelperText>
       </FormControl>
     </div>
   );

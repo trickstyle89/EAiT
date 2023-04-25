@@ -35,7 +35,6 @@ export default function DiscreteSlider() {
           marginTop: 3,
         }}
       />
-      <FormHelperText>Required *</FormHelperText>
     </div>
   );
 }

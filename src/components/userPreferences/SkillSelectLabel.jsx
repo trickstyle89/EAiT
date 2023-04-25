@@ -34,7 +34,6 @@ function SkillSelectLabel() {
           <MenuItem value={"Intermediate"}>Intermediate</MenuItem>
           <MenuItem value={"Advanced"}>Advanced</MenuItem>
         </Select>
-        <FormHelperText>Required *</FormHelperText>
       </FormControl>
     </div>
   );

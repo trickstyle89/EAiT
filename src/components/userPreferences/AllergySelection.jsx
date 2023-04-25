@@ -37,9 +37,18 @@ function AllergySelection({ onChange }) {
 
   return (
     <>
-      <Typography variant="h6">
-        7. Do you have any allergies or dietary restrictions?
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: 1,
+        }}
+      >
+        <Typography variant="h6">
+          7. Do you have any allergies or dietary restrictions?{" "}
+        </Typography>
+        <Typography variant="subtitle2">(Optional)</Typography>
+      </Box>
       <Box
         sx={{
           display: "flex",

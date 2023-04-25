@@ -37,7 +37,6 @@ function MealSelectLabel() {
             <MenuItem value={"Dessert"}>Dessert</MenuItem>
             <MenuItem value={"Snack"}>Snack</MenuItem>
           </Select>
-          <FormHelperText>Required *</FormHelperText>
         </FormControl>
       </Box>
     </div>

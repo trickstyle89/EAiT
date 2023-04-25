@@ -1,7 +1,7 @@
 import React from "react";
 import Chip from "@mui/material/Chip";
 import { usePreferences } from "./PreferencesContext";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, FormHelperText } from "@mui/material";
 
 function ChefModeButtons() {
   const { preferences, handleChangePreferences } = usePreferences();

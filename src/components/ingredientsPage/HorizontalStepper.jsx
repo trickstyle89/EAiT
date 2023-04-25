@@ -76,9 +76,17 @@ function HorizontalStepper(props) {
   return (
     <>
       <Box sx={{ width: "100%" }}>
-        <Typography variant="h5" mb={5} ml={4} mt={4}>
-          Select Your Ingredients
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            m: 4,
+            gap: 1,
+          }}
+        >
+          <Typography variant="h5">Select Your Ingredients</Typography>
+          <Typography>(3 minimum)</Typography>
+        </Box>
         <Stepper
           activeStep={currentStep}
           alternativeLabel
