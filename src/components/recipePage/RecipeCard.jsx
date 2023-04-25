@@ -3,44 +3,67 @@ import VerticalLinearStepper from "../VerticalStepper";
 import ControlledSwitches from "../IngredientsSwitchMui";
 import ImgMediaCard from "../CardsMui";
 import CheckboxLabels from "../CheckboxMui";
+import { Box, Paper, Typography, Container } from "@mui/material";
 
 function RecipeCard({ recipe, showInstructions, toggleInstructions }) {
   return (
-    <div className="recipe-card">
-      <div className="recipe-image-container">
-        <ImgMediaCard recipe={recipe} className="recipe-image" />
-      </div>
-      <div className="recipe-sections">
-        <section className="recipe-ingredients">
-          <h2 className="recipe-section-title">Ingredients:</h2>
-          <CheckboxLabels
-            recipe={recipe}
-            className="recipe-ingredients-list"
-          />
-        </section>
-        <section className="recipe-instructions">
-          <h2 className="recipe-section-title">Instructions:</h2>
-          <ControlledSwitches
-            checked={showInstructions}
-            onChange={toggleInstructions}
-            label="Follow along"
-            className="recipe-switch"
-          />
-          {showInstructions ? (
-            <VerticalLinearStepper
-              recipe={recipe}
-              className="recipe-steps"
-            />
-          ) : (
-            recipe.instructions.map((instruction, index) => (
-              <p key={index} className="recipe-instruction">
-                {instruction}
-              </p>
-            ))
-          )}
-        </section>
-      </div>
-    </div>
+    <>
+      <Box className="homepage">
+        <Box className="bg-background">
+          <Paper
+            sx={{
+              backgroundColor: "#fbfcf9",
+              m: 12,
+              mt: 8,
+              mb: 8,
+              borderRadius: 2,
+              boxShadow: 12,
+            }}
+          >
+            <ImgMediaCard recipe={recipe} />
+            <Paper
+              variant="outlined"
+              sx={{
+                m: 4,
+              }}
+            >
+              <Box
+                sx={{
+                  m: 2,
+                }}
+              >
+                <Typography variant="h5">Ingredients</Typography>
+                <CheckboxLabels recipe={recipe} />
+              </Box>
+            </Paper>
+
+            <Paper
+              variant="outlined"
+              sx={{
+                m: 4,
+                backgroundColor: "blue",
+              }}
+            >
+              <Box sx={{ m: 2, mb: 5, backgroundColor: "red" }}>
+                <Typography variant="h5">Instructions</Typography>
+                <ControlledSwitches
+                  checked={showInstructions}
+                  onChange={toggleInstructions}
+                  label="Follow along"
+                />
+                {showInstructions ? (
+                  <VerticalLinearStepper recipe={recipe} />
+                ) : (
+                  recipe.instructions.map((instruction, index) => (
+                    <p key={index}>{instruction}</p>
+                  ))
+                )}
+              </Box>
+            </Paper>
+          </Paper>
+        </Box>
+      </Box>
+    </>
   );
 }
 

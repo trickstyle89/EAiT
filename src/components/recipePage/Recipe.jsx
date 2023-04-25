@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard";
 import { LoadingPage } from "./LoadingMUI";
+import { Typography, Box } from "@mui/material";
+import CheckboxLabels from "../CheckboxMui";
+import ControlledSwitches from "../IngredientsSwitchMui";
+import VerticalLinearStepper from "../IngredientsSwitchMui";
 
 function Recipe() {
   const [showInstructions, setShowInstructions] = useState(false);
@@ -25,6 +29,10 @@ function Recipe() {
     setCurrentRecipeIndex((prevIndex) => (prevIndex + 1) % recipes.length);
   };
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   if (isLoading) {
     return <LoadingPage />;
   }
@@ -32,45 +40,67 @@ function Recipe() {
   const nextRecipe = recipes[(currentRecipeIndex + 1) % recipes.length];
 
   return (
-    <div className="recipe">
-      <main className="recipe-main">
-        {recipes.map((recipe, index) => {
-          if (index === currentRecipeIndex) {
-            return (
+    <>
+      {recipes.map((recipe, index) => {
+        if (index === currentRecipeIndex) {
+          return (
+            <>
               <RecipeCard
                 key={index}
                 recipe={recipe}
                 showInstructions={showInstructions}
                 toggleInstructions={toggleInstructions}
               />
-            );
-          }
-          return null;
-        })}
-        <div
-          className="recipe-toggle-btn"
-          onClick={toggleRecipes}
-          style={{
-            position: "absolute",
-            top: "35%",
-            left: "70%",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <div>
-            <h2>{nextRecipe.name}</h2>
+              <button onClick={handlePrint}>Print</button>
+            </>
+          );
+        }
+        return null;
+      })}
+
+      <div
+        onClick={toggleRecipes}
+        style={{
+          position: "absolute",
+          top: "48%",
+          left: "80%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <div>
+          {/* <Typography variant="h5">You may also like:</Typography>
+      <br></br>
+      <Typography variant="body1">{nextRecipe.name}</Typography> */}
+          <Typography variant="body1">You May Also Like:</Typography>
+          <Box>
             <img
               src={nextRecipe.image}
               alt={nextRecipe.name}
-              width="300"
-              height="150"
+              width="200"
+              height="200"
             />
-            <p>Click to view this alternative recipe</p>
-          </div>
+          </Box>
+
+          <Typography variant="subtitle2">{nextRecipe.name}</Typography>
+
+          {/* <p>Click here</p> */}
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
 
 export default Recipe;
+
+// else if (index === currentRecipeIndex + 1) {
+//   return (
+//     <>
+//       <RecipeCard
+//         key={index}
+//         recipe={recipe}
+//         showInstructions={showInstructions}
+//         toggleInstructions={toggleInstructions}
+//       />
+
+//   );
+// }
