@@ -1,100 +1,88 @@
 import React from "react";
 import VerticalLinearStepper from "../VerticalStepper";
 import ControlledSwitches from "../IngredientsSwitchMui";
-import ImgMediaCard from "../CardsMui";
 import CheckboxLabels from "../CheckboxMui";
 import { Box, Paper, Typography } from "@mui/material";
 
 function RecipeCard({ recipe, showInstructions, toggleInstructions }) {
   return (
     <>
-      <Box className="homepage">
-        <Box className="bg-background">
-          <Paper
+      <Box sx={{ width: "100%", display: "flex" }}>
+        <Paper
+          variant="outlined"
+          sx={{
+            mt: 6,
+            mr: 2,
+            mb: 6,
+            ml: 4,
+            width: "50%"
+          }}
+        >
+          <Box
             sx={{
-              backgroundColor: "#fbfcf9",
-              m: 12,
-              mt: 8,
-              mb: 8,
-              borderRadius: 2,
-              boxShadow: 12,
+              m: 2,
+              ml: 4,
               display: "flex",
               flexDirection: "column",
+              flexWrap: "wrap",
             }}
           >
-            <ImgMediaCard recipe={recipe} />
-            <Paper
-              variant="outlined"
+            <Typography
               sx={{
-                m: 7,
-                mt: 5,
+                display: "flex",
+                justifyContent: "center",
+                mb: 1,
               }}
+              variant="h5"
             >
-              <Box
-                sx={{
-                  m: 2,
-                  ml: 4,
-                  display: "flex",
-                  flexDirection: "column",
-                  flexWrap: "wrap",
-                }}
-              >
-                <Typography
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    mb: 1,
-                  }}
-                  variant="h5"
-                >
-                  Ingredients{" "}
-                </Typography>
-                <CheckboxLabels recipe={recipe} />
-              </Box>
-            </Paper>
+              Ingredients{" "}
+            </Typography>
+            <CheckboxLabels recipe={recipe} />
+          </Box>
+        </Paper>
 
-            <Paper
-              variant="outlined"
+        <Paper
+          variant="outlined"
+          sx={{
+            mt: 6,
+            mr: 4,
+            mb: 6,
+            ml: 2,
+            width: "45%"
+          }}
+        >
+          <Box sx={{ m: 2, mb: 5 }}>
+            <Typography
+              variant="h5"
               sx={{
-                ml: 6.5,
-                mr: 6.5,
-                mb: 6,
+                display: "flex",
+                justifyContent: "center",
+                mb: 1,
               }}
             >
-              <Box sx={{ m: 2, mb: 5 }}>
+              Instructions
+            </Typography>
+            <ControlledSwitches
+              checked={showInstructions}
+              onChange={toggleInstructions}
+              label="Follow along"
+            />
+            {showInstructions ? (
+              <VerticalLinearStepper recipe={recipe} />
+            ) : (
+              recipe.instructions.map((instruction, index) => (
                 <Typography
-                  variant="h5"
                   sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    mb: 1,
+                    m: 1,
                   }}
+                  key={index}
                 >
-                  Instructions
+                  {instruction}
                 </Typography>
-                <ControlledSwitches
-                  checked={showInstructions}
-                  onChange={toggleInstructions}
-                  label="Follow along"
-                />
-                {showInstructions ? (
-                  <VerticalLinearStepper recipe={recipe} />
-                ) : (
-                  recipe.instructions.map((instruction, index) => (
-                    <Typography
-                      sx={{
-                        m: 1,
-                      }}
-                      key={index}
-                    >
-                      {instruction}
-                    </Typography>
-                  ))
-                )}
-              </Box>
-            </Paper>
-          </Paper>
-        </Box>
+              ))
+            )}
+          </Box>
+        </Paper>
       </Box>
     </>
   );

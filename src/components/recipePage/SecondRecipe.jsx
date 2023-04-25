@@ -8,8 +8,8 @@ import { CardActionArea } from "@mui/material";
 export default function SecondRecipeCard({ recipe }) {
   return (
     <>
-      <Typography variant="subtitle1">You May Also Like:</Typography>
-      <Card sx={{ maxWidth: 300, minHeight: 300, maxHeight: 300 }}>
+      <Typography variant="subtitle1" sx={{ mt: 3.6 }}>You May Also Like:</Typography>
+      <Card sx={{ width: 300, minHeight: 300, maxHeight: 300 }}>
         <CardActionArea>
           <CardMedia
             component="img"

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard";
 import { LoadingPage } from "./LoadingMUI";
-import { Typography, Box } from "@mui/material";
+import { Box, Paper } from "@mui/material";
+import ImgMediaCard from "../CardsMuiRefactored";
 import SecondRecipeCard from "./SecondRecipe";
 
 function Recipe() {
@@ -27,9 +28,9 @@ function Recipe() {
     setCurrentRecipeIndex((prevIndex) => (prevIndex + 1) % recipes.length);
   };
 
-  const handlePrint = () => {
-    window.print();
-  };
+  // const handlePrint = () => {
+  //   window.print();
+  // };
 
   if (isLoading) {
     return <LoadingPage />;
@@ -39,39 +40,55 @@ function Recipe() {
 
   return (
     <>
-      <Box sx={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}>
-        {recipes.map((recipe, index) => {
-          if (index === currentRecipeIndex) {
-            return (
-              <>
-                <RecipeCard
-                  key={index}
-                  recipe={recipe}
-                  showInstructions={showInstructions}
-                  toggleInstructions={toggleInstructions}
-                />
-              </>
-            );
-          }
-          return null;
-        })}
-        <Box
-          onClick={toggleRecipes}
-          style={{
-            position: "absolute",
-            top: "11.4rem",
-            right: "10rem",
-          }}
-          sx={{
-            maxWidth: 235,
-            minWidth: 235,
-            maxHeight: 300,
-            minHeight: 300,
-          }}
-        >
-          <SecondRecipeCard recipe={nextRecipe} />
-        </Box>
-      </Box>
+      <Box className="homepage">
+        <Box className="bg-background">
+          <Paper
+            sx={{
+              backgroundColor: "#fbfcf9",
+              m: 12,
+              mt: 8,
+              mb: 8,
+              borderRadius: 2,
+              boxShadow: 12,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Box sx={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}>
+              {recipes.map((recipe, index) => {
+                if (index === currentRecipeIndex) {
+                  return (
+                    <>
+                      <Box sx={{ width: "95%", display: "flex" }}>
+                        <Box sx={{ width: "90%" }}>
+                          <ImgMediaCard recipe={recipe} />
+                        </Box>
+                        <Box
+                          onClick={toggleRecipes}
+                          sx={{
+                            width: "10%",
+                            mr: 2,
+                            ml: 4,
+                          }}
+                        >
+                          <SecondRecipeCard recipe={nextRecipe} />
+                        </Box>
+                      </Box>
+                      <RecipeCard
+                        key={index}
+                        recipe={recipe}
+                        showInstructions={showInstructions}
+                        toggleInstructions={toggleInstructions}
+                      />
+                    </>
+                  );
+                }
+                return null;
+              })}
+            </Box>
+          </Paper>
+        </Box >
+      </Box >
     </>
   );
 }
