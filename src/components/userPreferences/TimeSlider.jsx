@@ -1,7 +1,5 @@
 import React from "react";
-import Slider from "@mui/material/Slider";
-import { Typography } from "@mui/material";
-import FormHelperText from "@mui/material/FormHelperText";
+import { Typography, Slider } from "@mui/material";
 import { usePreferences } from "./PreferencesContext";
 
 function valuetext(value) {

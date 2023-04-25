@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 
-function PickMyIngredientsButton() {
+export default function PickMyIngredientsButton() {
   return (
     <div
       style={{
@@ -9,7 +9,8 @@ function PickMyIngredientsButton() {
         alignItems: "center",
       }}
     >
-      <Button disabled
+      <Button
+        disabled
         size="large"
         href="/ingredients"
         variant="contained"
@@ -30,5 +31,3 @@ function PickMyIngredientsButton() {
     </div>
   );
 }
-
-export default PickMyIngredientsButton;

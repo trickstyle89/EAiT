@@ -1,9 +1,8 @@
 import React from "react";
-import Chip from "@mui/material/Chip";
 import { usePreferences } from "./PreferencesContext";
-import { Typography, Box, FormHelperText } from "@mui/material";
+import { Typography, Box, Chip } from "@mui/material";
 
-function ChefModeButtons() {
+export default function ChefModeButtons() {
   const { preferences, handleChangePreferences } = usePreferences();
 
   const handleClick = (mode) => {
@@ -89,5 +88,3 @@ function ChefModeButtons() {
     </div>
   );
 }
-
-export default ChefModeButtons;

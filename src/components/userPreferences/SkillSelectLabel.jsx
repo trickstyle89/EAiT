@@ -1,12 +1,8 @@
 import React from "react";
-import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import { Typography } from "@mui/material";
+import { Typography, MenuItem, FormControl, Select } from "@mui/material";
 import { usePreferences } from "./PreferencesContext";
 
-function SkillSelectLabel() {
+export default function SkillSelectLabel() {
   const { preferences, handleChangePreferences } = usePreferences();
 
   const handleSelectChange = (event) => {
@@ -38,5 +34,3 @@ function SkillSelectLabel() {
     </div>
   );
 }
-
-export default SkillSelectLabel;

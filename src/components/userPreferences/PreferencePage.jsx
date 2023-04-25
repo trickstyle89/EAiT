@@ -11,7 +11,7 @@ import AllergySelection from "./AllergySelection";
 import { Box, Paper, Button } from "@mui/material";
 import axios from "axios";
 
-function PreferencePage() {
+export default function PreferencePage() {
   const { preferences, handleChangePreferences, selectedAllergies } =
     usePreferences();
   console.log(Object.values(preferences));
@@ -178,5 +178,3 @@ function PreferencePage() {
     </>
   );
 }
-
-export default PreferencePage;

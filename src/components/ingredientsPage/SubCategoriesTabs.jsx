@@ -55,7 +55,6 @@ export default function BasicTabs(props) {
   }, [props.currentStep]);
 
   useEffect(() => {
-    // console.log("selectedIngredients", selectedIngredients);
     window.localStorage.setItem(
       "selectIngredient",
       JSON.stringify(selectedIngredients)

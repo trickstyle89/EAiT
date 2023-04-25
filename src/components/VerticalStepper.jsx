@@ -1,17 +1,21 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import StepContent from '@mui/material/StepContent';
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import {
+  Box,
+  Stepper,
+  Step,
+  StepLabel,
+  StepContent,
+  Button,
+  Paper,
+  Typography,
+} from "@mui/material";
 
 export default function VerticalLinearStepper({ recipe }) {
   const modifiedRecipe = {
     ...recipe,
-    instructions: recipe.instructions.map((instruction) => instruction.substring(3)),
+    instructions: recipe.instructions.map((instruction) =>
+      instruction.substring(3)
+    ),
   };
 
   const steps = modifiedRecipe.instructions.map((instruction, index) => {
@@ -39,7 +43,7 @@ export default function VerticalLinearStepper({ recipe }) {
 
   React.useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === ' ') {
+      if (event.key === " ") {
         event.preventDefault();
 
         const currentTime = new Date().getTime();
@@ -57,15 +61,14 @@ export default function VerticalLinearStepper({ recipe }) {
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [activeStep, steps.length, lastPressTime]);
 
   return (
-
     <Box sx={{ maxWidth: 400 }}>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
@@ -95,7 +98,7 @@ export default function VerticalLinearStepper({ recipe }) {
                     onClick={handleNext}
                     sx={{ mt: 1, mr: 1 }}
                   >
-                    {index === steps.length - 1 ? 'Finish' : 'Continue'}
+                    {index === steps.length - 1 ? "Finish" : "Continue"}
                   </Button>
                 </div>
               </Box>

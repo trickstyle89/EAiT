@@ -1,12 +1,9 @@
 import React from "react";
-import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { usePreferences } from "./PreferencesContext";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, MenuItem, FormControl } from "@mui/material";
 
-function MealSelectLabel() {
+export default function MealSelectLabel() {
   const { preferences, handleChangePreferences } = usePreferences();
 
   const handleSelectChange = (event) => {
@@ -42,5 +39,3 @@ function MealSelectLabel() {
     </div>
   );
 }
-
-export default MealSelectLabel;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Chip from "@mui/material/Chip";
 import { usePreferences } from "./PreferencesContext";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Chip } from "@mui/material";
 import styled from "@emotion/styled";
 
 export const ToolChip = styled(Chip)`
@@ -12,8 +11,7 @@ export const ToolChip = styled(Chip)`
   size: large;
 `;
 
-
-function CookingToolsButtons() {
+export default function CookingToolsButtons() {
   const [cookingTools, setCookingTools] = useState([]);
   const { preferences, handleChangePreferences } = usePreferences();
 
@@ -68,5 +66,3 @@ function CookingToolsButtons() {
     </>
   );
 }
-
-export default CookingToolsButtons;

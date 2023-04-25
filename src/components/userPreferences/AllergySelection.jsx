@@ -3,7 +3,7 @@ import { usePreferences } from "./PreferencesContext";
 import { Box, Typography } from "@mui/material";
 import { ToolChip } from "./CookingToolsButtons";
 
-function AllergySelection({ onChange }) {
+export default function AllergySelection({ onChange }) {
   const { preferences, handleChangePreferences } = usePreferences();
   const { selectedAllergies } = preferences;
 
@@ -74,5 +74,3 @@ function AllergySelection({ onChange }) {
     </>
   );
 }
-
-export default AllergySelection;
