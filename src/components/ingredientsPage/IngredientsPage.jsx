@@ -7,7 +7,7 @@ import { usePreferences } from "../userPreferences/PreferencesContext";
 import { useNavigate } from "react-router-dom";
 import { LoadingPage, MyCustomLogo } from "../recipePage/LoadingMUI";
 
-function IngredientsPage() {
+export default function IngredientsPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const { preferences, ingredients, handleChangeIngredients } =
     usePreferences();
@@ -128,5 +128,3 @@ function IngredientsPage() {
     </>
   );
 }
-
-export default IngredientsPage;

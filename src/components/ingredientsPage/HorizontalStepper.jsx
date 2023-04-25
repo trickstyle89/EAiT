@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepButton from "@mui/material/StepButton";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import {
+  Box,
+  Stepper,
+  Step,
+  StepButton,
+  Button,
+  Typography,
+} from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +20,7 @@ const steps = [
   "Wine, Beer & Liquors",
 ];
 
-function HorizontalStepper(props) {
+export default function HorizontalStepper(props) {
   const { currentStep, setCurrentStep } = props;
   const [completed, setCompleted] = useState({});
 
@@ -76,9 +78,17 @@ function HorizontalStepper(props) {
   return (
     <>
       <Box sx={{ width: "100%" }}>
-        <Typography variant="h5" mb={5} ml={4} mt={4}>
-          Select Your Ingredients
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            m: 4,
+            gap: 1,
+          }}
+        >
+          <Typography variant="h5">Select Your Ingredients</Typography>
+          <Typography>(3 minimum)</Typography>
+        </Box>
         <Stepper
           activeStep={currentStep}
           alternativeLabel
@@ -125,7 +135,6 @@ function HorizontalStepper(props) {
     </>
   );
 }
-export default HorizontalStepper;
 
 // ********KEEP THE CODE BELOW IT'S TAKING THE STEPS FROM DATABASE************
 

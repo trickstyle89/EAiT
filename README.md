@@ -1,5 +1,22 @@
 # EAiT
-This is -----.
+
+EAiT is a cutting-edge app powered by AI that enables users to create meals based on the ingredients they have at hand. Additionally, it provides users with inspiration for dishes using only a few ingredients of their choice. This innovative app has been developed with great passion and meticulous attention to the user interface and experience. It boasts a user-friendly preferences page and a comprehensive ingredients page, which work seamlessly to craft a unique AI-created recipe. Get ready to EAiT!
+
+## Screenshots
+
+![Landing and Preferences Page](https://github.com/mrludovicc/EAiT/blob/master/public/firstEAiT.gif)
+
+![Ingredients Page](https://github.com/mrludovicc/EAiT/blob/master/public/secondEAiT.gif)
+
+
+## Running the project
+To run the project, you'll need to run the following command:
+
+```
+npm start
+```
+
+Then, navigate to `http://localhost:3000` in your web browser to see EAiT in action.
 
 ## Setup
 
@@ -45,20 +62,30 @@ GOOGLE_CUSTOM_SEARCH_ENGINE_ID=your_custom_search_engine_id_here
 
 ## Dependencies
 To run this project, you'll need to install the following dependencies:
+
 ### Use npm install
-- `axios`
-- `dotenv`
-- `express`
-- `morgan`
-- `react`
-- `react-dom`
-- `react-scripts`
+- axios: "^1.3.5"
+- dotenv: "^16.0.3"
+- express: "^4.18.2"
+- morgan: "^1.10.0"
+- react: "^18.2.0"
+- react-dom: "^18.2.0"
+- react-scripts: "5.0.1"
+- @emotion/react: "^11.10.6"
+- @emotion/styled: "^11.10.6"
+- @mui/icons-material: "^5.11.16"
+- @mui/material: "^5.12.0"
+- body-parser: "^1.20.1"
+- cors: "^2.8.5"
+- node-sass-chokidar: "^2.0.0"
+- npm-run-all: "^4.1.5"
+- react-router-dom: "^6.10.0"
+- react-text-typist: "^1.1.7"
+- web-vitals: "^2.1.4"
 
-## Running the project
-To run the project, you'll need to run the following command:
+### Contributors
 
-```
-npm start
-```
+Lupita Reyes - https://github.com/lupitareyess
+Nabeel Alabed - https://github.com/mrludovicc
+Ivan Chew - https://github.com/trickstyle89
 
-Then, navigate to `http://localhost:3000` in your web browser to see EAiT in action.

@@ -5,7 +5,7 @@ import Typist from "react-text-typist";
 import ActionAreaCard from "./HomePageCards";
 import HomePageCard from "./HomePageCards2";
 
-const HomePage = () => {
+export default function HomePage() {
   const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
@@ -98,6 +98,4 @@ const HomePage = () => {
       </div>
     </div>
   );
-};
-
-export default HomePage;
+}

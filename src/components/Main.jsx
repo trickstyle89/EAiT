@@ -8,8 +8,7 @@ import IngredientsPage from "./ingredientsPage/IngredientsPage";
 import "../scss/preferencePage.scss";
 import { Box } from "@mui/material";
 
-
-const Main = () => {
+export default function Main() {
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
@@ -50,6 +49,4 @@ const Main = () => {
       </PreferencesProvider>
     </Box>
   );
-};
-
-export default Main;
+}

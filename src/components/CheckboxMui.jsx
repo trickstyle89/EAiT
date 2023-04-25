@@ -1,11 +1,13 @@
-import * as React from 'react';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import * as React from "react";
+import { FormGroup, FormControlLabel, Checkbox } from "@mui/material";
 
 export default function CheckboxLabels({ recipe }) {
   const itemComponents = recipe.ingredients.map((ingredient, index) => (
-    <FormControlLabel key={index} control={<Checkbox />} label={ingredient}></FormControlLabel>
+    <FormControlLabel
+      key={index}
+      control={<Checkbox />}
+      label={ingredient}
+    ></FormControlLabel>
   ));
   return (
     <FormGroup>

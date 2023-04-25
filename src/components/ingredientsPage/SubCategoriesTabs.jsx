@@ -55,7 +55,6 @@ export default function BasicTabs(props) {
   }, [props.currentStep]);
 
   useEffect(() => {
-    // console.log("selectedIngredients", selectedIngredients);
     window.localStorage.setItem(
       "selectIngredient",
       JSON.stringify(selectedIngredients)
@@ -209,17 +208,19 @@ export default function BasicTabs(props) {
           </TabPanel>
         </Box>
       </Card>
-      <Card variant="outlined"
+      <Card
+        variant="outlined"
         sx={{
           mt: 3,
           ml: 10,
           mr: 10,
           height: "20vh",
-        }}>
+        }}
+      >
         <Box sx={{ height: "100%", overflowY: "auto" }}>
           <Tabs value={0} sx={{ backgroundColor: "#e4e6d4" }}>
             <Tab
-              label={"Selected Ingredients"}
+              label={"Your Selected Ingredients"}
               disabled
               sx={{
                 fontSize: "medium",
@@ -227,14 +228,30 @@ export default function BasicTabs(props) {
                 "&:hover": {
                   color: "#717744",
                 },
-              }} /></Tabs>
+              }}
+            />
+          </Tabs>
           <Box sx={{ m: 2 }}>
-            {selectedIngredients.length === 0 ?
-              <Typography sx={{ fontSize: "large" }}>Please select ingredients to view them here.</Typography> :
-              selectedIngredients.map(ingredient => (
-                <ToolChip onDelete={() => { handleClick(ingredient) }} onClick={() => { handleClick(ingredient) }} key={ingredient} label={ingredient} color={"secondary"} sx={{ "&:hover": { background: "#f77272" } }} />
+            {selectedIngredients.length === 0 ? (
+              <Typography sx={{ fontSize: "large" }}>
+                Please select ingredients to view them here.
+              </Typography>
+            ) : (
+              selectedIngredients.map((ingredient) => (
+                <ToolChip
+                  onDelete={() => {
+                    handleClick(ingredient);
+                  }}
+                  onClick={() => {
+                    handleClick(ingredient);
+                  }}
+                  key={ingredient}
+                  label={ingredient}
+                  color={"secondary"}
+                  sx={{ "&:hover": { background: "#f77272" } }}
+                />
               ))
-            }
+            )}
           </Box>
         </Box>
       </Card>

@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import { Box } from '@mui/material';
 
 
-function App() {
+export default function App() {
 
   return (
     <Box sx={{
@@ -21,4 +21,3 @@ function App() {
   );
 }
 
-export default App;

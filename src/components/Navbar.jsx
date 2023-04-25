@@ -16,11 +16,11 @@ const StyledToolBar = styled(Toolbar)({
   backgroundColor: " primary",
 });
 
-function Navbar() {
+export default function Navbar() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  const isRecipePage = location.pathname === "/recipes"
-  const isIngredientsPage = location.pathname === "/ingredients"
+  const isRecipePage = location.pathname === "/recipes";
+  const isIngredientsPage = location.pathname === "/ingredients";
   const handleButtonClick = () => {
     window.localStorage.clear();
   };
@@ -50,7 +50,7 @@ function Navbar() {
           </Box>
 
           <Box>
-            {(isRecipePage || isIngredientsPage) &&
+            {(isRecipePage || isIngredientsPage) && (
               <Button
                 sx={{
                   my: 2,
@@ -67,8 +67,8 @@ function Navbar() {
               >
                 Edit Preferences
               </Button>
-            }
-            {isRecipePage &&
+            )}
+            {isRecipePage && (
               <Button
                 sx={{
                   my: 2,
@@ -85,7 +85,7 @@ function Navbar() {
               >
                 Edit Ingredients
               </Button>
-            }
+            )}
             <Button
               sx={{
                 my: 2,
@@ -108,5 +108,3 @@ function Navbar() {
     </AppBar>
   );
 }
-
-export default Navbar;

@@ -1,12 +1,8 @@
 import React from "react";
 import { usePreferences } from "./PreferencesContext";
-import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import { Typography } from "@mui/material";
+import { Typography, MenuItem, FormControl, Select } from "@mui/material";
 
-function NumberOfServingsSelectLabel() {
+export default function NumberOfServingsSelectLabel() {
   const { preferences, handleChangePreferences } = usePreferences();
   const { numberOfServings } = preferences;
 
@@ -35,10 +31,7 @@ function NumberOfServingsSelectLabel() {
           <MenuItem value={"5-6"}>5-6 Servings</MenuItem>
           <MenuItem value={"7-8"}>7-8 Servings</MenuItem>
         </Select>
-        <FormHelperText>Required *</FormHelperText>
       </FormControl>
     </div>
   );
 }
-
-export default NumberOfServingsSelectLabel;
