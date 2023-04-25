@@ -4,9 +4,9 @@ This is -----.
 
 ## Screenshots
 
-![Landing and Preferences Page](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Landing and Preferences Page](https://github.com/mrludovicc/EAiT/blob/master/public/firstEAiT.gif)
 
-![Ingredients Page](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Ingredients Page](https://github.com/mrludovicc/EAiT/blob/master/public/secondEAiT.gif)
 
 ## Setup
 
