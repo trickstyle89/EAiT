@@ -12,7 +12,6 @@ function RecipeInstructions({ recipe }) {
 
   return (
     <div>
-      <Typography>Instructions</Typography>
       <ControlledSwitches
         checked={showInstructions}
         onChange={toggleInstructions}
@@ -21,9 +20,9 @@ function RecipeInstructions({ recipe }) {
       {showInstructions ? (
         <VerticalLinearStepper recipe={recipe} />
       ) : (
-        recipe.instructions.map((instruction, index) => (
-          <p key={index}>{instruction}</p>
-        ))
+        recipe.instructions.map(
+          (instruction, index) => (key = { index } > { instruction })
+        )
       )}
     </div>
   );

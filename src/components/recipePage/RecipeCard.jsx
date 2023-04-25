@@ -18,21 +18,37 @@ function RecipeCard({ recipe, showInstructions, toggleInstructions }) {
               mb: 8,
               borderRadius: 2,
               boxShadow: 12,
+              display: "flex",
+              flexDirection: "column",
             }}
           >
             <ImgMediaCard recipe={recipe} />
             <Paper
               variant="outlined"
               sx={{
-                m: 4,
+                m: 7,
+                mt: 5,
               }}
             >
               <Box
                 sx={{
                   m: 2,
+                  ml: 4,
+                  display: "flex",
+                  flexDirection: "column",
+                  flexWrap: "wrap",
                 }}
               >
-                <Typography variant="h5">Ingredients</Typography>
+                <Typography
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    mb: 1,
+                  }}
+                  variant="h5"
+                >
+                  Ingredients{" "}
+                </Typography>
                 <CheckboxLabels recipe={recipe} />
               </Box>
             </Paper>
@@ -40,12 +56,22 @@ function RecipeCard({ recipe, showInstructions, toggleInstructions }) {
             <Paper
               variant="outlined"
               sx={{
-                m: 4,
-                backgroundColor: "blue",
+                ml: 6.5,
+                mr: 6.5,
+                mb: 6,
               }}
             >
-              <Box sx={{ m: 2, mb: 5, backgroundColor: "red" }}>
-                <Typography variant="h5">Instructions</Typography>
+              <Box sx={{ m: 2, mb: 5 }}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    mb: 1,
+                  }}
+                >
+                  Instructions
+                </Typography>
                 <ControlledSwitches
                   checked={showInstructions}
                   onChange={toggleInstructions}
@@ -55,7 +81,14 @@ function RecipeCard({ recipe, showInstructions, toggleInstructions }) {
                   <VerticalLinearStepper recipe={recipe} />
                 ) : (
                   recipe.instructions.map((instruction, index) => (
-                    <p key={index}>{instruction}</p>
+                    <Typography
+                      sx={{
+                        m: 1,
+                      }}
+                      key={index}
+                    >
+                      {instruction}
+                    </Typography>
                   ))
                 )}
               </Box>
