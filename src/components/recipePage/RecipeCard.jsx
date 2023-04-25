@@ -3,7 +3,7 @@ import VerticalLinearStepper from "../VerticalStepper";
 import ControlledSwitches from "../IngredientsSwitchMui";
 import ImgMediaCard from "../CardsMui";
 import CheckboxLabels from "../CheckboxMui";
-import { Box, Paper, Typography, Container } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 
 function RecipeCard({ recipe, showInstructions, toggleInstructions }) {
   return (

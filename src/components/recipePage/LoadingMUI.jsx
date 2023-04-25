@@ -17,7 +17,7 @@ const LoadingContainer = styled('div')({
 });
 
 const PreparingText = styled('h1')({
-  fontFamily: 'Roboto',
+  fontFamily: 'monospace',
   fontWeight: 'bold',
   fontSize: '3rem',
   color: '#67d751',
@@ -41,7 +41,7 @@ const MyCustomLogo = () => {
   return (
     <>
       <Container>
-        <PreparingText>Preparing...</PreparingText>
+        <PreparingText>Generating Recipe...</PreparingText>
         <ImageContainer>
           <img
             src="https://www.icegif.com/wp-content/uploads/chef-pusheen-icegif.gif"
