@@ -50,24 +50,6 @@ function Navbar() {
           </Box>
 
           <Box>
-            {isRecipePage &&
-              <Button
-                sx={{
-                  my: 2,
-                  mr: 2,
-                  color: "white",
-                  background: "#5E671B",
-                  "&:hover": {
-                    background: "white",
-                    color: "black",
-                  },
-                }}
-                href={"/ingredients"}
-                variant="contained"
-              >
-                Edit Ingredients
-              </Button>
-            }
             {(isRecipePage || isIngredientsPage) &&
               <Button
                 sx={{
@@ -84,6 +66,24 @@ function Navbar() {
                 variant="contained"
               >
                 Edit Preferences
+              </Button>
+            }
+            {isRecipePage &&
+              <Button
+                sx={{
+                  my: 2,
+                  mr: 2,
+                  color: "white",
+                  background: "#5E671B",
+                  "&:hover": {
+                    background: "white",
+                    color: "black",
+                  },
+                }}
+                href={"/ingredients"}
+                variant="contained"
+              >
+                Edit Ingredients
               </Button>
             }
             <Button

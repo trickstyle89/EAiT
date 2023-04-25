@@ -6,12 +6,12 @@ import styled from "@emotion/styled";
 
 export const ToolChip = styled(Chip)`
   flex: 1 1 auto;
-  max-width: 100%;
   height: 32px;
   margin: 0.5rem;
   font-size: large;
   size: large;
 `;
+
 
 function CookingToolsButtons() {
   const [cookingTools, setCookingTools] = useState([]);

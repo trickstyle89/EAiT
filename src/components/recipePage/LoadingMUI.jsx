@@ -20,7 +20,7 @@ const PreparingText = styled('h1')({
   fontFamily: 'monospace',
   fontWeight: 'bold',
   fontSize: '3rem',
-  color: '#67d751',
+  color: '#5E671B',
   margin: '0 1rem',
 });
 
