@@ -39,36 +39,48 @@ function Recipe() {
 
   return (
     <>
-      {recipes.map((recipe, index) => {
-        if (index === currentRecipeIndex) {
-          return (
-            <>
-              <RecipeCard
-                key={index}
-                recipe={recipe}
-                showInstructions={showInstructions}
-                toggleInstructions={toggleInstructions}
-              />
-              <button onClick={handlePrint}>Print</button>
-            </>
-          );
-        }
-        return null;
-      })}
-      <Box
-        onClick={toggleRecipes}
-        style={{
-          position: "absolute",
-          top: "48%",
-          left: "80%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        <Typography variant="body1">You May Also Like:</Typography>
-        <SecondRecipeCard recipe={nextRecipe} />
+      <Box sx={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}>
+        {recipes.map((recipe, index) => {
+          if (index === currentRecipeIndex) {
+            return (
+              <>
+                <RecipeCard
+                  key={index}
+                  recipe={recipe}
+                  showInstructions={showInstructions}
+                  toggleInstructions={toggleInstructions}
+                />
+              </>
+            );
+          }
+          return null;
+        })}
+        <Box
+          onClick={toggleRecipes}
+          style={{
+            position: "absolute",
+            top: "11.4rem",
+            right: "10rem",
+          }}
+          sx={{
+            maxWidth: 235,
+            minWidth: 235,
+            maxHeight: 300,
+            minHeight: 300,
+          }}
+        >
+          <SecondRecipeCard recipe={nextRecipe} />
+        </Box>
       </Box>
     </>
   );
 }
 
 export default Recipe;
+
+// style={{
+//   position: "absolute",
+//   top: "48%",
+//   left: "80%",
+//   transform: "translate(-50%, -50%)",
+// }}

@@ -14,25 +14,49 @@ export default function ImgMediaCard({ recipe }) {
 
   return (
     <>
-      <Box sx={{ display: "flex", justifyContent: "flex-end", mr: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          mr: 2,
+          flexWrap: "wrap",
+        }}
+      >
         <Button onClick={handlePrint}>Print Recipe</Button>
       </Box>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Typography gutterBottom variant="h5" component="div" sx={{ ml: 7 }}>
+        {recipe.name}
+      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-start",
+          flexWrap: "wrap",
+          ml: 3,
+        }}
+      >
         <Card
           sx={{
-            maxWidth: "95%",
+            minHeight: 300,
+            maxWidth: 850,
+            minWidth: 850,
             maxHeight: 300,
             display: "flex",
             justifyContent: "center",
-            m: 4,
+            ml: 4,
           }}
         >
           <CardMedia component="img" alt={recipe.name} image={recipe.image} />
-          <CardContent sx={{ minWidth: 800 }}>
-            <Typography gutterBottom variant="h4" component="div">
-              {recipe.name}
-            </Typography>
-            <Typography variant="h6" color="text.secondary">
+          <CardContent
+            sx={{
+              minWidth: 600,
+              maxWidth: 600,
+              display: "flex",
+              flexDirection: "column",
+              flexWrap: "wrap",
+            }}
+          >
+            <Typography variant="subtitle1" color="text.secondary">
               Cooking time: {recipe.cookingTime} <br />
               {recipe.nutrition.map((nutrient, index) => (
                 <React.Fragment key={index}>
