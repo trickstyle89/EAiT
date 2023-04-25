@@ -51,6 +51,9 @@ function CookingToolsButtons() {
       >
         {cookingTools.map((tool) => (
           <ToolChip
+            style={{
+              maxWidth: "10rem",
+            }}
             label={tool.tool_name}
             key={tool.id}
             onClick={() => handleClick(tool.tool_name)}

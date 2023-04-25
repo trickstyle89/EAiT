@@ -35,7 +35,6 @@ function PreferencePage() {
     setDisableButton(disable);
   }, [preferences]);
 
-
   const handleSubmit = async () => {
     console.log("Submitting preferences:", preferences);
 
@@ -78,6 +77,7 @@ function PreferencePage() {
               sx={{
                 display: "flex",
                 flexDirection: "row",
+                flexWrap: "wrap",
                 justifyContent: "space-between",
                 mt: 4,
                 mb: 6,
@@ -113,6 +113,10 @@ function PreferencePage() {
                 ml: 4,
                 mr: 4,
                 mb: 5,
+                display: "flex",
+                flexWrap: "wrap",
+                flexDirection: "row",
+                justifyContent: "space-between",
               }}
             >
               <ChefModeButtons />
