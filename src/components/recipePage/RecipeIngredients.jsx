@@ -1,16 +1,13 @@
 import React from "react";
 import CheckboxLabels from "../CheckboxMui";
+import { Box, Typography } from "@mui/material";
 
 function RecipeIngredients({ recipe }) {
   return (
-    <div className="recipe">
-      <main className="recipe-main">
-        <section className="recipe-ingredients">
-          <h2 className="recipe-section-title">Ingredients</h2>
-          <CheckboxLabels recipe={recipe} className="recipe-ingredients-list" />
-        </section>
-      </main>
-    </div>
+    <Box>
+      <Typography> Ingredients </Typography>
+      <CheckboxLabels recipe={recipe} />
+    </Box>
   );
 }
 
