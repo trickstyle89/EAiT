@@ -9,7 +9,7 @@ export default function SecondRecipeCard({ recipe }) {
   return (
     <>
       <Typography variant="subtitle1" sx={{ mt: 3.6 }}>You May Also Like:</Typography>
-      <Card sx={{ width: 300, minHeight: 300, maxHeight: 300 }}>
+      <Card sx={{ width: 300, height: 300 }}>
         <CardActionArea>
           <CardMedia
             component="img"

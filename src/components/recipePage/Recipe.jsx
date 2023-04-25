@@ -59,15 +59,14 @@ function Recipe() {
                 if (index === currentRecipeIndex) {
                   return (
                     <>
-                      <Box sx={{ width: "95%", display: "flex" }}>
-                        <Box sx={{ width: "90%" }}>
+                      <Box sx={{ width: "100%", display: "flex" }}>
+                        <Box sx={{ width: "100%" }}>
                           <ImgMediaCard recipe={recipe} />
                         </Box>
                         <Box
                           onClick={toggleRecipes}
                           sx={{
-                            width: "10%",
-                            mr: 2,
+                            pr: 4,
                             ml: 4,
                           }}
                         >
