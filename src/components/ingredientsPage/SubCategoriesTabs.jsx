@@ -167,14 +167,13 @@ export default function BasicTabs(props) {
           height: "30vh",
         }}
       >
-        <Box
-          sx={{
-            borderBottom: 1,
-            borderColor: "divider",
-            backgroundColor: "#e4e6d4",
-          }}
-        >
+        <Box sx={{ height: "100%", overflowY: "auto" }}>
           <Tabs
+            sx={{
+              borderBottom: 1,
+              borderColor: "divider",
+              backgroundColor: "#e4e6d4",
+            }}
             value={selectedTabIndex}
             onChange={handleTabChange}
             indicatorColor="primary"
@@ -195,8 +194,6 @@ export default function BasicTabs(props) {
               />
             ))}
           </Tabs>
-        </Box>
-        <Box sx={{ height: "100%" }}>
           <TabPanel value={selectedTabIndex} index={selectedTabIndex}>
             {filteredIngredients.map((ingredient) => (
               <ToolChip
@@ -220,10 +217,10 @@ export default function BasicTabs(props) {
           mr: 10,
           height: "20vh",
         }}>
-        <Box>
-          <Tabs value={0}>
+        <Box sx={{ height: "100%", overflowY: "auto" }}>
+          <Tabs value={0} sx={{ backgroundColor: "#e4e6d4" }}>
             <Tab
-              label={"All Selected Ingredients"}
+              label={"Selected Ingredients"}
               disabled
               sx={{
                 fontSize: "medium",
