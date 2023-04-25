@@ -24,6 +24,7 @@ function ChefModeButtons() {
       <Box
         sx={{
           display: "flex",
+          flexWrap: "wrap",
           justifyContent: "space-between",
           mt: 1,
         }}
