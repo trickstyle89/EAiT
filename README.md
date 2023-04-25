@@ -1,6 +1,13 @@
 # EAiT
 This is -----.
 
+
+## Screenshots
+
+![Landing and Preferences Page](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+![Ingredients Page](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
 ## Setup
 
 To use this application, you'll need to set up API keys for OpenAI and Google Custom Search, and install the necessary dependencies.
