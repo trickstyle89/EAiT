@@ -9,6 +9,8 @@ import styled from "@emotion/styled";
 
 import "../scss/homePage.scss";
 
+import Logo from "../css/logo.png";
+
 const StyledToolBar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
@@ -29,8 +31,23 @@ export default function Navbar() {
     <AppBar position="sticky">
       <Box>
         <StyledToolBar>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <img src="logo.png" alt="logo"></img>
+          <Box
+            sx={{
+              display: "flex",
+              alignContent: "flex-start",
+            }}
+          >
+            <a href="/">
+              <img
+                src={Logo}
+                alt="logo"
+                style={{
+                  marginTop: "1.1rem",
+                  width: "10rem",
+                  height: "auto",
+                }}
+              />
+            </a>
             <Typography
               variant="h6"
               noWrap
@@ -45,9 +62,7 @@ export default function Navbar() {
                 color: "inherit",
                 textDecoration: "none",
               }}
-            >
-              EAiT
-            </Typography>
+            ></Typography>
           </Box>
 
           <Box>
