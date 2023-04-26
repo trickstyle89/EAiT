@@ -15,7 +15,7 @@ function RecipeCard({ recipe, showInstructions, toggleInstructions }) {
             mr: 2,
             mb: 6,
             ml: 4,
-            width: "50%"
+            width: "30%"
           }}
         >
           <Box
@@ -48,7 +48,7 @@ function RecipeCard({ recipe, showInstructions, toggleInstructions }) {
             mr: 4,
             mb: 6,
             ml: 2,
-            width: "45%"
+            width: "65%"
           }}
         >
           <Box sx={{ m: 2, mb: 5 }}>
