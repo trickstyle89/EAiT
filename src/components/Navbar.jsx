@@ -30,6 +30,7 @@ export default function Navbar() {
       <Box>
         <StyledToolBar>
           <Box sx={{ display: "flex", alignItems: "center" }}>
+            <img src="logo.png" alt="logo"></img>
             <Typography
               variant="h6"
               noWrap
