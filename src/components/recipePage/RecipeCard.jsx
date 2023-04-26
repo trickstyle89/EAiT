@@ -40,7 +40,6 @@ function RecipeCard({ recipe, showInstructions, toggleInstructions }) {
             <CheckboxLabels recipe={recipe} />
           </Box>
         </Paper>
-
         <Paper
           variant="outlined"
           sx={{
@@ -74,6 +73,8 @@ function RecipeCard({ recipe, showInstructions, toggleInstructions }) {
                 <Typography
                   sx={{
                     m: 1,
+                    ml: 2,
+                    mb: 2.5
                   }}
                   key={index}
                 >

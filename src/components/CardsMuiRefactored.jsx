@@ -19,12 +19,12 @@ export default function ImgMediaCard({ recipe }) {
           component="img" sx={{ maxWidth: 350 }} alt={recipe.name} image={recipe.image}
         />
         <CardContent>
-          <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 2, fontSize: "1.3rem" }}>
+          <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 2, fontSize: "1.1rem" }}>
             Cooking time: {recipe.cookingTime}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 2 }}>
             {recipe.nutrition.map((nutrient, index) => (
-              <Box key={index} sx={{ mb: 2, fontSize: "1.3rem" }}>
+              <Box key={index} sx={{ mb: 2, fontSize: "1.1rem" }}>
                 {nutrient}
               </Box>
             ))}

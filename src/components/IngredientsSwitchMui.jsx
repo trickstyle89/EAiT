@@ -12,6 +12,7 @@ export default function ControlledSwitches({
         <Switch
           checked={checked}
           onChange={onChange}
+          sx={{ ml: 2 }}
           inputProps={{ "aria-label": "controlled" }}
         />
       }

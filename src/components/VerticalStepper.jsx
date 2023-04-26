@@ -69,7 +69,7 @@ export default function VerticalLinearStepper({ recipe }) {
   }, [activeStep, steps.length, lastPressTime]);
 
   return (
-    <Box sx={{ maxWidth: 750 }}>
+    <Box sx={{ maxWidth: 750, ml: 2, mt: 1 }}>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <Step key={step.label}>
@@ -88,7 +88,7 @@ export default function VerticalLinearStepper({ recipe }) {
                   Previous step: {steps[activeStep - 1].description}
                 </Typography>
               )}
-              <Typography sx={{ fontSize: 28 }}>{step.description}</Typography>
+              <Typography sx={{ fontSize: 22 }}>{step.description}</Typography>
               {activeStep < steps.length - 1 && (
                 <Typography sx={{ mt: 2, mb: 1 }}>
                   Next step: {steps[activeStep + 1].description}
