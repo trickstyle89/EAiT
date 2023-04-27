@@ -8,7 +8,7 @@ EAiT is a cutting-edge app powered by AI that enables users to create meals base
 
 ![Ingredients Page](https://github.com/mrludovicc/EAiT/blob/master/public/secondEAiT.gif)
 
-![Recipes](https://github.com/mrludovicc/EAiT/blob/master/public/EAiT Third Clip.gif)
+![Recipes](https://github.com/mrludovicc/EAiT/blob/master/public/EAiT%20Third%20Clip.gif)
 
 
 ## Features
@@ -101,6 +101,7 @@ Currently the app will need to undergo a backend revamp as the current form is u
 Further improve in the UI/UX with even more features to make EAiT even more useful. 
 
 - Mobile Version
+- Addition of Search bar
 - User Registration to belp keep your preferences handy
 - More control over your recipe such as ability to share and modify dynamically.
 - Abilty for users to add ingredients into our database.
