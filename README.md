@@ -8,6 +8,15 @@ EAiT is a cutting-edge app powered by AI that enables users to create meals base
 
 ![Ingredients Page](https://github.com/mrludovicc/EAiT/blob/master/public/secondEAiT.gif)
 
+![Recipes](https://github.com/mrludovicc/EAiT/blob/master/public/EAiT Third Clip.gif)
+
+
+## Features
+
+- User Preferences page to help AI craft recipes base on time, skill, tools, etc
+- Well organized and dynamic ingredients page to make select fun and easy
+- Parallel recipe generation. 2 for 1 feature to aid user
+- Many more small but impactful features to aid in preparation of meals.
 
 ## Running the project
 To run the project, you'll need to run the following command:
@@ -83,9 +92,23 @@ To run this project, you'll need to install the following dependencies:
 - react-text-typist: "^1.1.7"
 - web-vitals: "^2.1.4"
 
+## Limitations
+
+Currently the app will need to undergo a backend revamp as the current form is unable to properly scale.
+
+## Future Development
+
+Further improve in the UI/UX with even more features to make EAiT even more useful. 
+
+- Mobile Version
+- User Registration to belp keep your preferences handy
+- More control over your recipe such as ability to share and modify dynamically.
+- Abilty for users to add ingredients into our database.
+
+
 ### Contributors
 
-Lupita Reyes - https://github.com/lupitareyess
-Nabeel Alabed - https://github.com/mrludovicc
-Ivan Chew - https://github.com/trickstyle89
+- Lupita Reyes - https://github.com/lupitareyess
+- Nabeel Alabed - https://github.com/mrludovicc
+- Ivan Chew - https://github.com/trickstyle89
 

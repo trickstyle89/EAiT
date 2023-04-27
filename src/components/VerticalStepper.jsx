@@ -88,7 +88,7 @@ export default function VerticalLinearStepper({ recipe }) {
                   Previous step: {steps[activeStep - 1].description}
                 </Typography>
               )}
-              <Typography sx={{ fontSize: 22 }}>{step.description}</Typography>
+              <Typography sx={{ fontSize: 22, fontWeight: 'bold'}}>{step.description}</Typography>
               {activeStep < steps.length - 1 && (
                 <Typography sx={{ mt: 2, mb: 1 }}>
                   Next step: {steps[activeStep + 1].description}
